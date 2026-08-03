@@ -6,6 +6,7 @@ __pycache__/
 *.sqlite3
 rag/exports/*.zip
 temp/
+tmp/
 logs/
 *.tmp
 *.part
