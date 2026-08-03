@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["chunk_id", "document_id", "version_id", "text", "text_for_embedding", "token_count", "source_file", "sha256", "citation_label", "access_level"],
+  "properties": {
+    "chunk_id": {"type": "string", "minLength": 10},
+    "text": {"type": "string", "minLength": 1},
+    "text_for_embedding": {"type": "string", "minLength": 1},
+    "token_count": {"type": "integer", "minimum": 1},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "access_level": {"const": "public"}
+  }
+}

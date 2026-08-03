@@ -1,0 +1,16 @@
+sources:
+  - source_id: integrated_regulations
+    name: 국립한국교통대학교 규정 통합 아카이브
+    document_type: regulation
+    root_path: 'C:\Users\kwon\Documents\university_policy_archive\data\raw\regulations'
+    target_path: sources/raw/regulations
+    enabled: true
+  - source_id: integrated_guidelines
+    name: 국립한국교통대학교 지침 통합 아카이브
+    document_type: guideline
+    root_path: 'C:\Users\kwon\Documents\university_policy_archive\data\raw\guidelines'
+    target_path: sources/raw/guidelines
+    enabled: true
+source_archive_root: 'C:\Users\kwon\Documents\university_policy_archive'
+preserve_relative_paths: true
+overwrite_existing: false

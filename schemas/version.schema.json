@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["version_id", "document_id", "version_group_id", "source_file", "sha256", "current_status", "access_level"],
+  "properties": {
+    "version_id": {"type": "string", "pattern": "^VER-(unknown|[0-9]+)-[0-9a-f]{8}$"},
+    "document_id": {"type": "string"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "current_status": {"enum": ["confirmed", "candidate", "unknown", "historical"]},
+    "access_level": {"enum": ["public", "internal", "restricted", "review_required"]}
+  }
+}

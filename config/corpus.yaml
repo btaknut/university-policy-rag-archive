@@ -1,0 +1,15 @@
+corpus_id: knut-university-policy
+issuing_organization: 국립한국교통대학교
+document_types: [regulation, guideline, rule, manual, notice, form, reference, unknown]
+access_levels: [public, internal, restricted, review_required]
+default_access_level: public
+unknown_current_status: unknown
+include_extensions: [.pdf, .hwp, .hwpx, .docx, .xlsx, .xls, .html, .htm, .txt, .md]
+metadata_extensions: [.json, .jsonl, .csv, .yaml, .yml]
+restricted_patterns:
+  - resident_registration_number
+  - personal_mobile_number
+  - email_address
+  - api_key_or_token
+  - password_assignment
+  - internal_ipv4

@@ -1,0 +1,8 @@
+strategy: korean_legal_structure
+target_tokens: 700
+max_tokens: 1200
+overlap_tokens: 80
+preserve_article_boundary: true
+include_heading_context: true
+split_tables_separately: true
+split_appendices_separately: true
