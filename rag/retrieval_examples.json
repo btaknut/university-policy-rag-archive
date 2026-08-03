@@ -1,0 +1,202 @@
+[
+  {
+    "query": "학칙에서 휴학 관련 조문 검색",
+    "expected": [
+      {
+        "document_id": "GDL-de27d4f0d61c",
+        "version_id": "VER-20180201-06de0a9a",
+        "article_no": "제7조",
+        "chunk_id": "CHK-VER-20180201-06de0a9a-0008-제7조-001"
+      },
+      {
+        "document_id": "GDL-868f2a0c4e64",
+        "version_id": "VER-unknown-65e655ab",
+        "article_no": "제3조",
+        "chunk_id": "CHK-VER-unknown-65e655ab-0004-제3조-001"
+      },
+      {
+        "document_id": "GDL-be86f4cd3cbe",
+        "version_id": "VER-20191015-6e1f9db4",
+        "article_no": "제8조",
+        "chunk_id": "CHK-VER-20191015-6e1f9db4-0009-제8조-001"
+      },
+      {
+        "document_id": "GDL-e4f7344f8716",
+        "version_id": "VER-20210218-3d813ac3",
+        "article_no": "제13조",
+        "chunk_id": "CHK-VER-20210218-3d813ac3-0016-제13조-001"
+      },
+      {
+        "document_id": "GDL-e4f7344f8716",
+        "version_id": "VER-20210218-3d813ac3",
+        "article_no": "제19조",
+        "chunk_id": "CHK-VER-20210218-3d813ac3-0022-제19조-001"
+      }
+    ],
+    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+  },
+  {
+    "query": "수강신청 관련 규정 검색",
+    "expected": [
+      {
+        "document_id": "GDL-868f2a0c4e64",
+        "version_id": "VER-unknown-65e655ab",
+        "article_no": "제7조",
+        "chunk_id": "CHK-VER-unknown-65e655ab-0008-제7조-001"
+      },
+      {
+        "document_id": "GDL-e4f7344f8716",
+        "version_id": "VER-20210218-3d813ac3",
+        "article_no": "제11조",
+        "chunk_id": "CHK-VER-20210218-3d813ac3-0012-제11조-001"
+      },
+      {
+        "document_id": "GDL-e4f7344f8716",
+        "version_id": "VER-20210218-3d813ac3",
+        "article_no": "제13조",
+        "chunk_id": "CHK-VER-20210218-3d813ac3-0016-제13조-001"
+      },
+      {
+        "document_id": "GDL-e4f7344f8716",
+        "version_id": "VER-20210218-3d813ac3",
+        "article_no": "제15조",
+        "chunk_id": "CHK-VER-20210218-3d813ac3-0018-제15조-001"
+      },
+      {
+        "document_id": "GDL-e4f7344f8716",
+        "version_id": "VER-20210218-3d813ac3",
+        "article_no": "제21조",
+        "chunk_id": "CHK-VER-20210218-3d813ac3-0025-제21조-001"
+      }
+    ],
+    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+  },
+  {
+    "query": "장학금 관련 규정과 지침 동시 검색",
+    "expected": [
+      {
+        "document_id": "GDL-2a8d06b8d2d1",
+        "version_id": "VER-20151104-85d0c354",
+        "article_no": "제9조",
+        "chunk_id": "CHK-VER-20151104-85d0c354-0010-제9조-001"
+      },
+      {
+        "document_id": "GDL-2a8d06b8d2d1",
+        "version_id": "VER-20240926-ae359b19",
+        "article_no": "제9조",
+        "chunk_id": "CHK-VER-20240926-ae359b19-0010-제9조-001"
+      },
+      {
+        "document_id": "GDL-e99991ddcadc",
+        "version_id": "VER-20191230-7e1ed4b9",
+        "article_no": "제6조",
+        "chunk_id": "CHK-VER-20191230-7e1ed4b9-0007-제6조-001"
+      },
+      {
+        "document_id": "GDL-e99991ddcadc",
+        "version_id": "VER-20191230-7e1ed4b9",
+        "article_no": "제9조",
+        "chunk_id": "CHK-VER-20191230-7e1ed4b9-0010-제9조-001"
+      },
+      {
+        "document_id": "GDL-9e444aafc07a",
+        "version_id": "VER-20170719-a19e27c3",
+        "article_no": "제26조",
+        "chunk_id": "CHK-VER-20170719-a19e27c3-0029-제26조-001"
+      }
+    ],
+    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+  },
+  {
+    "query": "동일 제목 문서의 최신 개정본 검색",
+    "expected": [],
+    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+  },
+  {
+    "query": "폐지되거나 과거 버전인 문서 검색",
+    "expected": [],
+    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+  },
+  {
+    "query": "특정 부서가 담당하는 지침 검색",
+    "expected": [],
+    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+  },
+  {
+    "query": "규정과 지침이 동시에 검색되는 경우 유형별 구분",
+    "expected": [],
+    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+  },
+  {
+    "query": "조문 번호로 직접 검색",
+    "expected": [
+      {
+        "document_id": "GDL-2a8d06b8d2d1",
+        "version_id": "VER-20151104-85d0c354",
+        "article_no": "제1조",
+        "chunk_id": "CHK-VER-20151104-85d0c354-0002-제1조-001"
+      },
+      {
+        "document_id": "GDL-2a8d06b8d2d1",
+        "version_id": "VER-20240926-ae359b19",
+        "article_no": "제1조",
+        "chunk_id": "CHK-VER-20240926-ae359b19-0002-제1조-001"
+      },
+      {
+        "document_id": "GDL-60abf43f0cff",
+        "version_id": "VER-20221230-60f59641",
+        "article_no": null,
+        "chunk_id": "CHK-VER-20221230-60f59641-0001-section-1-001"
+      },
+      {
+        "document_id": "GDL-60abf43f0cff",
+        "version_id": "VER-20221230-60f59641",
+        "article_no": "제1조",
+        "chunk_id": "CHK-VER-20221230-60f59641-0002-제1조-001"
+      },
+      {
+        "document_id": "GDL-4a55b26e3d6e",
+        "version_id": "VER-unknown-a1856b2f",
+        "article_no": "제1조",
+        "chunk_id": "CHK-VER-unknown-a1856b2f-0002-제1조-001"
+      }
+    ],
+    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+  },
+  {
+    "query": "별표 또는 별지 검색",
+    "expected": [
+      {
+        "document_id": "GDL-2a8d06b8d2d1",
+        "version_id": "VER-20151104-85d0c354",
+        "article_no": "제6조",
+        "chunk_id": "CHK-VER-20151104-85d0c354-0007-제6조-001"
+      },
+      {
+        "document_id": "GDL-2a8d06b8d2d1",
+        "version_id": "VER-20151104-85d0c354",
+        "article_no": "제8조",
+        "chunk_id": "CHK-VER-20151104-85d0c354-0009-제8조-001"
+      },
+      {
+        "document_id": "GDL-2a8d06b8d2d1",
+        "version_id": "VER-20151104-85d0c354",
+        "article_no": "제10조",
+        "chunk_id": "CHK-VER-20151104-85d0c354-0011-제10조-001"
+      },
+      {
+        "document_id": "GDL-2a8d06b8d2d1",
+        "version_id": "VER-20240926-ae359b19",
+        "article_no": null,
+        "chunk_id": "CHK-VER-20240926-ae359b19-0001-section-1-001"
+      },
+      {
+        "document_id": "GDL-2a8d06b8d2d1",
+        "version_id": "VER-20240926-ae359b19",
+        "article_no": "제4조",
+        "chunk_id": "CHK-VER-20240926-ae359b19-0005-제4조-001"
+      }
+    ],
+    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+  }
+]

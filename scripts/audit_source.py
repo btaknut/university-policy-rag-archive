@@ -12,9 +12,11 @@ def main() -> int:
     if not SOURCE_ARCHIVE.is_dir(): raise FileNotFoundError(f"통합 아카이브가 없습니다: {SOURCE_ARCHIVE}")
     files = [p for p in SOURCE_ARCHIVE.rglob("*") if p.is_file() and ".git" not in p.parts and ".venv" not in p.parts and "__pycache__" not in p.parts]
     ext = collections.Counter(p.suffix.lower() or "[none]" for p in files); total = sum(p.stat().st_size for p in files)
-    docs = candidate_documents(); findings = []
+    from extract_text import legacy_text_index
+    legacy = legacy_text_index(); docs = candidate_documents(); findings = []
     for doc in docs:
         text_path = SOURCE_ARCHIVE / (doc.get("text_relative_path") or "__missing__")
+        if not text_path.exists() and doc["sha256"] in legacy: text_path = legacy[doc["sha256"]]
         if not text_path.exists() or text_path.stat().st_size > 20 * 1024 * 1024: continue
         try: reasons = scan_text(text_path.read_text(encoding="utf-8", errors="replace"))
         except OSError: continue
