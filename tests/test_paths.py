@@ -13,3 +13,10 @@ def test_lfs_pointer_oid_verification(tmp_path):
     digest="a"*64; pointer=tmp_path/"sample.hwp"
     pointer.write_text(f"version https://git-lfs.github.com/spec/v1\noid sha256:{digest}\nsize 123\n",encoding="utf-8")
     assert verify_content_or_lfs_pointer(pointer,digest)
+
+def test_hwp_versions_have_verified_pdf_derivatives():
+    versions=read_jsonl(ROOT/"metadata/versions.jsonl")
+    hwp=[v for v in versions if v["source_file"].lower().endswith(".hwp")]
+    assert hwp
+    assert all(v.get("pdf_relative_path") and v.get("pdf_pages",0)>0 for v in hwp)
+    assert all(verify_content_or_lfs_pointer(ROOT/v["pdf_relative_path"],v["pdf_sha256"]) for v in hwp)

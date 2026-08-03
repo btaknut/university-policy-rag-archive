@@ -22,7 +22,7 @@ TEXT_EXTENSIONS = {".txt", ".md", ".html", ".htm", ".json", ".jsonl", ".csv", ".
 
 SECURITY_PATTERNS = {
     "resident_registration_number": re.compile(r"(?<!\d)\d{6}-[1-4]\d{6}(?!\d)"),
-    "personal_mobile_number": re.compile(r"(?<!\d)01[016789]-?\d{3,4}-?\d{4}(?!\d)"),
+    "personal_mobile_number": re.compile(r"(?<!\d)01[016789][ -]\d{3,4}[ -]\d{4}(?!\d)"),
     "external_email_address": re.compile(r"\b[A-Z0-9._%+-]+@(?![A-Z0-9.-]*ut\.ac\.kr\b)[A-Z0-9.-]+\.[A-Z]{2,}\b", re.I),
     "api_key_or_token": re.compile(r"(?:gh[pousr]_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9_-]{20,}|AKIA[0-9A-Z]{16})"),
     "password_assignment": re.compile(r"(?i)\b(?:password|passwd|pwd)\s*[:=]\s*[^\s'\"]{6,}"),

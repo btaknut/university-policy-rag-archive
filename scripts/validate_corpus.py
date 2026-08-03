@@ -23,6 +23,11 @@ def main() -> int:
         counts = Counter(r.get(key) for r in rows); duplicate = [x for x, n in counts.items() if n > 1]; add(f"{label} 고유성", "PASS" if not duplicate else "FAIL", f"중복 {len(duplicate)}건")
     doc_ids = {d["document_id"] for d in docs}; version_ids = {v["version_id"] for v in versions}; orphan = [c["chunk_id"] for c in chunks if c["document_id"] not in doc_ids or c["version_id"] not in version_ids]; add("청크 원문 연결", "PASS" if not orphan else "FAIL", f"고아 청크 {len(orphan)}건")
     missing_paths = [v["version_id"] for v in versions if not (ROOT / v["source_file"]).exists() or (v.get("normalized_file") and not (ROOT / v["normalized_file"]).exists())]; add("메타데이터 경로", "PASS" if not missing_paths else "FAIL", f"누락 {len(missing_paths)}건")
+    hwp_versions = [v for v in versions if v["source_file"].lower().endswith(".hwp")]
+    missing_pdf = [v["version_id"] for v in hwp_versions if not v.get("pdf_relative_path") or not v.get("pdf_sha256")]
+    bad_pdf = [v["version_id"] for v in hwp_versions if v.get("pdf_relative_path") and v.get("pdf_sha256") and not verify_content_or_lfs_pointer(ROOT / v["pdf_relative_path"], v["pdf_sha256"])]
+    invalid_pdf_meta = [v["version_id"] for v in hwp_versions if v.get("pdf_conversion_status") != "success" or not v.get("pdf_pages")]
+    add("HWP 파생 PDF 완전성", "PASS" if not missing_pdf and not bad_pdf and not invalid_pdf_meta else "FAIL", f"PDF 누락 {len(missing_pdf)}건, 해시 불일치 {len(bad_pdf)}건, 메타데이터 오류 {len(invalid_pdf_meta)}건")
     current = defaultdict(list)
     for v in versions:
         if v.get("is_current") is True: current[v["document_id"]].append(v)
@@ -37,7 +42,7 @@ def main() -> int:
         for index, row in enumerate(rows):
             for err in validator.iter_errors(row): schema_errors.append(f"{filename}[{index}]: {err.message}")
     add("JSON Schema", "PASS" if not schema_errors else "FAIL", f"오류 {len(schema_errors)}건" + (("; " + "; ".join(schema_errors[:5])) if schema_errors else ""))
-    normalized_missing = sum(not v.get("normalized_file") for v in versions); add("텍스트 미추출 버전", "WARNING" if normalized_missing else "PASS", f"정규화 없음 {normalized_missing}건(HWP 과거본 등 원본 보존)")
+    normalized_missing = sum(not v.get("normalized_file") for v in versions); add("텍스트 미추출 버전", "WARNING" if normalized_missing else "PASS", f"정규화 없음 {normalized_missing}건(PDF 텍스트 레이어가 없으면 OCR 후보)")
     counts = Counter(status for _, status, _ in checks); lines = ["# 코퍼스 검증 보고서", "", f"- PASS: {counts['PASS']}", f"- WARNING: {counts['WARNING']}", f"- FAIL: {counts['FAIL']}", ""]
     for name, status, detail in checks: lines += [f"## {status} — {name}", "", detail, ""]
     (ROOT / "reports").mkdir(exist_ok=True); (ROOT / "reports/corpus_validation.md").write_text("\n".join(lines), encoding="utf-8")

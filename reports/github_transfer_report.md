@@ -21,23 +21,23 @@
 - 현행 불명확 버전: 61건
 - 정확 중복: 620그룹 / 추가 출처 발생 914건
 - 충돌: 32건
-- 정규화 성공: 508건
+- 정규화 성공: 858건
 - 추출 실패: 0건
 - OCR 필요: 0건
-- 미지원 HWP: 350건
+- HWP 파생 PDF: 847건
 - 보안 제외: 0건
-- RAG 청크: 10,670건
-- Git LFS 파일: 1,772개
-- 예상 작업 트리 크기: 약 251,774,091 bytes
+- RAG 청크: 14,923건
+- Git LFS 파일: 원본 1,772개 + 파생 PDF 847개
+- 예상 작업 트리 크기: 약 457,295,488 bytes
 
 ## 검증·Git
 
-- 로컬 코퍼스 검증: PASS 13 / WARNING 1 / FAIL 0
-- pytest: 7 passed
+- 로컬 코퍼스 검증: PASS 15 / WARNING 0 / FAIL 0
+- pytest: 8 passed
 - 비밀 패턴 Git 검사: 탐지 0건
 - 100MB 이상 일반 Git 파일: 0건
 - 데이터 커밋: `3f8dff9` (`feat: add normalized corpus and Korean legal RAG pipeline`)
 - LFS/CI 검증 커밋: `d9caaef4da577b3ea21a6595416d605122253c93`
 - CI: PASS — `validate-corpus` run [30775676363](https://github.com/btaknut/university-policy-rag-archive/actions/runs/30775676363)
 
-WARNING 1건은 텍스트 변환이 없는 HWP 과거본 350건이다. 원본·해시·버전 정보는 보존했으며 검색 청크에서는 제외됐다. 복수 현행본 32건과 바이너리 내 이미지·서명·비정형 개인정보는 수동 검토가 필요하다. 저장소 공개 전환은 별도 거버넌스 검토 없이 수행하면 안 된다.
+HWP 847건은 모두 검색 가능한 PDF로 변환하고, 기존 미추출 버전 346건의 Markdown을 추가 생성했다. 복수 현행본 32건과 바이너리 내 이미지·서명·비정형 개인정보는 계속 수동 검토가 필요하다. 저장소 공개 전환은 별도 거버넌스 검토 없이 수행하면 안 된다.

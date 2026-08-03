@@ -24,6 +24,8 @@ python scripts\migrate_sources.py --execute
 python scripts\extract_text.py
 python scripts\normalize_documents.py
 python scripts\build_versions.py
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\convert_hwp_to_pdf.ps1
+python scripts\index_pdf_derivatives.py
 python scripts\build_chunks.py
 python scripts\build_catalog.py
 python scripts\validate_corpus.py
@@ -32,6 +34,10 @@ python scripts\export_rag_bundle.py --zip
 ```
 
 증분 갱신은 `python scripts\sync_archive.py`로 수행한다. 원본에서 사라진 파일은 자동 삭제하지 않는다.
+
+## HWP 확인용 PDF
+
+Windows에서 한컴오피스 2020 COM 자동화를 이용해 HWP 원본을 `corpus/pdf/{regulations,guidelines}/{document_id}/{version_id}.pdf`로 변환한다. 원본 HWP는 변경하지 않는다. PDF는 페이지 수·텍스트 레이어·SHA-256을 검증하며 기존 텍스트가 없던 버전은 PDF 텍스트로 Markdown을 생성한다. 대량 변환은 `python scripts\run_hwp_conversion_parallel.py run --shards 4`를 사용할 수 있다. PDF는 Git LFS로 관리되어 ChatGPT와 일반 PDF 도구가 문서 내용을 열람할 수 있다.
 
 ## 상위 RAG와 검색 필터
 
