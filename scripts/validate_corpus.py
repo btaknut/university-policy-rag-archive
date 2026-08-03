@@ -6,17 +6,19 @@ from collections import Counter, defaultdict
 
 from jsonschema import Draft202012Validator
 
-from common import ROOT, SOURCE_ARCHIVE, read_jsonl, sha256_file
+from common import ROOT, SOURCE_ARCHIVE, read_jsonl, sha256_file, verify_content_or_lfs_pointer
 
 
 def main() -> int:
     docs = read_jsonl(ROOT / "metadata/documents.jsonl"); versions = read_jsonl(ROOT / "metadata/versions.jsonl"); chunks = read_jsonl(ROOT / "rag/chunks.jsonl"); manifest = read_jsonl(ROOT / "metadata/source_manifest.jsonl")
     checks = []
     def add(name: str, status: str, detail: str) -> None: checks.append((name, status, detail))
-    bad_hash = [m["archive_file"] for m in manifest if not (ROOT / m["archive_file"]).exists() or sha256_file(ROOT / m["archive_file"]) != m["sha256"]]
+    bad_hash = [m["archive_file"] for m in manifest if not verify_content_or_lfs_pointer(ROOT / m["archive_file"], m["sha256"])]
     add("원본 사본 SHA-256", "PASS" if not bad_hash else "FAIL", f"불일치/누락 {len(bad_hash)}건")
-    changed_source = [m["source_file"] for m in manifest if not (SOURCE_ARCHIVE / m["source_file"]).exists() or sha256_file(SOURCE_ARCHIVE / m["source_file"]) != m["sha256"]]
-    add("읽기 전용 통합 아카이브 보존", "PASS" if not changed_source else "FAIL", f"변경/누락 {len(changed_source)}건")
+    if SOURCE_ARCHIVE.exists():
+        changed_source = [m["source_file"] for m in manifest if not (SOURCE_ARCHIVE / m["source_file"]).exists() or sha256_file(SOURCE_ARCHIVE / m["source_file"]) != m["sha256"]]
+        add("읽기 전용 통합 아카이브 보존", "PASS" if not changed_source else "FAIL", f"변경/누락 {len(changed_source)}건")
+    else: add("읽기 전용 통합 아카이브 보존", "WARNING", "CI 환경에 로컬 원본이 없어 source manifest와 LFS oid 검증으로 대체")
     for label, rows, key in (("document_id", docs, "document_id"), ("version_id", versions, "version_id"), ("chunk_id", chunks, "chunk_id")):
         counts = Counter(r.get(key) for r in rows); duplicate = [x for x, n in counts.items() if n > 1]; add(f"{label} 고유성", "PASS" if not duplicate else "FAIL", f"중복 {len(duplicate)}건")
     doc_ids = {d["document_id"] for d in docs}; version_ids = {v["version_id"] for v in versions}; orphan = [c["chunk_id"] for c in chunks if c["document_id"] not in doc_ids or c["version_id"] not in version_ids]; add("청크 원문 연결", "PASS" if not orphan else "FAIL", f"고아 청크 {len(orphan)}건")

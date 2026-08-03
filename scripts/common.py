@@ -43,6 +43,18 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def verify_content_or_lfs_pointer(path: Path, expected_sha256: str) -> bool:
+    """실제 파일 해시 또는 Git LFS 포인터 oid가 기대 해시와 일치하는지 확인한다."""
+    if not path.exists(): return False
+    if path.stat().st_size < 1024:
+        try:
+            pointer = path.read_text(encoding="utf-8")
+            match = re.search(r"^oid sha256:([0-9a-f]{64})$", pointer, re.M)
+            if match: return match.group(1) == expected_sha256
+        except (UnicodeDecodeError, OSError): pass
+    return sha256_file(path) == expected_sha256
+
+
 def load_yaml(path: Path) -> dict[str, Any]:
     """UTF-8 YAML 로드."""
     return yaml.safe_load(path.read_text(encoding="utf-8"))
