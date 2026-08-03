@@ -33,10 +33,11 @@
 ## 검증·Git
 
 - 로컬 코퍼스 검증: PASS 13 / WARNING 1 / FAIL 0
-- pytest: 6 passed
+- pytest: 7 passed
 - 비밀 패턴 Git 검사: 탐지 0건
 - 100MB 이상 일반 Git 파일: 0건
 - 데이터 커밋: `3f8dff9` (`feat: add normalized corpus and Korean legal RAG pipeline`)
-- CI: 최초 push 후 GitHub Actions로 확인
+- LFS/CI 검증 커밋: `d9caaef4da577b3ea21a6595416d605122253c93`
+- CI: PASS — `validate-corpus` run [30775676363](https://github.com/btaknut/university-policy-rag-archive/actions/runs/30775676363)
 
 WARNING 1건은 텍스트 변환이 없는 HWP 과거본 350건이다. 원본·해시·버전 정보는 보존했으며 검색 청크에서는 제외됐다. 복수 현행본 32건과 바이너리 내 이미지·서명·비정형 개인정보는 수동 검토가 필요하다. 저장소 공개 전환은 별도 거버넌스 검토 없이 수행하면 안 된다.
