@@ -1,4 +1,4 @@
-"""검토 완료 공식 원천 배치를 Windows 한컴오피스 파이프라인으로 반영한다.
+"""검토 완료 공식 원천 배치를 교차 플랫폼 파이프라인으로 반영한다.
 
 이 스크립트는 git add/commit/push 또는 PR 병합을 수행하지 않는다. 기본 실행은
 배치·해시·기존 버전 연결을 점검하는 plan-only 모드다.
@@ -14,6 +14,8 @@ import shutil
 import subprocess
 import sys
 from typing import Any
+
+from convert_hwp_portable import UNHWP_VERSION, probe_unhwp, sha256_file
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,32 +48,30 @@ def ensure_clean_worktree(repo: Path) -> None:
         )
 
 
-def ensure_windows_requirements(repo: Path) -> None:
-    if os.name != "nt":
-        raise RuntimeError("--apply는 Windows 한컴오피스 환경에서만 실행할 수 있습니다")
+def ensure_portable_requirements(repo: Path, unhwp: Path) -> None:
     if shutil.which("git") is None:
         raise RuntimeError("git 실행 파일을 찾지 못했습니다")
-    if shutil.which("powershell.exe") is None:
-        raise RuntimeError("powershell.exe를 찾지 못했습니다")
-    subprocess.run(["git", "lfs", "version"], cwd=repo, check=True)
-    probe = (
-        "$ErrorActionPreference='Stop';"
-        "$app=New-Object -ComObject HWPFrame.HwpObject;"
-        "try{$app.Quit()}catch{};"
-        "[void][Runtime.InteropServices.Marshal]::FinalReleaseComObject($app)"
-    )
     subprocess.run(
-        ["powershell.exe", "-NoProfile", "-Command", probe],
+        ["git", "lfs", "version"],
         cwd=repo,
         check=True,
+        capture_output=True,
+        text=True,
     )
+    probe_unhwp(unhwp)
+
+
+def default_unhwp(repo: Path) -> Path:
+    executable = "unhwp.exe" if os.name == "nt" else "unhwp"
+    return repo / ".tools/unhwp" / f"v{UNHWP_VERSION}" / executable
 
 
 def build_pipeline_commands(
     repo: Path,
     batch: Path,
     downloads_dir: Path,
-    force_pdf: bool = False,
+    unhwp: Path,
+    force_markdown: bool = False,
 ) -> list[list[str]]:
     python = sys.executable
     apply_command = [
@@ -85,26 +85,58 @@ def build_pipeline_commands(
         str(downloads_dir),
         "--apply",
     ]
-    pdf_command = [
-        "powershell.exe",
-        "-NoProfile",
-        "-ExecutionPolicy",
-        "Bypass",
-        "-File",
-        str(repo / "scripts/convert_hwp_to_pdf.ps1"),
+    convert_command = [
+        python,
+        str(repo / "scripts/convert_hwp_portable.py"),
+        "--repo-root",
+        str(repo),
+        "--batch",
+        str(batch),
+        "--unhwp",
+        str(unhwp),
     ]
-    if force_pdf:
-        pdf_command.append("-Force")
+    if force_markdown:
+        convert_command.append("--force")
     python_steps = [
-        "index_pdf_derivatives.py",
         "build_versions.py",
         "build_chunks.py",
         "build_catalog.py",
         "validate_corpus.py",
     ]
-    return [apply_command, pdf_command] + [
+    return [apply_command, convert_command] + [
         [python, str(repo / "scripts" / script)] for script in python_steps
     ] + [[python, "-m", "pytest", "-q"]]
+
+
+def native_pdf_complete(repo: Path, version: dict[str, Any]) -> bool:
+    relative = version.get("pdf_relative_path")
+    expected = version.get("pdf_sha256")
+    if version.get("pdf_conversion_status") != "success" or not relative or not expected:
+        return False
+    path = repo / relative
+    return path.is_file() and sha256_file(path) == expected and bool(version.get("pdf_pages"))
+
+
+def portable_markdown_complete(repo: Path, version: dict[str, Any]) -> bool:
+    relative = version.get("normalized_file")
+    expected = version.get("portable_markdown_sha256")
+    if (
+        version.get("portable_conversion_status") != "success"
+        or version.get("portable_extraction_tool") != "unhwp"
+        or version.get("portable_extraction_version") != UNHWP_VERSION
+        or not relative
+        or not expected
+    ):
+        return False
+    path = repo / relative
+    return (
+        path.is_file()
+        and sha256_file(path) == expected
+        and int(version.get("portable_text_chars") or 0) >= 200
+        and int(version.get("portable_hangul_chars") or 0) >= 80
+        and float(version.get("portable_hangul_ratio") or 0) >= 0.15
+        and int(version.get("portable_replacement_chars") or 0) == 0
+    )
 
 
 def verify_gate_versions(repo: Path, batch: dict[str, Any]) -> list[dict[str, Any]]:
@@ -120,16 +152,30 @@ def verify_gate_versions(repo: Path, batch: dict[str, Any]) -> list[dict[str, An
         if version is None:
             errors.append(f"{version_id}: versions.jsonl에 없음")
             continue
+        source = repo / version["source_file"]
+        normalized = version.get("normalized_file")
+        portable = portable_markdown_complete(repo, version)
+        native_pdf = native_pdf_complete(repo, version)
         required = {
-            "sha256": version.get("sha256") == record["sha256"],
+            "metadata_sha256": version.get("sha256") == record["sha256"],
+            "source_sha256": source.is_file() and sha256_file(source) == record["sha256"],
             "is_current": version.get("is_current") is True,
-            "pdf_conversion_status": version.get("pdf_conversion_status") == "success",
-            "pdf_file": bool(version.get("pdf_relative_path"))
-            and (repo / version["pdf_relative_path"]).is_file(),
-            "normalized_file": bool(version.get("normalized_file"))
-            and (repo / version["normalized_file"]).is_file(),
+            "normalized_file": bool(normalized) and (repo / normalized).is_file(),
+            "portable_markdown_complete": portable,
+            "native_pdf_complete": native_pdf,
+            "derivative_complete": portable or native_pdf,
         }
-        failed = [name for name, passed in required.items() if not passed]
+        failed = [
+            name
+            for name in (
+                "metadata_sha256",
+                "source_sha256",
+                "is_current",
+                "normalized_file",
+                "derivative_complete",
+            )
+            if not required[name]
+        ]
         if failed:
             errors.append(f"{version_id}: {', '.join(failed)}")
         results.append({"version_id": version_id, "checks": required})
@@ -146,7 +192,9 @@ def verify_lfs_attributes(repo: Path, batch: dict[str, Any]) -> None:
     paths = []
     for record in batch.get("records", []):
         version = versions[record["version_id"]]
-        paths.extend([version["source_file"], version["pdf_relative_path"]])
+        paths.append(version["source_file"])
+        if version.get("pdf_relative_path"):
+            paths.append(version["pdf_relative_path"])
     result = subprocess.run(
         ["git", "check-attr", "filter", "--", *paths],
         cwd=repo,
@@ -176,6 +224,8 @@ def write_gate_report(
             {
                 "generated_at": generated_at.isoformat(),
                 "status": status,
+                "platform": sys.platform,
+                "unhwp_version": UNHWP_VERSION,
                 "batch": str(batch_path),
                 "results": results or [],
                 "error": error,
@@ -197,8 +247,10 @@ def parse_args() -> argparse.Namespace:
         default=ROOT / "reports/p1_official_update_batch_2026-09-03.json",
     )
     parser.add_argument("--downloads-dir", type=Path, required=True)
+    parser.add_argument("--unhwp", type=Path)
+    parser.add_argument("--install-unhwp", action="store_true")
     parser.add_argument("--apply", action="store_true")
-    parser.add_argument("--force-pdf", action="store_true")
+    parser.add_argument("--force-markdown", action="store_true")
     return parser.parse_args()
 
 
@@ -207,6 +259,7 @@ def main() -> int:
     repo = args.repo_root.resolve()
     batch_path = args.batch.resolve()
     downloads_dir = args.downloads_dir.resolve()
+    binary = args.unhwp.resolve() if args.unhwp else default_unhwp(repo)
     batch = json.loads(batch_path.read_text(encoding="utf-8"))
 
     plan = [
@@ -224,19 +277,34 @@ def main() -> int:
         print("plan-only 완료. 실제 반영에는 --apply가 필요합니다.")
         return 0
 
-    report: Path | None = None
     try:
         ensure_clean_worktree(repo)
-        ensure_windows_requirements(repo)
+        if args.install_unhwp:
+            if args.unhwp:
+                raise RuntimeError("--install-unhwp와 --unhwp는 함께 사용할 수 없습니다")
+            run_command(
+                [
+                    sys.executable,
+                    str(repo / "scripts/install_unhwp.py"),
+                    "--target",
+                    str(binary.parent),
+                ],
+                repo,
+            )
+        ensure_portable_requirements(repo, binary)
         for command in build_pipeline_commands(
-            repo, batch_path, downloads_dir, args.force_pdf
+            repo,
+            batch_path,
+            downloads_dir,
+            binary,
+            args.force_markdown,
         ):
             run_command(command, repo)
         results = verify_gate_versions(repo, batch)
         verify_lfs_attributes(repo, batch)
         report = write_gate_report(repo, "success", batch_path, results)
         print(f"Gate 성공: {report.relative_to(repo).as_posix()}")
-        print("git add/commit/push는 수행하지 않았습니다. 변경 파일을 검토한 뒤 별도 승인 절차로 진행하십시오.")
+        print("git add/commit/push는 수행하지 않았습니다. 변경 파일을 검토한 뒤 PR 절차로 진행하십시오.")
         return 0
     except Exception as exc:
         report = write_gate_report(repo, "failed", batch_path, error=str(exc))

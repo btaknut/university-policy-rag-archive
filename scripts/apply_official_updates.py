@@ -1,8 +1,8 @@
 """검토가 끝난 공식 원천 원문을 기존 코퍼스에 증분 반영한다.
 
 기본 동작은 계획 검증만 수행한다. ``--apply``를 지정해야 raw 원본과
-metadata 3종을 변경한다. HWP PDF 변환·Markdown·청크 생성은 기존 Windows
-파이프라인에서 후속 실행한다.
+metadata 3종을 변경한다. HWP Markdown 변환·청크 생성은 교차 플랫폼
+Gate에서 후속 실행한다.
 """
 from __future__ import annotations
 
@@ -239,8 +239,8 @@ def update_metadata(
             "enactment_date": doc.get("enactment_date"),
             "file_size": record["file_size"],
             "mime_type": "application/haansofthwp",
-            "text_extraction_status": "pending_hancom_pdf",
-            "pdf_conversion_status": "pending",
+            "text_extraction_status": "pending_portable_hwp",
+            "pdf_conversion_status": "not_generated_portable",
         }
         versions.append(version)
         versions_by_id[version["version_id"]] = version
@@ -282,15 +282,15 @@ def update_metadata(
                 "mime_type": "application/haansofthwp",
                 "file_size": record["file_size"],
                 "sha256": record["sha256"],
-                "text_extraction_status": "pending_hancom_pdf",
+                "text_extraction_status": "pending_portable_hwp",
                 "updated_at": updated_at,
-                "pdf_conversion_status": "pending",
+                "pdf_conversion_status": "not_generated_portable",
             }
         )
         doc.pop("pdf_relative_path", None)
 
-    versions.sort(key=lambda row: (row["document_id"], row.get("revision_date") or "", row["version_id"]))
-    source_manifest.sort(key=lambda row: (row.get("archive_file") or "", row.get("sha256") or ""))
+    # 기존 JSONL 순서를 유지하고 신규 레코드만 끝에 추가한다. 대용량 생성 파일에서
+    # 실제 변경과 무관한 전면 재정렬 diff가 생기지 않게 하기 위함이다.
     return documents, versions, source_manifest
 
 
@@ -359,7 +359,7 @@ def main() -> int:
     write_jsonl(versions_path, versions)
     write_jsonl(manifest_path, source_manifest)
     print(f"backup: {backup_dir.relative_to(repo).as_posix()}")
-    print("next: Windows에서 scripts/convert_hwp_to_pdf.ps1 실행 후 index_pdf_derivatives.py, build_versions.py, build_chunks.py, build_catalog.py, validate_corpus.py 순으로 실행")
+    print("next: scripts/convert_hwp_portable.py 실행 후 build_versions.py, build_chunks.py, build_catalog.py, validate_corpus.py 순으로 실행")
     return 0
 
 

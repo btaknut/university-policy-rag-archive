@@ -8,13 +8,14 @@ from dataclasses import asdict, dataclass, replace
 from datetime import datetime, timezone
 from email.message import Message
 from hashlib import sha256
+from http.cookiejar import CookieJar
 from pathlib import Path
 import re
 import time
 from typing import Any, Iterable
 from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qs, unquote, urlencode, urljoin, urlparse, urlunparse
-from urllib.request import Request, urlopen
+from urllib.request import HTTPCookieProcessor, Request, build_opener
 
 from bs4 import BeautifulSoup
 
@@ -140,19 +141,21 @@ class HttpClient:
         self.timeout_seconds = timeout_seconds
         self.retries = retries
         self.delay_seconds = delay_seconds
+        self.opener = build_opener(HTTPCookieProcessor(CookieJar()))
 
-    def _request(self, url: str) -> tuple[bytes, Message]:
+    def _request(
+        self, url: str, extra_headers: dict[str, str] | None = None
+    ) -> tuple[bytes, Message]:
         last_error: Exception | None = None
         for attempt in range(self.retries + 1):
             try:
-                request = Request(
-                    url,
-                    headers={
-                        "User-Agent": self.user_agent,
-                        "Accept": "text/html,application/xhtml+xml,application/octet-stream;q=0.9,*/*;q=0.8",
-                    },
-                )
-                with urlopen(request, timeout=self.timeout_seconds) as response:
+                headers = {
+                    "User-Agent": self.user_agent,
+                    "Accept": "text/html,application/xhtml+xml,application/octet-stream;q=0.9,*/*;q=0.8",
+                }
+                headers.update(extra_headers or {})
+                request = Request(url, headers=headers)
+                with self.opener.open(request, timeout=self.timeout_seconds) as response:
                     payload = response.read()
                     headers = response.headers
                 if self.delay_seconds:
@@ -165,8 +168,10 @@ class HttpClient:
                 time.sleep(self.delay_seconds * (attempt + 1))
         raise RuntimeError(f"unreachable request failure: {last_error}")
 
-    def text(self, url: str) -> tuple[str, Message]:
-        payload, headers = self._request(url)
+    def text(
+        self, url: str, extra_headers: dict[str, str] | None = None
+    ) -> tuple[str, Message]:
+        payload, headers = self._request(url, extra_headers)
         charset = headers.get_content_charset()
         for encoding in (charset, "utf-8", "cp949", "euc-kr"):
             if not encoding:
@@ -177,8 +182,14 @@ class HttpClient:
                 continue
         return payload.decode("utf-8", errors="replace"), headers
 
-    def download(self, url: str, target_dir: Path) -> tuple[Path, str, Message]:
-        payload, headers = self._request(url)
+    def download(
+        self,
+        url: str,
+        target_dir: Path,
+        extra_headers: dict[str, str] | None = None,
+        filename: str | None = None,
+    ) -> tuple[Path, str, Message]:
+        payload, headers = self._request(url, extra_headers)
         disposition = headers.get("Content-Disposition", "")
         name: str | None = None
         encoded = re.search(r"filename\*=UTF-8''([^;]+)", disposition, flags=re.I)
@@ -190,7 +201,9 @@ class HttpClient:
             name = quoted.group(1)
         elif plain:
             name = plain.group(1).strip()
-        if not name:
+        if filename:
+            name = filename
+        elif not name:
             name = Path(urlparse(url).path).name or "download.bin"
         filename = safe_filename(name)
         target_dir.mkdir(parents=True, exist_ok=True)

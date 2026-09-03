@@ -84,7 +84,8 @@ def test_validate_and_update_official_batch(tmp_path: Path):
     assert old["is_current"] is False
     assert old["next_version_id"] == new["version_id"]
     assert new["previous_version_id"] == old["version_id"]
-    assert new["pdf_conversion_status"] == "pending"
+    assert new["pdf_conversion_status"] == "not_generated_portable"
+    assert new["text_extraction_status"] == "pending_portable_hwp"
     assert documents[0]["latest_version_id"] == new["version_id"]
     assert manifest[0]["origin_type"] == "official_web"
 

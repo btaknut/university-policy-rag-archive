@@ -9,6 +9,7 @@ temp/
 tmp/
 logs/
 .artifacts/
+.tools/
 *.tmp
 *.part
 Thumbs.db
