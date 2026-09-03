@@ -8,6 +8,7 @@ rag/exports/*.zip
 temp/
 tmp/
 logs/
+.artifacts/
 *.tmp
 *.part
 Thumbs.db

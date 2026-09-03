@@ -1,0 +1,86 @@
+{
+  "captured_at": "2026-09-03",
+  "repository_base_commit": "ba41184ba0712020ad47d6d081773369bfdba8f0",
+  "summary": {
+    "confirmed_new_versions": 5,
+    "downloaded_and_hashed": 2,
+    "metadata_verified_download_pending": 3
+  },
+  "records": [
+    {
+      "source_id": "ut_guidelines",
+      "source_record_id": "seq:554",
+      "document_id": "GDL-042b39658af0",
+      "title": "국립한국교통대학교 금고지정심의위원회 운영 지침 일부개정",
+      "posted_date": "2026-08-20",
+      "effective_date": "2026-08-20",
+      "source_page_url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do",
+      "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000291394&fileSn=0",
+      "attachment_filename": "국립한국교통대학교 금고지정심의위원회 운영 지침 일부개정.hwp",
+      "file_size": 45056,
+      "sha256": "a0a46fcdce001c66d6d89b0496dd478268539c595e9f1849231b2768089046a3",
+      "capture_status": "downloaded_and_hashed"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "4ceb13bd32b40b2b4f4a933ee112a07c:file:2966",
+      "document_id": "GDL-cc6c7f3a04fa",
+      "title": "국립한국교통대학교 산학협력단 부속기관 설치·운영 지침",
+      "posted_date": "2026-08-31",
+      "effective_date": "2026-09-01",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=4ceb13bd32b40b2b4f4a933ee112a07c&GotoPage=1",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=4ceb13bd32b40b2b4f4a933ee112a07c&file_id=2966&category=01",
+      "attachment_filename": "국립한국교통대학교 산학협력단 부속기관 설치·운영 지침(제669호, 2026.9.1.).hwp",
+      "file_size": null,
+      "sha256": null,
+      "capture_status": "metadata_verified_download_pending"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "3eeed4b4c255ab3f711e784f6ef3f8a0:file:2954",
+      "document_id": "GDL-bd2fb46667a7",
+      "title": "국립한국교통대학교 연구비관리규정 세부시행지침",
+      "posted_date": "2026-08-18",
+      "effective_date": "2026-08-18",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=3eeed4b4c255ab3f711e784f6ef3f8a0&GotoPage=1",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=3eeed4b4c255ab3f711e784f6ef3f8a0&file_id=2954&category=03",
+      "attachment_filename": "국립한국교통대학교 연구비관리규정 세부시행지침(제667호, 2026.8.18.).hwp",
+      "file_size": null,
+      "sha256": null,
+      "capture_status": "metadata_verified_download_pending"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "9f44ca9c19da5617a3e097ce01c2400e:file:2955",
+      "document_id": "GDL-cc43c0255c1e",
+      "title": "국립한국교통대학교 산학협력단 팀제 운영 지침",
+      "posted_date": "2026-08-18",
+      "effective_date": "2026-08-18",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=9f44ca9c19da5617a3e097ce01c2400e&GotoPage=1",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=9f44ca9c19da5617a3e097ce01c2400e&file_id=2955&category=01",
+      "attachment_filename": "국립한국교통대학교 산학협력단 팀제 운영지침(제666호, 2026.8.18.).hwp",
+      "file_size": null,
+      "sha256": null,
+      "capture_status": "metadata_verified_download_pending"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "57597dfb68e1c642a93547e32fb89eb0:file:2956",
+      "document_id": "GDL-90f9dfe2a532",
+      "title": "국립한국교통대학교 연구소 설립·운영에 관한 지침",
+      "posted_date": "2026-08-18",
+      "effective_date": "2026-08-18",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=57597dfb68e1c642a93547e32fb89eb0&GotoPage=1",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=57597dfb68e1c642a93547e32fb89eb0&file_id=2956&category=01",
+      "attachment_filename": "국립한국교통대학교 연구소 설립.운영에 관한 지침(제665호, 2026.8.18.).hwp",
+      "file_size": 89088,
+      "sha256": "b1ec2163a05b28cfa6275d08f677cdf4db3efe1873d9edf8ccf8286b1f3ce00c",
+      "capture_status": "downloaded_and_hashed"
+    }
+  ],
+  "limitations": [
+    "산학협력단 첨부 3건은 상세 페이지와 다운로드 URL을 확인했지만 이번 브라우저 세션에서 파일 저장이 완료되지 않았다.",
+    "원본 5건을 corpus와 manifest에 반영하는 작업은 수집기 CI 검증과 나머지 3건 해시 확인 후 별도 수행한다.",
+    "확인된 2개 SHA-256은 기존 GitHub 코드 검색에서 발견되지 않았다. 대용량 manifest 전체의 최종 판정은 자동 대조 실행 결과로 재확인한다."
+  ]
+}
