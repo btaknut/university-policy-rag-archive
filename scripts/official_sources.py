@@ -242,18 +242,21 @@ def parse_ut_regulation_history(html: str, page_url: str) -> list[tuple[str, str
     soup = BeautifulSoup(html, "html.parser")
     history: list[tuple[str, str | None]] = []
     for table in soup.find_all("table"):
-        if "히스토리" not in clean_text(table.get_text(" ")):
-            continue
         for row in table.select("tbody tr"):
             cells = row.find_all("td", recursive=False)
             if len(cells) < 3:
                 continue
-            link = cells[1].find("a", href=True)
-            if link:
+            link = row.find(
+                "a",
+                href=lambda value: bool(
+                    value and "register=" in value and "cntNo=" in value
+                ),
+            )
+            if link and link.get("href"):
                 history.append(
                     (
                         urljoin(page_url, link["href"]),
-                        normalize_date(clean_text(cells[2].get_text(" "))),
+                        normalize_date(clean_text(cells[-1].get_text(" "))),
                     )
                 )
     return history
