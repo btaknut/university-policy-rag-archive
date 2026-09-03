@@ -16,8 +16,10 @@ def main() -> int:
     bad_hash = [m["archive_file"] for m in manifest if not verify_content_or_lfs_pointer(ROOT / m["archive_file"], m["sha256"])]
     add("원본 사본 SHA-256", "PASS" if not bad_hash else "FAIL", f"불일치/누락 {len(bad_hash)}건")
     if SOURCE_ARCHIVE.exists():
-        changed_source = [m["source_file"] for m in manifest if not (SOURCE_ARCHIVE / m["source_file"]).exists() or sha256_file(SOURCE_ARCHIVE / m["source_file"]) != m["sha256"]]
-        add("읽기 전용 통합 아카이브 보존", "PASS" if not changed_source else "FAIL", f"변경/누락 {len(changed_source)}건")
+        legacy_manifest = [m for m in manifest if m.get("origin_type", "legacy_archive") == "legacy_archive"]
+        changed_source = [m["source_file"] for m in legacy_manifest if not (SOURCE_ARCHIVE / m["source_file"]).exists() or sha256_file(SOURCE_ARCHIVE / m["source_file"]) != m["sha256"]]
+        official_count = sum(m.get("origin_type") == "official_web" for m in manifest)
+        add("읽기 전용 통합 아카이브 보존", "PASS" if not changed_source else "FAIL", f"변경/누락 {len(changed_source)}건, 공식 웹 수집 {official_count}건은 저장소 raw 해시로 검증")
     else: add("읽기 전용 통합 아카이브 보존", "WARNING", "CI 환경에 로컬 원본이 없어 source manifest와 LFS oid 검증으로 대체")
     for label, rows, key in (("document_id", docs, "document_id"), ("version_id", versions, "version_id"), ("chunk_id", chunks, "chunk_id")):
         counts = Counter(r.get(key) for r in rows); duplicate = [x for x, n in counts.items() if n > 1]; add(f"{label} 고유성", "PASS" if not duplicate else "FAIL", f"중복 {len(duplicate)}건")
@@ -50,3 +52,4 @@ def main() -> int:
 
 
 if __name__ == "__main__": raise SystemExit(main())
+
