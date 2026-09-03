@@ -16,18 +16,26 @@ def main() -> int:
     bad_hash = [m["archive_file"] for m in manifest if not verify_content_or_lfs_pointer(ROOT / m["archive_file"], m["sha256"])]
     add("원본 사본 SHA-256", "PASS" if not bad_hash else "FAIL", f"불일치/누락 {len(bad_hash)}건")
     if SOURCE_ARCHIVE.exists():
-        changed_source = [m["source_file"] for m in manifest if not (SOURCE_ARCHIVE / m["source_file"]).exists() or sha256_file(SOURCE_ARCHIVE / m["source_file"]) != m["sha256"]]
-        add("읽기 전용 통합 아카이브 보존", "PASS" if not changed_source else "FAIL", f"변경/누락 {len(changed_source)}건")
+        legacy_manifest = [m for m in manifest if m.get("origin_type", "legacy_archive") == "legacy_archive"]
+        changed_source = [m["source_file"] for m in legacy_manifest if not (SOURCE_ARCHIVE / m["source_file"]).exists() or sha256_file(SOURCE_ARCHIVE / m["source_file"]) != m["sha256"]]
+        official_count = sum(m.get("origin_type") == "official_web" for m in manifest)
+        add("읽기 전용 통합 아카이브 보존", "PASS" if not changed_source else "FAIL", f"변경/누락 {len(changed_source)}건, 공식 웹 수집 {official_count}건은 저장소 raw 해시로 검증")
     else: add("읽기 전용 통합 아카이브 보존", "WARNING", "CI 환경에 로컬 원본이 없어 source manifest와 LFS oid 검증으로 대체")
     for label, rows, key in (("document_id", docs, "document_id"), ("version_id", versions, "version_id"), ("chunk_id", chunks, "chunk_id")):
         counts = Counter(r.get(key) for r in rows); duplicate = [x for x, n in counts.items() if n > 1]; add(f"{label} 고유성", "PASS" if not duplicate else "FAIL", f"중복 {len(duplicate)}건")
     doc_ids = {d["document_id"] for d in docs}; version_ids = {v["version_id"] for v in versions}; orphan = [c["chunk_id"] for c in chunks if c["document_id"] not in doc_ids or c["version_id"] not in version_ids]; add("청크 원문 연결", "PASS" if not orphan else "FAIL", f"고아 청크 {len(orphan)}건")
     missing_paths = [v["version_id"] for v in versions if not (ROOT / v["source_file"]).exists() or (v.get("normalized_file") and not (ROOT / v["normalized_file"]).exists())]; add("메타데이터 경로", "PASS" if not missing_paths else "FAIL", f"누락 {len(missing_paths)}건")
     hwp_versions = [v for v in versions if v["source_file"].lower().endswith(".hwp")]
-    missing_pdf = [v["version_id"] for v in hwp_versions if not v.get("pdf_relative_path") or not v.get("pdf_sha256")]
-    bad_pdf = [v["version_id"] for v in hwp_versions if v.get("pdf_relative_path") and v.get("pdf_sha256") and not verify_content_or_lfs_pointer(ROOT / v["pdf_relative_path"], v["pdf_sha256"])]
-    invalid_pdf_meta = [v["version_id"] for v in hwp_versions if v.get("pdf_conversion_status") != "success" or not v.get("pdf_pages")]
-    add("HWP 파생 PDF 완전성", "PASS" if not missing_pdf and not bad_pdf and not invalid_pdf_meta else "FAIL", f"PDF 누락 {len(missing_pdf)}건, 해시 불일치 {len(bad_pdf)}건, 메타데이터 오류 {len(invalid_pdf_meta)}건")
+    def native_pdf_ok(version):
+        return bool(version.get("pdf_relative_path") and version.get("pdf_sha256") and version.get("pdf_pages") and version.get("pdf_conversion_status") == "success" and verify_content_or_lfs_pointer(ROOT / version["pdf_relative_path"], version["pdf_sha256"]))
+    def portable_markdown_ok(version):
+        path = ROOT / version["normalized_file"] if version.get("normalized_file") else None
+        return bool(version.get("portable_conversion_status") == "success" and version.get("portable_extraction_tool") == "unhwp" and version.get("portable_extraction_version") and version.get("portable_markdown_sha256") and path and path.is_file() and sha256_file(path) == version["portable_markdown_sha256"] and int(version.get("portable_text_chars") or 0) >= 200 and int(version.get("portable_hangul_chars") or 0) >= 80 and float(version.get("portable_hangul_ratio") or 0) >= 0.15 and int(version.get("portable_replacement_chars") or 0) == 0)
+    native_count = sum(native_pdf_ok(v) for v in hwp_versions); portable_count = sum(portable_markdown_ok(v) for v in hwp_versions)
+    incomplete_derivative = [v["version_id"] for v in hwp_versions if not native_pdf_ok(v) and not portable_markdown_ok(v)]
+    claimed_pdf_invalid = [v["version_id"] for v in hwp_versions if (v.get("pdf_relative_path") or v.get("pdf_sha256") or v.get("pdf_conversion_status") == "success") and not native_pdf_ok(v)]
+    claimed_portable_invalid = [v["version_id"] for v in hwp_versions if v.get("portable_conversion_status") and not portable_markdown_ok(v)]
+    add("HWP 파생본 완전성", "PASS" if not incomplete_derivative and not claimed_pdf_invalid and not claimed_portable_invalid else "FAIL", f"한컴 PDF {native_count}건, portable Markdown {portable_count}건, 파생본 누락 {len(incomplete_derivative)}건, PDF 오류 {len(claimed_pdf_invalid)}건, portable 오류 {len(claimed_portable_invalid)}건")
     current = defaultdict(list)
     for v in versions:
         if v.get("is_current") is True: current[v["document_id"]].append(v)

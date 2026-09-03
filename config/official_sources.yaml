@@ -1,0 +1,41 @@
+schema_version: 1
+
+http:
+  user_agent: university-policy-rag-archive/0.2 (+https://github.com/btaknut/university-policy-rag-archive)
+  timeout_seconds: 30
+  retries: 2
+  delay_seconds: 0.5
+
+sources:
+  - source_id: ut_regulations
+    name: 국립한국교통대학교 규정
+    kind: ut_regulations
+    document_type: regulation
+    base_url_template: https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/{category}/list.do
+    categories: [SE01, SE02, SE03, SE04, SE05, SE06, SE07, SE10]
+    include_history: true
+    max_pages: 20
+    enabled: true
+
+  - source_id: ut_guidelines
+    name: 국립한국교통대학교 지침
+    kind: ut_guidelines
+    document_type: guideline
+    url: https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do
+    max_pages: 100
+    enabled: true
+
+  - source_id: sanhak_regulations
+    name: 국립한국교통대학교 산학협력단 내부 규정
+    kind: sanhak_regulations
+    document_type: regulation
+    url: https://sanhak.ut.ac.kr/kr/html/sub06/060101.html
+    enabled: true
+
+  - source_id: sanhak_guidelines
+    name: 국립한국교통대학교 산학협력단 내부 지침
+    kind: sanhak_guidelines
+    document_type: guideline
+    url: https://sanhak.ut.ac.kr/kr/html/sub06/060102.html
+    max_pages: 30
+    enabled: true
