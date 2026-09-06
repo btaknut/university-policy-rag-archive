@@ -1,9 +1,8 @@
 name: check-official-sources
 
+# 주기 점검은 Codex 예약 작업이 담당한다.
+# 이 workflow는 원천별 재검증·장애 대응을 위한 수동 fallback이다.
 on:
-  schedule:
-    # 매주 월요일 07:15 KST
-    - cron: '15 22 * * 0'
   workflow_dispatch:
     inputs:
       source_id:
