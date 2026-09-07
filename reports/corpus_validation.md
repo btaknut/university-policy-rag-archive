@@ -1,16 +1,16 @@
 # 코퍼스 검증 보고서
 
-- PASS: 15
-- WARNING: 0
+- PASS: 14
+- WARNING: 1
 - FAIL: 0
 
 ## PASS — 원본 사본 SHA-256
 
 불일치/누락 0건
 
-## PASS — 읽기 전용 통합 아카이브 보존
+## WARNING — 읽기 전용 통합 아카이브 보존
 
-변경/누락 0건
+CI 환경에 로컬 원본이 없어 source manifest와 LFS oid 검증으로 대체
 
 ## PASS — document_id 고유성
 
@@ -32,9 +32,9 @@
 
 누락 0건
 
-## PASS — HWP 파생 PDF 완전성
+## PASS — HWP 파생본 완전성
 
-PDF 누락 0건, 해시 불일치 0건, 메타데이터 오류 0건
+한컴 PDF 847건, portable Markdown 6건, 파생본 누락 0건, PDF 오류 0건, portable 오류 0건
 
 ## PASS — 현행본 단일성
 
