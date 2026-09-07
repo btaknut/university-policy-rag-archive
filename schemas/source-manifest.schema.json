@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["archive_file", "sha256", "file_size", "status", "access_level"],
+  "properties": {
+    "source_id": {"type": ["string", "null"]},
+    "source_record_id": {"type": ["string", "null"]},
+    "archive_file": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "file_size": {"type": "integer", "minimum": 1},
+    "hash_verified": {"type": "boolean"},
+    "access_level": {"enum": ["public", "internal", "restricted", "review_required"]},
+    "source_url_quality": {"enum": ["detail", "list_only", "attachment_only", "unknown"]}
+  }
+}

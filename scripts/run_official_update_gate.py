@@ -101,7 +101,10 @@ def build_pipeline_commands(
         "build_versions.py",
         "build_chunks.py",
         "build_catalog.py",
+        "build_github_catalog.py",
         "validate_corpus.py",
+        "build_search_index.py",
+        "evaluate_retrieval.py",
     ]
     return [apply_command, convert_command] + [
         [python, str(repo / "scripts" / script)] for script in python_steps

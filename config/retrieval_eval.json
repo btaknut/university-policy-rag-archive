@@ -1,0 +1,19 @@
+{
+  "top_k": 5,
+  "minimum_recall_at_k": 1.0,
+  "minimum_mrr": 1.0,
+  "cases": [
+    {"name":"exact-title","query":null,"filters":{"title_exact":"금고지정심의위원회 운영 지침","include_secondary":true},"expected":[{"document_id":"GDL-042b39658af0","version_id":"VER-20260820-a0a46fcd"}]},
+    {"name":"spacing-punctuation","query":"금고 지정 심의 위원회 운영지침","filters":{},"expected":[{"document_id":"GDL-042b39658af0","version_id":"VER-20260820-a0a46fcd"}]},
+    {"name":"department","query":"휴학","filters":{"department":"미래융합대학"},"expected":[{"document_id":"REG-7bd544490bb2","version_id":"VER-20240229-a3ac0e24"}]},
+    {"name":"regulation-type","query":"휴학","filters":{"document_type":"regulation"},"expected":[{"document_id":"REG-7bd544490bb2","version_id":"VER-20240229-a3ac0e24"}]},
+    {"name":"article-number","query":"휴학","filters":{"article_no":"제12조"},"expected":[{"document_id":"REG-7bd544490bb2","version_id":"VER-20240229-a3ac0e24"}]},
+    {"name":"supplementary-provision","query":"부칙","filters":{},"expected":[{"document_id":"GDL-cc6c7f3a04fa","version_id":"VER-20260901-9d8a4735"}]},
+    {"name":"appendix","query":"별표","filters":{"title_exact":"교양교욱과정 편성지침"},"expected":[{"document_id":"GDL-9a218b6ea0a4","version_id":"VER-20170711-ccacaf66"}]},
+    {"name":"include-history","query":"금고지정심의위원회","filters":{"include_history":true},"expected":[{"document_id":"GDL-042b39658af0","version_id":"VER-20210601-c6b4a9ec"}]},
+    {"name":"latest-version","query":"금고지정심의위원회","filters":{},"expected":[{"document_id":"GDL-042b39658af0","version_id":"VER-20260820-a0a46fcd"}],"forbidden_section_kinds":["comparison_old","comparison_new","amendment_reason","major_changes"]},
+    {"name":"unknown-validity-warning","query":"휴학","filters":{"validity_status":"unknown"},"expected":[{"document_id":"REG-7bd544490bb2","version_id":"VER-20240229-a3ac0e24"}]},
+    {"name":"guideline-type","query":"연구비","filters":{"document_type":"guideline"},"expected":[{"document_id":"GDL-bd2fb46667a7","version_id":"VER-20260818-a8cf6c23"}]},
+    {"name":"revision-range","query":"학생","filters":{"revision_from":"2026-01-01"},"expected":[{"document_id":"REG-6454e7fbee68","version_id":"VER-20260226-cca5227d"}]}
+  ]
+}

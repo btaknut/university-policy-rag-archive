@@ -6,8 +6,16 @@
     "document_id": {"type": "string", "pattern": "^(REG|GDL|RUL|MAN|ETC)-[0-9a-f]{12}$"},
     "document_type": {"enum": ["regulation", "guideline", "rule", "manual", "notice", "form", "reference", "unknown"]},
     "title": {"type": "string", "minLength": 1},
+    "alternative_titles": {"type": "array", "items": {"type": "string"}},
     "access_level": {"enum": ["public", "internal", "restricted", "review_required"]},
     "version_group_id": {"type": "string"},
-    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "latest_version_id": {"type": ["string", "null"]},
+    "is_latest_version": {"type": "boolean"},
+    "validity_status": {"enum": ["in_force", "superseded", "abolished", "expired", "unknown"]},
+    "validity_evidence": {"type": ["string", "null"]},
+    "validity_checked_at": {"type": ["string", "null"], "format": "date-time"},
+    "status_confidence": {"enum": ["confirmed", "probable", "unknown"]},
+    "source_url_quality": {"enum": ["detail", "list_only", "attachment_only", "unknown"]}
   }
 }

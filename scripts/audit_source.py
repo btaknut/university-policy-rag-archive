@@ -5,11 +5,11 @@ import collections
 import json
 from pathlib import Path
 
-from common import ROOT, SOURCE_ARCHIVE, candidate_documents, now, scan_text, sha256_file, write_json
+from common import ROOT, SOURCE_ARCHIVE, candidate_documents, now, require_source_archive, scan_text, sha256_file, write_json
 
 
 def main() -> int:
-    if not SOURCE_ARCHIVE.is_dir(): raise FileNotFoundError(f"통합 아카이브가 없습니다: {SOURCE_ARCHIVE}")
+    require_source_archive()
     files = [p for p in SOURCE_ARCHIVE.rglob("*") if p.is_file() and ".git" not in p.parts and ".venv" not in p.parts and "__pycache__" not in p.parts]
     ext = collections.Counter(p.suffix.lower() or "[none]" for p in files); total = sum(p.stat().st_size for p in files)
     from extract_text import legacy_text_index

@@ -13,7 +13,7 @@ def main() -> int:
     if sys.platform == "win32":
         subprocess.run(["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(ROOT/"scripts/convert_hwp_to_pdf.ps1")], cwd=ROOT, check=True)
         subprocess.run([sys.executable, str(ROOT/"scripts/index_pdf_derivatives.py")], cwd=ROOT, check=True)
-    for script in ("build_chunks.py", "build_catalog.py", "validate_corpus.py"):
+    for script in ("build_chunks.py", "build_catalog.py", "build_github_catalog.py", "validate_corpus.py", "build_search_index.py", "evaluate_retrieval.py"):
         subprocess.run([sys.executable, str(ROOT/"scripts"/script)], cwd=ROOT, check=True)
     return 0
 

@@ -7,11 +7,12 @@ import zipfile
 from pathlib import Path
 from xml.etree import ElementTree
 
-from common import ROOT, SOURCE_ARCHIVE, candidate_documents, read_jsonl, strip_front_matter, write_jsonl
+from common import ROOT, SOURCE_ARCHIVE, candidate_documents, read_jsonl, require_source_archive, strip_front_matter, write_jsonl
 
 
 def legacy_text_index() -> dict[str, Path]:
     """기존 규정 ID·지침 ID 메타데이터에서 첨부 해시→정규화 Markdown을 연결한다."""
+    require_source_archive()
     index: dict[str, Path] = {}; reg = SOURCE_ARCHIVE / "data/raw/regulations"
     for meta in (reg / "metadata").glob("*.json"):
         try: obj = json.loads(meta.read_text(encoding="utf-8-sig"))

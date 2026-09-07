@@ -4,6 +4,7 @@ __pycache__/
 .pytest_cache/
 .env
 *.sqlite3
+config/sources.local.yaml
 rag/exports/*.zip
 temp/
 tmp/

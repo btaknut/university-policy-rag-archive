@@ -8,6 +8,12 @@
     "text_for_embedding": {"type": "string", "minLength": 1},
     "token_count": {"type": "integer", "minimum": 1},
     "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-    "access_level": {"const": "public"}
+    "access_level": {"const": "public"},
+    "section_kind": {"enum": ["promulgation_notice", "amendment_reason", "major_changes", "comparison_old", "comparison_new", "operative_text", "supplementary_provision", "appendix", "form", "unknown"]},
+    "retrieval_scope": {"enum": ["primary", "secondary"]},
+    "normative_status": {"enum": ["normative", "historical_context", "non_normative", "unknown"]},
+    "is_latest_version": {"type": "boolean"},
+    "validity_status": {"enum": ["in_force", "superseded", "abolished", "expired", "unknown"]},
+    "status_confidence": {"enum": ["confirmed", "probable", "unknown"]}
   }
 }
