@@ -1,18 +1,18 @@
 ---
-document_id: "GDL-980f83f6be16"
-version_id: "VER-unknown-4e690d71"
-document_type: "guideline"
-title: "가족회사 규정 세부운영지침"
-is_current: true
-current_status: "confirmed"
+document_id: GDL-980f83f6be16
+version_id: VER-unknown-4e690d71
+document_type: guideline
+title: 가족회사 규정 세부운영지침
+is_current: null
+current_status: unknown
 enactment_date: null
 revision_date: null
 effective_date: null
-issuing_organization: "국립한국교통대학교"
-department: "산학협력단"
-source_url: "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardArticle.do?bbsId=BBSMSTR_000000000052&nttId=5070"
-source_file: "sources/raw/guidelines/sources/university_guidelines/raw/posts/5070/attachments/10가족회사규정-세부운영지침.hwp"
-sha256: "4e690d719e2b691db647440a8c1e8c997f612d8916e2c71044d151bc680b71bd"
+issuing_organization: 국립한국교통대학교
+department: 산학협력단
+source_url: https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardArticle.do?bbsId=BBSMSTR_000000000052&nttId=5070
+source_file: sources/raw/guidelines/sources/university_guidelines/raw/posts/5070/attachments/10가족회사규정-세부운영지침.hwp
+sha256: 4e690d719e2b691db647440a8c1e8c997f612d8916e2c71044d151bc680b71bd
 access_level: public
 ---
 

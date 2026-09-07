@@ -1,18 +1,18 @@
 ---
-document_id: "GDL-ff22eab74f58"
-version_id: "VER-unknown-85f22486"
-document_type: "guideline"
-title: "대학원 장학 운영 지침"
-is_current: true
-current_status: "confirmed"
+document_id: GDL-ff22eab74f58
+version_id: VER-unknown-85f22486
+document_type: guideline
+title: 대학원 장학 운영 지침
+is_current: null
+current_status: unknown
 enactment_date: null
 revision_date: null
 effective_date: null
-issuing_organization: "국립한국교통대학교"
-department: "대학원"
-source_url: "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardArticle.do?bbsId=BBSMSTR_000000000052&nttId=5109"
-source_file: "sources/raw/guidelines/sources/university_guidelines/raw/posts/5109/attachments/대학원장학운영지침.hwp"
-sha256: "85f2248661b26ccf03ed3a1730cb9ab7a975f6d998eac5c63d6c91e3209e127f"
+issuing_organization: 국립한국교통대학교
+department: 대학원
+source_url: https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardArticle.do?bbsId=BBSMSTR_000000000052&nttId=5109
+source_file: sources/raw/guidelines/sources/university_guidelines/raw/posts/5109/attachments/대학원장학운영지침.hwp
+sha256: 85f2248661b26ccf03ed3a1730cb9ab7a975f6d998eac5c63d6c91e3209e127f
 access_level: public
 ---
 

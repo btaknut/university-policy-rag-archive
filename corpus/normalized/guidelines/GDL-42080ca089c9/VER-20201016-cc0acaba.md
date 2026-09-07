@@ -1,18 +1,19 @@
 ---
-document_id: "GDL-42080ca089c9"
-version_id: "VER-20201016-cc0acaba"
-document_type: "guideline"
-title: "K+상담이음 통합위원회 구성 및 운영지침 ,"
-is_current: true
-current_status: "confirmed"
+document_id: GDL-42080ca089c9
+version_id: VER-20201016-cc0acaba
+document_type: guideline
+title: K+상담이음 통합위원회 구성 및 운영지침 ,
+is_current: null
+current_status: unknown
 enactment_date: null
-revision_date: "2020-10-16"
+revision_date: '2020-10-16'
 effective_date: null
-issuing_organization: "국립한국교통대학교"
-department: "취업성공지원과"
-source_url: "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardArticle.do?bbsId=BBSMSTR_000000000052&nttId=1036462"
-source_file: "sources/raw/guidelines/sources/university_guidelines/raw/posts/1036462/attachments/한국교통대학교 K+상담이음 통합위원회 구성 및 운영지침(2020.10.16. 지침 제301호).hwp"
-sha256: "cc0acaba82f8c5a1af6d1750705e4c36819ccc1a03c9af8ce4c0ec8511c01c4c"
+issuing_organization: 국립한국교통대학교
+department: 취업성공지원과
+source_url: https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardArticle.do?bbsId=BBSMSTR_000000000052&nttId=1036462
+source_file: sources/raw/guidelines/sources/university_guidelines/raw/posts/1036462/attachments/한국교통대학교
+  K+상담이음 통합위원회 구성 및 운영지침(2020.10.16. 지침 제301호).hwp
+sha256: cc0acaba82f8c5a1af6d1750705e4c36819ccc1a03c9af8ce4c0ec8511c01c4c
 access_level: public
 ---
 
