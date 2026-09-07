@@ -1,10 +1,15 @@
 name: Apply official update
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'reports/codex_official_update_batch_*.json'
   workflow_dispatch:
     inputs:
       mode:
-        description: '계획 검증 또는 Gate 통과 후 draft PR 생성'
+        description: '계획 검증 또는 Gate 통과 후 PR 생성'
         required: true
         default: plan
         type: choice
@@ -16,6 +21,11 @@ on:
         required: true
         default: reports/p1_official_update_batch_2026-09-03.json
         type: string
+      merge_after_gate:
+        description: '모든 Gate 통과 후 생성된 데이터 PR 자동 병합'
+        required: true
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -32,6 +42,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.repository.default_branch }}
           lfs: false
           fetch-depth: 0
       - name: Require default branch
@@ -43,6 +54,59 @@ jobs:
             echo "이 워크플로는 기본 브랜치에서만 실행할 수 있습니다."
             exit 1
           fi
+      - name: Resolve run parameters
+        id: resolve
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          INPUT_MODE: ${{ inputs.mode }}
+          INPUT_BATCH_PATH: ${{ inputs.batch_path }}
+          INPUT_MERGE_AFTER_GATE: ${{ inputs.merge_after_gate }}
+        run: |
+          set -euo pipefail
+          if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
+            mode="${INPUT_MODE}"
+            batch_path="${INPUT_BATCH_PATH}"
+            merge_after_gate="${INPUT_MERGE_AFTER_GATE}"
+          else
+            mapfile -t batch_paths < <(
+              git diff --name-only "${BEFORE_SHA}" "${GITHUB_SHA}" -- \
+                'reports/codex_official_update_batch_*.json'
+            )
+            if [[ "${#batch_paths[@]}" -ne 1 ]]; then
+              echo "자동 실행은 신규 또는 변경 배치 JSON 1개만 허용합니다."
+              printf '%s\n' "${batch_paths[@]}"
+              exit 1
+            fi
+            mode="create_pr"
+            batch_path="${batch_paths[0]}"
+            merge_after_gate="true"
+          fi
+
+          if [[ ! "${batch_path}" =~ ^reports/(codex|p1)_official_update_batch_[0-9]{4}-[0-9]{2}-[0-9]{2}\.json$ ]]; then
+            echo "허용되지 않은 batch_path입니다: ${batch_path}"
+            exit 1
+          fi
+          if [[ ! -f "${batch_path}" ]]; then
+            echo "batch_path 파일을 찾을 수 없습니다: ${batch_path}"
+            exit 1
+          fi
+          if [[ "${mode}" != "plan" && "${mode}" != "create_pr" ]]; then
+            echo "허용되지 않은 mode입니다: ${mode}"
+            exit 1
+          fi
+          if [[ "${merge_after_gate}" != "true" && "${merge_after_gate}" != "false" ]]; then
+            echo "merge_after_gate는 true 또는 false여야 합니다."
+            exit 1
+          fi
+          if [[ "${mode}" != "create_pr" && "${merge_after_gate}" == "true" ]]; then
+            echo "plan 모드에서는 자동 병합을 사용할 수 없습니다."
+            exit 1
+          fi
+          echo "mode=${mode}" >> "${GITHUB_OUTPUT}"
+          echo "batch_path=${batch_path}" >> "${GITHUB_OUTPUT}"
+          echo "merge_after_gate=${merge_after_gate}" >> "${GITHUB_OUTPUT}"
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -54,29 +118,33 @@ jobs:
       - name: Download and verify official files
         run: |
           python scripts/download_official_batch.py \
-            --batch "${{ inputs.batch_path }}" \
+            --batch "${{ steps.resolve.outputs.batch_path }}" \
             --output-dir .artifacts/official-downloads
       - name: Plan only
-        if: inputs.mode == 'plan'
+        if: steps.resolve.outputs.mode == 'plan'
         run: |
           python scripts/run_official_update_gate.py \
-            --batch "${{ inputs.batch_path }}" \
+            --batch "${{ steps.resolve.outputs.batch_path }}" \
             --downloads-dir .artifacts/official-downloads
       - name: Apply portable Gate
-        if: inputs.mode == 'create_pr'
+        if: steps.resolve.outputs.mode == 'create_pr'
         run: |
           python scripts/run_official_update_gate.py \
-            --batch "${{ inputs.batch_path }}" \
+            --batch "${{ steps.resolve.outputs.batch_path }}" \
             --downloads-dir .artifacts/official-downloads \
             --install-unhwp \
             --apply
-      - name: Create draft pull request
-        if: inputs.mode == 'create_pr'
+      - name: Create and optionally merge data pull request
+        if: steps.resolve.outputs.mode == 'create_pr'
+        id: data_pr
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          BATCH_PATH: ${{ steps.resolve.outputs.batch_path }}
+          MERGE_AFTER_GATE: ${{ steps.resolve.outputs.merge_after_gate }}
         run: |
+          set -euo pipefail
           branch="automation/official-update-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           git switch -c "${branch}"
           git config user.name "github-actions[bot]"
@@ -84,14 +152,41 @@ jobs:
           git add -A
           git diff --cached --check
           git lfs status
+          if git diff --cached --quiet; then
+            echo "Gate 통과 후 커밋할 변경이 없습니다."
+            exit 1
+          fi
           git commit -m "data: apply verified official policy updates"
           git push --set-upstream origin "${branch}"
-          gh pr create \
-            --draft \
-            --base "${DEFAULT_BRANCH}" \
-            --head "${branch}" \
-            --title "data: apply verified official policy updates" \
-            --body "공식 원천 배치를 portable HWP Gate로 반영한 자동 생성 초안입니다. 원본·Markdown 해시, 한국어 품질, 코퍼스 검증과 전체 테스트를 통과했습니다. 병합 전 변경 파일과 공식 상세 페이지를 수동 검토하십시오."
+
+          head_sha="$(git rev-parse HEAD)"
+          pr_args=(
+            --base "${DEFAULT_BRANCH}"
+            --head "${branch}"
+            --title "data: apply verified official policy updates"
+            --body "공식 배치 \`${BATCH_PATH}\`를 portable HWP Gate로 반영했습니다. 공식 원문 재다운로드, 파일 크기·SHA-256, 변환 품질, 코퍼스 검증, Git LFS 상태와 전체 테스트를 통과했습니다. 자동 실행에서는 현재 HEAD가 유지된 경우에만 squash 병합합니다."
+          )
+          if [[ "${MERGE_AFTER_GATE}" != "true" ]]; then
+            pr_args+=(--draft)
+          fi
+          pr_url="$(gh pr create "${pr_args[@]}")"
+          echo "pr_url=${pr_url}" >> "${GITHUB_OUTPUT}"
+
+          if [[ "${MERGE_AFTER_GATE}" == "true" ]]; then
+            gh pr merge "${pr_url}" \
+              --squash \
+              --delete-branch \
+              --match-head-commit "${head_sha}"
+            merge_sha="$(gh pr view "${pr_url}" --json mergeCommit --jq '.mergeCommit.oid')"
+            if [[ -z "${merge_sha}" ]]; then
+              echo "병합 커밋을 확인하지 못했습니다."
+              exit 1
+            fi
+            echo "merged=true" >> "${GITHUB_OUTPUT}"
+            echo "merge_sha=${merge_sha}" >> "${GITHUB_OUTPUT}"
+          else
+            echo "merged=false" >> "${GITHUB_OUTPUT}"
+          fi
       - name: Upload Gate artifacts
         if: always()
         uses: actions/upload-artifact@v4
