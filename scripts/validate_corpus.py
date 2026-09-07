@@ -41,7 +41,7 @@ def main() -> int:
     manifest_links={(m["archive_file"],m["sha256"]) for m in manifest}; unlinked_versions=[v["version_id"] for v in versions if (v["source_file"],v["sha256"]) not in manifest_links]
     add("버전-source manifest 연결","PASS" if not unlinked_versions else "FAIL",f"역참조 누락 {len(unlinked_versions)}건")
     latest_bad=[d["document_id"] for d in docs if not d.get("latest_version_id") or by_version.get(d.get("latest_version_id"),{}).get("document_id")!=d["document_id"]]
-    add("latest_version_id 연결","PASS" if not latest_bad else "WARNING",f"불일치/누락 {len(latest_bad)}건; 별도 PR B 보정 대상")
+    add("latest_version_id 연결","PASS" if not latest_bad else "WARNING",f"불일치/누락 {len(latest_bad)}건" + ("; 별도 PR B 보정 대상" if latest_bad else ""))
     missing=[v["version_id"] for v in versions if not (ROOT/v["source_file"]).exists() or (v.get("normalized_file") and not (ROOT/v["normalized_file"]).exists())]
     add("메타데이터 경로","PASS" if not missing else "FAIL",f"누락 {len(missing)}건")
     hwp=[v for v in versions if v["source_file"].lower().endswith(".hwp")]
@@ -73,11 +73,13 @@ def main() -> int:
     add("JSON Schema","PASS" if not schema_errors else "FAIL",f"오류 {len(schema_errors)}건"+("; "+"; ".join(schema_errors[:5]) if schema_errors else ""))
     current_docs=read_jsonl(ROOT/"metadata/current_documents.jsonl"); expected_current=[d for d in docs if d.get("is_current") is True and d.get("latest_version_id")]
     add("current_documents 부분집합","PASS" if current_docs==expected_current else "FAIL",f"기대 {len(expected_current)}건, 실제 {len(current_docs)}건")
+    latest_path=ROOT/"metadata/latest_documents.jsonl"; latest_docs=read_jsonl(latest_path); expected_latest=[d for d in docs if d.get("latest_version_id")]
+    add("latest_documents 부분집합",("PASS" if latest_docs==expected_latest else "FAIL") if latest_path.exists() else "WARNING",f"기대 {len(expected_latest)}건, 실제 {len(latest_docs)}건" + ("; PR B 생성 대상" if not latest_path.exists() else ""))
     catalog=read_jsonl(ROOT/"rag/document_catalog.jsonl"); add("document_catalog 일치","PASS" if catalog==docs else "FAIL",f"문서 {len(docs)}건, 카탈로그 {len(catalog)}건")
     manifest_ok=corpus.get("documents")==len(docs) and corpus.get("versions")==len(versions) and corpus.get("chunks")==len(chunks) and corpus.get("sha256",{}).get("documents")==sha256_file(ROOT/"metadata/documents.jsonl") and corpus.get("sha256",{}).get("chunks")==sha256_file(ROOT/"rag/chunks.jsonl")
     add("corpus_manifest 수량·해시","PASS" if manifest_ok else "FAIL","기준 데이터와 일치" if manifest_ok else "수량 또는 SHA-256 불일치")
     semantic_missing=sum(1 for v in versions if not all(k in v for k in ("is_latest_version","validity_status","status_confidence","source_url_quality")))
-    add("시행상태 신규 필드","PASS" if not semantic_missing else "WARNING",f"미보강 버전 {semantic_missing}건; PR B에서 추정 없이 이관")
+    add("시행상태 신규 필드","PASS" if not semantic_missing else "WARNING",f"미보강 버전 {semantic_missing}건" + ("; PR B에서 추정 없이 이관" if semantic_missing else ""))
     front_errors=[]
     for version in versions:
         if not version.get("normalized_file"): continue
@@ -88,7 +90,7 @@ def main() -> int:
         front=yaml.safe_load(match.group(1)) or {}
         for key in ("document_id","version_id","title","sha256","is_current","current_status"):
             if key in front and front.get(key)!=version.get(key): front_errors.append(f"{version['version_id']}:{key}")
-    add("normalized front matter","PASS" if not front_errors else "WARNING",f"불일치/누락 {len(front_errors)}건; PR B 재생성 대상")
+    add("normalized front matter","PASS" if not front_errors else "WARNING",f"불일치/누락 {len(front_errors)}건" + ("; PR B 재생성 대상" if front_errors else ""))
     export=ROOT/"rag/exports/university_policy_rag_bundle/chunks.jsonl"; duplicate=export.stat().st_size if export.exists() else 0
     export_state="현재 청크와 동일" if duplicate and sha256_file(export)==sha256_file(ROOT/"rag/chunks.jsonl") else "현재 청크와 불일치(오래된 bundle)"
     add("대용량 중복 export","PASS" if not duplicate else "WARNING",f"중복 산출물 {duplicate:,} bytes, {export_state}; 소비 경로 전환 후 별도 PR에서 제거")

@@ -1,7 +1,7 @@
 # 코퍼스 검증 보고서
 
 - PASS: 20
-- WARNING: 5
+- WARNING: 6
 - FAIL: 0
 
 ## PASS — 원본 사본 SHA-256
@@ -79,6 +79,10 @@
 ## PASS — current_documents 부분집합
 
 기대 337건, 실제 337건
+
+## WARNING — latest_documents 부분집합
+
+기대 337건, 실제 0건; PR B 생성 대상
 
 ## PASS — document_catalog 일치
 

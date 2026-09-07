@@ -20,7 +20,8 @@ def deterministic_generated_at(rows: list[dict]) -> str:
 def main() -> int:
     docs = read_jsonl(ROOT / "metadata/documents.jsonl"); versions = read_jsonl(ROOT / "metadata/versions.jsonl"); chunks = read_jsonl(ROOT / "rag/chunks.jsonl")
     current = [d for d in docs if d.get("is_current") is True and d.get("latest_version_id")]
-    write_jsonl(ROOT / "metadata/current_documents.jsonl", current); write_jsonl(ROOT / "metadata/latest_documents.jsonl", current); write_jsonl(ROOT / "rag/document_catalog.jsonl", docs)
+    latest = [d for d in docs if d.get("latest_version_id")]
+    write_jsonl(ROOT / "metadata/current_documents.jsonl", current); write_jsonl(ROOT / "metadata/latest_documents.jsonl", latest); write_jsonl(ROOT / "rag/document_catalog.jsonl", docs)
     manifest = {"corpus_id": "knut-university-policy", "generated_at": deterministic_generated_at(docs+versions), "documents": len(docs), "versions": len(versions), "current_documents": len(current), "chunks": len(chunks), "document_types": Counter(d["document_type"] for d in docs), "sha256": {"documents": sha256_file(ROOT/"metadata/documents.jsonl"), "chunks": sha256_file(ROOT/"rag/chunks.jsonl")}}
     write_json(ROOT / "rag/corpus_manifest.json", manifest)
     evaluation=json.loads((ROOT/"config/retrieval_eval.json").read_text(encoding="utf-8"))
