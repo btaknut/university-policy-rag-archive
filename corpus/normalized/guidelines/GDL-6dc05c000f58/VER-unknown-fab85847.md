@@ -1,18 +1,19 @@
 ---
-document_id: "GDL-6dc05c000f58"
-version_id: "VER-unknown-fab85847"
-document_type: "guideline"
-title: "학생 지도교수제 운영지침 2023.4.4"
-is_current: true
-current_status: "confirmed"
+document_id: GDL-6dc05c000f58
+version_id: VER-unknown-fab85847
+document_type: guideline
+title: 학생 지도교수제 운영지침 2023.4.4
+is_current: null
+current_status: unknown
 enactment_date: null
 revision_date: null
 effective_date: null
-issuing_organization: "국립한국교통대학교"
-department: "학사관리과"
-source_url: "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardArticle.do?bbsId=BBSMSTR_000000000052&nttId=1010786"
-source_file: "sources/raw/guidelines/sources/university_guidelines/raw/posts/1010786/attachments/붙임1 학생 지도교수제 운영 지침.hwp"
-sha256: "fab8584751fe93b784c1e73ef63fc1c4c954c3ae6559065f737925a9b897aedb"
+issuing_organization: 국립한국교통대학교
+department: 학사관리과
+source_url: https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardArticle.do?bbsId=BBSMSTR_000000000052&nttId=1010786
+source_file: sources/raw/guidelines/sources/university_guidelines/raw/posts/1010786/attachments/붙임1
+  학생 지도교수제 운영 지침.hwp
+sha256: fab8584751fe93b784c1e73ef63fc1c4c954c3ae6559065f737925a9b897aedb
 access_level: public
 ---
 

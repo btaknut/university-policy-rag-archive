@@ -1,7 +1,7 @@
 # 코퍼스 검증 보고서
 
-- PASS: 20
-- WARNING: 6
+- PASS: 24
+- WARNING: 2
 - FAIL: 0
 
 ## PASS — 원본 사본 SHA-256
@@ -40,9 +40,9 @@
 
 역참조 누락 0건
 
-## WARNING — latest_version_id 연결
+## PASS — latest_version_id 연결
 
-불일치/누락 66건; 별도 PR B 보정 대상
+불일치/누락 0건
 
 ## PASS — 메타데이터 경로
 
@@ -80,9 +80,9 @@
 
 기대 337건, 실제 337건
 
-## WARNING — latest_documents 부분집합
+## PASS — latest_documents 부분집합
 
-기대 337건, 실제 0건; PR B 생성 대상
+기대 403건, 실제 403건
 
 ## PASS — document_catalog 일치
 
@@ -92,13 +92,13 @@
 
 기준 데이터와 일치
 
-## WARNING — 시행상태 신규 필드
+## PASS — 시행상태 신규 필드
 
-미보강 버전 864건; PR B에서 추정 없이 이관
+미보강 버전 0건
 
-## WARNING — normalized front matter
+## PASS — normalized front matter
 
-불일치/누락 128건; PR B 재생성 대상
+불일치/누락 0건
 
 ## WARNING — 대용량 중복 export
 

@@ -1,6 +1,6 @@
 {
   "corpus_id": "knut-university-policy",
-  "generated_at": "2026-09-07T02:37:31.743919+00:00",
+  "generated_at": "2026-09-07T02:37:19.260610+00:00",
   "documents": 403,
   "versions": 864,
   "current_documents": 337,
@@ -10,7 +10,7 @@
     "regulation": 132
   },
   "sha256": {
-    "documents": "8725e3fd86acfbf7ce1c9e02c26f92bbfda72cc255a111c43204d9a33bed2c73",
-    "chunks": "3b3b43ac171ca657999cb79c56139ac10596b45c6170196ec385adfb5434a065"
+    "documents": "47dfb549e2633afc7dfb1fde711cad52a43b5bdbe302bdba79c2f79c57161a8a",
+    "chunks": "607e9a673012bb7d6af75a457a6d835c6df5be433f6d97f9f09fccb2dbb1f10a"
   }
 }

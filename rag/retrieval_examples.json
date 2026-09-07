@@ -1,202 +1,153 @@
 [
   {
-    "query": "학칙에서 휴학 관련 조문 검색",
+    "query": null,
+    "filters": {
+      "title_exact": "금고지정심의위원회 운영 지침",
+      "include_secondary": true
+    },
     "expected": [
       {
-        "document_id": "GDL-de27d4f0d61c",
-        "version_id": "VER-20180201-06de0a9a",
-        "article_no": "제7조",
-        "chunk_id": "CHK-VER-20180201-06de0a9a-0008-제7조-001"
-      },
-      {
-        "document_id": "GDL-868f2a0c4e64",
-        "version_id": "VER-unknown-65e655ab",
-        "article_no": "제3조",
-        "chunk_id": "CHK-VER-unknown-65e655ab-0004-제3조-001"
-      },
-      {
-        "document_id": "GDL-be86f4cd3cbe",
-        "version_id": "VER-unknown-0f0c4a66",
-        "article_no": null,
-        "chunk_id": "CHK-VER-unknown-0f0c4a66-0001-section-1-002"
-      },
-      {
-        "document_id": "GDL-be86f4cd3cbe",
-        "version_id": "VER-20191015-6e1f9db4",
-        "article_no": "제8조",
-        "chunk_id": "CHK-VER-20191015-6e1f9db4-0009-제8조-001"
-      },
-      {
-        "document_id": "GDL-e4f7344f8716",
-        "version_id": "VER-unknown-729c1a39",
-        "article_no": null,
-        "chunk_id": "CHK-VER-unknown-729c1a39-0001-section-1-003"
+        "document_id": "GDL-042b39658af0",
+        "version_id": "VER-20260820-a0a46fcd"
       }
     ],
-    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
   },
   {
-    "query": "수강신청 관련 규정 검색",
+    "query": "금고 지정 심의 위원회 운영지침",
+    "filters": {},
     "expected": [
       {
-        "document_id": "GDL-868f2a0c4e64",
-        "version_id": "VER-unknown-65e655ab",
-        "article_no": "제7조",
-        "chunk_id": "CHK-VER-unknown-65e655ab-0008-제7조-001"
-      },
-      {
-        "document_id": "GDL-e4f7344f8716",
-        "version_id": "VER-unknown-729c1a39",
-        "article_no": null,
-        "chunk_id": "CHK-VER-unknown-729c1a39-0001-section-1-003"
-      },
-      {
-        "document_id": "GDL-e4f7344f8716",
-        "version_id": "VER-unknown-729c1a39",
-        "article_no": null,
-        "chunk_id": "CHK-VER-unknown-729c1a39-0001-section-1-004"
-      },
-      {
-        "document_id": "GDL-e4f7344f8716",
-        "version_id": "VER-unknown-729c1a39",
-        "article_no": null,
-        "chunk_id": "CHK-VER-unknown-729c1a39-0001-section-1-005"
-      },
-      {
-        "document_id": "GDL-e4f7344f8716",
-        "version_id": "VER-unknown-729c1a39",
-        "article_no": null,
-        "chunk_id": "CHK-VER-unknown-729c1a39-0001-section-1-006"
+        "document_id": "GDL-042b39658af0",
+        "version_id": "VER-20260820-a0a46fcd"
       }
     ],
-    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
   },
   {
-    "query": "장학금 관련 규정과 지침 동시 검색",
+    "query": "휴학",
+    "filters": {
+      "department": "미래융합대학"
+    },
     "expected": [
       {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20151104-85d0c354",
-        "article_no": "제9조",
-        "chunk_id": "CHK-VER-20151104-85d0c354-0010-제9조-001"
-      },
-      {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20210609-5ad57340",
-        "article_no": "제7조",
-        "chunk_id": "CHK-VER-20210609-5ad57340-0004-제7조-004"
-      },
-      {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20221114-995c7c1b",
-        "article_no": null,
-        "chunk_id": "CHK-VER-20221114-995c7c1b-0001-section-1-004"
-      },
-      {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20240509-a6ebbc54",
-        "article_no": null,
-        "chunk_id": "CHK-VER-20240509-a6ebbc54-0001-section-1-004"
-      },
-      {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20240926-ae359b19",
-        "article_no": "제9조",
-        "chunk_id": "CHK-VER-20240926-ae359b19-0010-제9조-001"
+        "document_id": "REG-7bd544490bb2",
+        "version_id": "VER-20240229-a3ac0e24"
       }
     ],
-    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
   },
   {
-    "query": "동일 제목 문서의 최신 개정본 검색",
-    "expected": [],
-    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
-  },
-  {
-    "query": "폐지되거나 과거 버전인 문서 검색",
-    "expected": [],
-    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
-  },
-  {
-    "query": "특정 부서가 담당하는 지침 검색",
-    "expected": [],
-    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
-  },
-  {
-    "query": "규정과 지침이 동시에 검색되는 경우 유형별 구분",
-    "expected": [],
-    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
-  },
-  {
-    "query": "조문 번호로 직접 검색",
+    "query": "휴학",
+    "filters": {
+      "document_type": "regulation"
+    },
     "expected": [
       {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20151104-85d0c354",
-        "article_no": "제1조",
-        "chunk_id": "CHK-VER-20151104-85d0c354-0002-제1조-001"
-      },
-      {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20210609-5ad57340",
-        "article_no": "제7조",
-        "chunk_id": "CHK-VER-20210609-5ad57340-0004-제7조-002"
-      },
-      {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20221114-995c7c1b",
-        "article_no": null,
-        "chunk_id": "CHK-VER-20221114-995c7c1b-0001-section-1-002"
-      },
-      {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20240509-a6ebbc54",
-        "article_no": null,
-        "chunk_id": "CHK-VER-20240509-a6ebbc54-0001-section-1-002"
-      },
-      {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20240926-ae359b19",
-        "article_no": "제1조",
-        "chunk_id": "CHK-VER-20240926-ae359b19-0002-제1조-001"
+        "document_id": "REG-7bd544490bb2",
+        "version_id": "VER-20240229-a3ac0e24"
       }
     ],
-    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
   },
   {
-    "query": "별표 또는 별지 검색",
+    "query": "휴학",
+    "filters": {
+      "article_no": "제12조"
+    },
     "expected": [
       {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20151104-85d0c354",
-        "article_no": "제6조",
-        "chunk_id": "CHK-VER-20151104-85d0c354-0007-제6조-001"
-      },
-      {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20151104-85d0c354",
-        "article_no": "제8조",
-        "chunk_id": "CHK-VER-20151104-85d0c354-0009-제8조-001"
-      },
-      {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20151104-85d0c354",
-        "article_no": "제10조",
-        "chunk_id": "CHK-VER-20151104-85d0c354-0011-제10조-001"
-      },
-      {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20210609-5ad57340",
-        "article_no": "제4조",
-        "chunk_id": "CHK-VER-20210609-5ad57340-0003-제4조-001"
-      },
-      {
-        "document_id": "GDL-2a8d06b8d2d1",
-        "version_id": "VER-20210609-5ad57340",
-        "article_no": "제7조",
-        "chunk_id": "CHK-VER-20210609-5ad57340-0004-제7조-001"
+        "document_id": "REG-7bd544490bb2",
+        "version_id": "VER-20240229-a3ac0e24"
       }
     ],
-    "validation": "현재 실제 코퍼스의 문서 ID와 조문 위치를 기준으로 생성; 빈 기대값은 수동 필터 검증 사례"
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "부칙",
+    "filters": {},
+    "expected": [
+      {
+        "document_id": "GDL-cc6c7f3a04fa",
+        "version_id": "VER-20260901-9d8a4735"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "별표",
+    "filters": {
+      "title_exact": "교양교욱과정 편성지침"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-9a218b6ea0a4",
+        "version_id": "VER-20170711-ccacaf66"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "금고지정심의위원회",
+    "filters": {
+      "include_history": true
+    },
+    "expected": [
+      {
+        "document_id": "GDL-042b39658af0",
+        "version_id": "VER-20210601-c6b4a9ec"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "금고지정심의위원회",
+    "filters": {},
+    "expected": [
+      {
+        "document_id": "GDL-042b39658af0",
+        "version_id": "VER-20260820-a0a46fcd"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "휴학",
+    "filters": {
+      "validity_status": "unknown"
+    },
+    "expected": [
+      {
+        "document_id": "REG-7bd544490bb2",
+        "version_id": "VER-20240229-a3ac0e24"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "연구비",
+    "filters": {
+      "document_type": "guideline"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-bd2fb46667a7",
+        "version_id": "VER-20260818-a8cf6c23"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "학생",
+    "filters": {
+      "revision_from": "2026-01-01"
+    },
+    "expected": [
+      {
+        "document_id": "REG-6454e7fbee68",
+        "version_id": "VER-20260226-cca5227d"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
   }
 ]
