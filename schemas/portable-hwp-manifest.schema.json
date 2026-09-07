@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["version_id", "document_id", "source_file", "source_sha256", "normalized_file", "normalized_sha256", "tool", "tool_version", "status"],
+  "properties": {
+    "version_id": {"type": "string"}, "document_id": {"type": "string"},
+    "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "normalized_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "status": {"enum": ["converted", "failed", "skipped"]},
+    "text_chars": {"type": "integer", "minimum": 0}, "hangul_chars": {"type": "integer", "minimum": 0},
+    "hangul_ratio": {"type": "number", "minimum": 0, "maximum": 1}, "replacement_chars": {"type": "integer", "minimum": 0}
+  }
+}

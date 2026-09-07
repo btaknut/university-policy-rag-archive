@@ -41,8 +41,11 @@ def test_pipeline_command_order(tmp_path: Path):
     assert "build_versions.py" in rendered[2]
     assert "build_chunks.py" in rendered[3]
     assert "build_catalog.py" in rendered[4]
-    assert "validate_corpus.py" in rendered[5]
-    assert rendered[6].endswith("-m pytest -q")
+    assert "build_github_catalog.py" in rendered[5]
+    assert "validate_corpus.py" in rendered[6]
+    assert "build_search_index.py" in rendered[7]
+    assert "evaluate_retrieval.py" in rendered[8]
+    assert rendered[9].endswith("-m pytest -q")
 
 
 def test_verify_gate_versions_accepts_portable_markdown(tmp_path: Path):

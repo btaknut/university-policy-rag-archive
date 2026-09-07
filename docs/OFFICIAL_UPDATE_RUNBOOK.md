@@ -70,8 +70,9 @@ python scripts/run_official_update_gate.py \
 5. 제목 존재, 본문 200자 이상, 한글 80자 이상, 한글 비율 0.15 이상, Unicode 대체문자 0건 검증
 6. Markdown SHA-256과 변환 지표를 버전·문서·portable manifest에 기록
 7. 버전 링크, RAG 청크, 카탈로그 재생성
-8. JSON Schema·현행본 단일성·원본/파생본 해시·청크 검증
-9. 전체 단위 테스트와 HWP Git LFS 속성 검증
+8. GitHub 탐색 카탈로그와 로컬 SQLite 검색 인덱스 생성
+9. JSON Schema·버전 체인·원본/파생본 해시·검색 회귀평가
+10. 전체 단위 테스트와 HWP Git LFS 속성 검증
 
 스크립트는 `git add`, commit, push, PR 병합을 수행하지 않는다.
 
@@ -80,8 +81,10 @@ python scripts/run_official_update_gate.py \
 Actions의 `Apply official update`를 수동 실행한다.
 
 - `mode=plan`: 공식 파일을 다시 받고 계획 검증만 수행한다.
-- `mode=create_pr`: 전체 Gate를 통과한 변경만 새 브랜치에 commit하고 draft PR을 만든다.
-- 워크플로는 PR을 병합하거나 기본 브랜치에 직접 push하지 않는다.
+- `mode=create_pr`: 전체 Gate를 통과한 허용 경로의 변경만 새 브랜치에 commit하고 데이터 PR을 만든다.
+- `merge_after_gate=false`: 데이터 PR을 draft로 남긴다.
+- `merge_after_gate=true`: 필수 상태 검사 성공, Gate 커밋과 PR HEAD 일치, Gate 시작 후 `main` 불변, 충돌 없음이 모두 확인될 때만 일반 squash 병합한다.
+- 관리자 우회 병합은 사용하지 않는다. 필수 검사가 없거나 Actions의 PR 생성 권한이 없으면 PR을 남기거나 생성 단계에서 실패한다.
 
 실패 여부와 관계없이 다운로드 및 Gate 보고서는 workflow artifact로 남는다.
 
@@ -100,6 +103,7 @@ git lfs status
 - `metadata/portable_hwp_manifest.jsonl`
 - `metadata/current_documents.jsonl`
 - `rag/chunks.jsonl`, `rag/document_catalog.jsonl`, `rag/corpus_manifest.json`
+- `catalog/`의 GitHub 탐색용 Markdown
 - `reports/hwp_portable_conversion.md`, `reports/corpus_validation.md`
 
 ## 실패 처리
@@ -113,3 +117,5 @@ git lfs status
 - 코퍼스 검증 실패: commit·push하지 않고 검증 보고서의 FAIL 항목을 수정한다.
 
 기존 `sync_archive.py`는 레거시 로컬 아카이브 전체를 다시 구축하는 경로이므로 공식 웹 증분 배치 반영에는 사용하지 않는다.
+
+레거시 전체 동기화에는 `UNIVERSITY_POLICY_SOURCE_ROOT`가 필요하다. 개인 PC 경로는 `config/sources.local.yaml`에만 두고 커밋하지 않는다. 공식 웹 증분 Gate는 이 환경변수 없이 동작한다.

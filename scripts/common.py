@@ -4,6 +4,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -12,11 +13,12 @@ from typing import Any, Iterable
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE_ARCHIVE = Path(r"C:\Users\kwon\Documents\university_policy_archive")
+_source_root = os.environ.get("UNIVERSITY_POLICY_SOURCE_ROOT")
+SOURCE_ARCHIVE = Path(_source_root).expanduser().resolve() if _source_root else ROOT / ".unconfigured-source-archive"
 SOURCE_DOCS = SOURCE_ARCHIVE / "metadata" / "documents.jsonl"
 DOCUMENT_FIELDS = ["document_id", "document_type", "title", "alternative_titles", "category", "subcategory", "issuing_organization", "department", "authority_level", "access_level", "source_archive", "source_url", "source_page_url", "original_filename", "source_relative_path", "normalized_relative_path", "enactment_date", "revision_date", "effective_date", "abolition_date", "current_status", "is_current", "version_group_id", "latest_version_id", "file_extension", "mime_type", "file_size", "sha256", "text_extraction_status", "metadata_confidence", "collected_at", "updated_at", "notes"]
 VERSION_FIELDS = ["version_id", "document_id", "version_group_id", "revision_date", "effective_date", "source_file", "normalized_file", "sha256", "is_current", "current_status", "previous_version_id", "next_version_id", "change_summary", "version_confidence", "access_level", "title", "document_type", "category", "department", "authority_level", "source_url", "source_page_url", "enactment_date", "file_size", "mime_type", "text_extraction_status"]
-CHUNK_FIELDS = ["chunk_id", "document_id", "version_id", "version_group_id", "document_type", "title", "category", "department", "authority_level", "access_level", "is_current", "current_status", "enactment_date", "revision_date", "effective_date", "section_path", "chapter", "section", "article_no", "article_title", "paragraph_no", "item_no", "appendix_no", "page_start", "page_end", "chunk_index", "text", "text_for_embedding", "token_count", "source_url", "source_file", "normalized_file", "sha256", "citation_label"]
+CHUNK_FIELDS = ["chunk_id", "chunk_schema_version", "document_id", "version_id", "version_group_id", "document_type", "title", "category", "department", "authority_level", "access_level", "is_current", "current_status", "is_latest_version", "validity_status", "status_confidence", "enactment_date", "revision_date", "effective_date", "section_path", "section_kind", "retrieval_scope", "normative_status", "chapter", "section", "article_no", "article_title", "paragraph_no", "item_no", "appendix_no", "page_start", "page_end", "chunk_index", "text", "text_for_embedding", "token_count", "source_url", "source_file", "normalized_file", "sha256", "citation_label"]
 REAL_DOCUMENT_EXTENSIONS = {".pdf", ".hwp", ".hwpx", ".docx", ".xlsx", ".xls"}
 TEXT_EXTENSIONS = {".txt", ".md", ".html", ".htm", ".json", ".jsonl", ".csv", ".yaml", ".yml", ".py", ".ps1"}
 
@@ -110,7 +112,20 @@ def version_id(revision_date: str | None, digest: str) -> str:
 
 def candidate_documents() -> list[dict[str, Any]]:
     """기존 고신뢰도 첨부 문서만 실제 규정·지침 후보로 선택한다."""
+    require_source_archive()
     return [d for d in read_jsonl(SOURCE_DOCS) if d.get("metadata_confidence") == "high" and d.get("file_extension", "").lower() in REAL_DOCUMENT_EXTENSIONS]
+
+
+def require_source_archive() -> Path:
+    """레거시 전체 동기화용 로컬 원본을 명시적으로 요구한다."""
+    if not _source_root:
+        raise RuntimeError(
+            "레거시 전체 동기화에는 UNIVERSITY_POLICY_SOURCE_ROOT가 필요합니다. "
+            "config/sources.example.yaml을 참고하십시오. 공식 웹 증분 Gate에는 필요하지 않습니다."
+        )
+    if not SOURCE_ARCHIVE.is_dir():
+        raise FileNotFoundError(f"UNIVERSITY_POLICY_SOURCE_ROOT가 가리키는 디렉터리가 없습니다: {SOURCE_ARCHIVE}")
+    return SOURCE_ARCHIVE
 
 
 def scan_text(text: str) -> list[str]:

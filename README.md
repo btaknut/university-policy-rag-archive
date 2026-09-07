@@ -8,7 +8,7 @@
 - `corpus/normalized`: 버전별 UTF-8 Markdown과 YAML front matter.
 - `rag`: 한국어 법규 구조 기반 청크, 문서 카탈로그, 재현 가능한 manifest와 export bundle.
 
-메타데이터는 `metadata/documents.jsonl`, `metadata/versions.jsonl`, `metadata/source_manifest.jsonl`에 연결된다. 불명확한 최신본은 `current_status=unknown`이며 자동 확정하지 않는다.
+메타데이터는 `metadata/documents.jsonl`, `metadata/versions.jsonl`, `metadata/source_manifest.jsonl`에 연결된다. 기존 `is_current`는 **최신 확보본 표시**이며 법적 의미의 현행 시행 여부가 아니다. 시행상태는 `validity_status`와 공식 근거로 별도 관리하고, 근거가 없으면 `unknown`이다.
 
 ## 설치와 전체 실행
 
@@ -28,7 +28,10 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts\convert_hwp_to_pdf.p
 python scripts\index_pdf_derivatives.py
 python scripts\build_chunks.py
 python scripts\build_catalog.py
+python scripts\build_github_catalog.py
 python scripts\validate_corpus.py
+python scripts\build_search_index.py
+python scripts\evaluate_retrieval.py
 python -m pytest -q
 python scripts\export_rag_bundle.py --zip
 ```
@@ -39,9 +42,20 @@ python scripts\export_rag_bundle.py --zip
 
 Windows에서 한컴오피스 2020 COM 자동화를 이용해 HWP 원본을 `corpus/pdf/{regulations,guidelines}/{document_id}/{version_id}.pdf`로 변환한다. 원본 HWP는 변경하지 않는다. PDF는 페이지 수·텍스트 레이어·SHA-256을 검증하며 기존 텍스트가 없던 버전은 PDF 텍스트로 Markdown을 생성한다. 대량 변환은 `python scripts\run_hwp_conversion_parallel.py run --shards 4`를 사용할 수 있다. PDF는 Git LFS로 관리되어 ChatGPT와 일반 PDF 도구가 문서 내용을 열람할 수 있다.
 
+## 로컬 검색
+
+```powershell
+python scripts\build_search_index.py
+python scripts\search_corpus.py "휴학" --type regulation --format table
+python scripts\search_corpus.py "연구비" --department 산학협력단 --include-history --format json
+python scripts\search_corpus.py --title-exact "금고지정심의위원회 운영 지침" --include-secondary
+```
+
+검색 DB는 `.artifacts/search`에 만들며 커밋하지 않는다. 기본 검색은 최신 확보 버전과 규범 본문·부칙·별표·서식만 대상으로 한다. `--current-only`는 `validity_status=in_force`이고 근거 신뢰도가 `confirmed`인 문서만 반환한다. 개정사유와 신구조문 대비표는 `--include-secondary`를 명시해야 검색된다.
+
 ## 상위 RAG와 검색 필터
 
-상위 프로젝트는 이 저장소를 Git submodule 또는 데이터 배포물로 참조한다. 기본 검색은 `is_current=true`, `access_level=public`로 제한하고, 과거본 검색 시 명시적으로 범위를 넓힌다. 청크의 `source_file`, `source_url`, `article_no`, `revision_date`, `sha256`, `citation_label`을 답변 근거로 유지한다. 자세한 절차는 [RAG_INTEGRATION.md](RAG_INTEGRATION.md)를 참고한다.
+상위 프로젝트는 이 저장소를 Git submodule 또는 데이터 배포물로 참조한다. 기본 검색은 `is_latest_version=true`, `access_level=public`, `retrieval_scope=primary`로 제한하고, 법적 현행본 검색은 확인된 `validity_status=in_force`를 추가한다. 청크의 `source_file`, `source_url`, `article_no`, `revision_date`, `sha256`, `citation_label`을 답변 근거로 유지한다. 자세한 절차는 [RAG_INTEGRATION.md](RAG_INTEGRATION.md)를 참고한다.
 
 ## 보안·Git LFS
 

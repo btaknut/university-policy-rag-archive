@@ -1,12 +1,12 @@
+# 레거시 전체 아카이브 이관 전용 예시다. 공식 웹 증분 Gate와는 별개다.
+# 먼저 UNIVERSITY_POLICY_SOURCE_ROOT를 로컬 아카이브 루트로 설정한다.
 sources:
   - source_id: integrated_regulations
-    name: 국립한국교통대학교 규정 통합 아카이브
     document_type: regulation
     root_path: '${UNIVERSITY_POLICY_SOURCE_ROOT}/data/raw/regulations'
     target_path: sources/raw/regulations
     enabled: true
   - source_id: integrated_guidelines
-    name: 국립한국교통대학교 지침 통합 아카이브
     document_type: guideline
     root_path: '${UNIVERSITY_POLICY_SOURCE_ROOT}/data/raw/guidelines'
     target_path: sources/raw/guidelines

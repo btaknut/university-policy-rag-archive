@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object", "required": ["corpus_id", "documents", "versions", "current_documents", "chunks", "sha256"],
+  "properties": {
+    "corpus_id": {"type": "string", "minLength": 1}, "generated_at": {"type": "string"},
+    "documents": {"type": "integer", "minimum": 0}, "versions": {"type": "integer", "minimum": 0},
+    "current_documents": {"type": "integer", "minimum": 0}, "chunks": {"type": "integer", "minimum": 0},
+    "sha256": {"type": "object", "required": ["documents", "chunks"], "properties": {"documents": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "chunks": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}}
+  }
+}
