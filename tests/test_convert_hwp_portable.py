@@ -10,7 +10,12 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from convert_hwp_portable import analyze_markdown, quality_errors, sha256_file
+from convert_hwp_portable import (
+    analyze_markdown,
+    normalize_markdown_whitespace,
+    quality_errors,
+    sha256_file,
+)
 
 
 def write_jsonl(path: Path, rows: list[dict]) -> None:
@@ -35,6 +40,11 @@ def test_quality_gate_rejects_garbled_text():
     assert any("한글" in error for error in errors)
     assert any("replacement" in error for error in errors)
     assert any("제목" in error for error in errors)
+
+
+def test_normalize_markdown_whitespace_removes_line_endings():
+    text = "첫 줄  \r\n > \t\n둘째 줄\t\n"
+    assert normalize_markdown_whitespace(text) == "첫 줄\n >\n둘째 줄\n"
 
 
 def test_portable_conversion_updates_markdown_and_metadata(tmp_path: Path):
@@ -86,7 +96,7 @@ def test_portable_conversion_updates_markdown_and_metadata(tmp_path: Path):
         "    print('unhwp 0.9.1')\n"
         "else:\n"
         "    output = pathlib.Path(sys.argv[sys.argv.index('--output') + 1])\n"
-        "    body = '예시 운영 지침\\n제1조(목적) ' + '이 지침의 목적과 적용 범위를 정한다. ' * 15\n"
+        "    body = '예시 운영 지침  \\n제1조(목적) ' + '이 지침의 목적과 적용 범위를 정한다. ' * 15 + '  \\n'\n"
         "    output.write_text(body, encoding='utf-8')\n",
         encoding="utf-8",
     )
@@ -114,4 +124,6 @@ def test_portable_conversion_updates_markdown_and_metadata(tmp_path: Path):
     assert updated["portable_extraction_version"] == "0.9.1"
     assert updated["portable_markdown_sha256"] == sha256_file(normalized)
     assert updated["pdf_conversion_status"] == "not_generated_portable"
-    assert "extraction_method: \"unhwp-0.9.1\"" in normalized.read_text(encoding="utf-8")
+    normalized_text = normalized.read_text(encoding="utf-8")
+    assert "extraction_method: \"unhwp-0.9.1\"" in normalized_text
+    assert all(line == line.rstrip(" \t") for line in normalized_text.splitlines())

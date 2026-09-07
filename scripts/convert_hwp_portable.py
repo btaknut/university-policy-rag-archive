@@ -101,6 +101,11 @@ def quality_errors(metrics: dict[str, Any]) -> list[str]:
     return errors
 
 
+def normalize_markdown_whitespace(text: str) -> str:
+    """Normalize generated Markdown so Git rejects no line-ending whitespace."""
+    return "\n".join(line.rstrip(" \t") for line in text.splitlines()) + "\n"
+
+
 def build_markdown(version: dict[str, Any], document: dict[str, Any], body: str) -> str:
     fields = [
         ("document_id", version["document_id"]),
@@ -290,7 +295,9 @@ def main() -> int:
 
             extracted = temp_dir / f"{version_id}.md"
             try:
-                body = convert_one(binary, source, extracted)
+                body = normalize_markdown_whitespace(
+                    convert_one(binary, source, extracted)
+                )
             except (OSError, subprocess.SubprocessError, UnicodeError) as exc:
                 failures.append(f"{version_id}: 변환 실패 ({exc})")
                 continue
