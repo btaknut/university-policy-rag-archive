@@ -28,6 +28,7 @@ on:
         type: boolean
 
 permissions:
+  actions: write
   contents: write
   pull-requests: write
 
@@ -168,6 +169,7 @@ jobs:
           git push --set-upstream origin "${branch}"
 
           head_sha="$(git rev-parse HEAD)"
+          gh workflow run validate-corpus.yml --ref "${branch}"
           pr_args=(
             --base "${DEFAULT_BRANCH}"
             --head "${branch}"
@@ -181,9 +183,16 @@ jobs:
           echo "pr_url=${pr_url}" >> "${GITHUB_OUTPUT}"
 
           if [[ "${MERGE_AFTER_GATE}" == "true" ]]; then
-            required_checks="$(gh pr checks "${pr_url}" --required --json name --jq 'length' 2>/dev/null || printf '0')"
+            required_checks="0"
+            for _ in {1..20}; do
+              required_checks="$(gh pr checks "${pr_url}" --required --json name --jq 'length' 2>/dev/null || printf '0')"
+              if [[ "${required_checks}" -ge 1 ]]; then
+                break
+              fi
+              sleep 3
+            done
             if [[ "${required_checks}" -lt 1 ]]; then
-              echo "필수 상태 검사가 설정되지 않았거나 GitHub Actions 토큰으로 시작되지 않았습니다. PR을 남기고 병합하지 않습니다."
+              echo "데이터 커밋의 독립 필수 상태 검사가 시작되지 않았습니다. PR을 남기고 병합하지 않습니다."
               exit 1
             fi
             gh pr checks "${pr_url}" --required --watch --fail-fast
