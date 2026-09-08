@@ -149,5 +149,255 @@
       }
     ],
     "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": null,
+    "filters": {
+      "title_exact": "국립한국교통대학교 강의료 지급 규정",
+      "include_secondary": true
+    },
+    "expected": [
+      {
+        "document_id": "REG-292b3bce13c5",
+        "version_id": "VER-20240229-6b18ca93"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": null,
+    "filters": {
+      "title_exact": "3C인재 인증제 운영 지침",
+      "include_secondary": true
+    },
+    "expected": [
+      {
+        "document_id": "GDL-2a8d06b8d2d1",
+        "version_id": "VER-20240926-ae359b19"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": null,
+    "filters": {
+      "title_exact": "국립한국교통대학교 산학협력단 운영규정",
+      "include_secondary": true
+    },
+    "expected": [
+      {
+        "document_id": "REG-75e9115f0e27",
+        "version_id": "VER-20260226-4b0d5d8d"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "학생연구자",
+    "filters": {
+      "title_exact": "학생연구자 지원 지침",
+      "revision_from": "2026-01-01"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-479a733267fe",
+        "version_id": "VER-20260902-cdea9dfc"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "목적",
+    "filters": {
+      "title_exact": "국립한국교통대학교 산학협력단 운영규정",
+      "article_no": "제1조"
+    },
+    "expected": [
+      {
+        "document_id": "REG-75e9115f0e27",
+        "version_id": "VER-20260226-4b0d5d8d"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "목적",
+    "filters": {
+      "title_exact": "3C인재 인증제 운영 지침",
+      "article_no": "제1조"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-2a8d06b8d2d1",
+        "version_id": "VER-20240926-ae359b19"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "별지 제1호 서식",
+    "filters": {
+      "title_exact": "K MOOC강좌 이수에 대한 학점인정 지침"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-868f2a0c4e64",
+        "version_id": "VER-unknown-65e655ab"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "공동강의 운영계획서",
+    "filters": {
+      "title_exact": "강의 관리 지침"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-e4f7344f8716",
+        "version_id": "VER-20250630-1b24173b"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "별표 1",
+    "filters": {
+      "title_exact": "3C인재 인증제 운영 지침"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-2a8d06b8d2d1",
+        "version_id": "VER-20240926-ae359b19"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "부칙",
+    "filters": {
+      "title_exact": "산학협력단 부속기관 설치 운영 지침"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-cc6c7f3a04fa",
+        "version_id": "VER-20260901-9d8a4735"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "인증",
+    "filters": {
+      "title_exact": "3C인재 인증제 운영 지침",
+      "include_history": true,
+      "revision_from": "2021-01-01",
+      "revision_to": "2021-12-31"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-2a8d06b8d2d1",
+        "version_id": "VER-20210609-5ad57340"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "연구비",
+    "filters": {
+      "title_exact": "연구비관리규정 세부시행지침",
+      "include_history": true,
+      "revision_from": "2021-01-01",
+      "revision_to": "2021-12-31"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-bd2fb46667a7",
+        "version_id": "VER-20210604-0baa33d3"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "학생 연구자 지원지침",
+    "filters": {
+      "revision_from": "2026-01-01"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-479a733267fe",
+        "version_id": "VER-20260902-cdea9dfc"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "산학 협력단",
+    "filters": {
+      "document_type": "regulation",
+      "title_exact": "국립한국교통대학교 산학협력단 운영규정"
+    },
+    "expected": [
+      {
+        "document_id": "REG-75e9115f0e27",
+        "version_id": "VER-20260226-4b0d5d8d"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "연구비 관리",
+    "filters": {
+      "title_exact": "연구비관리규정 세부시행지침"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-bd2fb46667a7",
+        "version_id": "VER-20260818-a8cf6c23"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "지원",
+    "filters": {
+      "title_exact": "학생연구자 지원 지침",
+      "revision_from": "2026-01-01"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-479a733267fe",
+        "version_id": "VER-20260902-cdea9dfc"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "연구비 감사",
+    "filters": {
+      "document_type": "regulation",
+      "title_exact": "국립한국교통대학교 산학협력단 연구비 감사 규정"
+    },
+    "expected": [
+      {
+        "document_id": "REG-59275765f1be",
+        "version_id": "VER-20260226-d1d3880b"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
+  },
+  {
+    "query": "팀제 운영",
+    "filters": {
+      "document_type": "guideline",
+      "revision_from": "2026-01-01"
+    },
+    "expected": [
+      {
+        "document_id": "GDL-cc43c0255c1e",
+        "version_id": "VER-20260818-a75e88ca"
+      }
+    ],
+    "validation": "실제 코퍼스 ID를 사용하는 자동 회귀평가"
   }
 ]
