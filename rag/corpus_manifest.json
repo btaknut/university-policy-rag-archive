@@ -4,13 +4,13 @@
   "documents": 403,
   "versions": 864,
   "current_documents": 337,
-  "chunks": 15021,
+  "chunks": 14662,
   "document_types": {
     "guideline": 271,
     "regulation": 132
   },
   "sha256": {
     "documents": "47dfb549e2633afc7dfb1fde711cad52a43b5bdbe302bdba79c2f79c57161a8a",
-    "chunks": "607e9a673012bb7d6af75a457a6d835c6df5be433f6d97f9f09fccb2dbb1f10a"
+    "chunks": "91abe05f985c95c36dd1be57eaa84efd35193dec1d88a5c86b8ba1002b48d1cd"
   }
 }
