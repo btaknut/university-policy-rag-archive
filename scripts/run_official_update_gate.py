@@ -98,17 +98,15 @@ def build_pipeline_commands(
     if force_markdown:
         convert_command.append("--force")
     python_steps = [
-        "build_versions.py",
-        "build_chunks.py",
-        "build_catalog.py",
-        "build_github_catalog.py",
-        "validate_corpus.py",
-        "build_search_index.py",
-        "evaluate_retrieval.py",
+        [python, str(repo / "scripts/build_versions.py")],
+        [python, str(repo / "scripts/build_chunks.py"), "--mode", "incremental"],
+        [python, str(repo / "scripts/build_catalog.py")],
+        [python, str(repo / "scripts/build_github_catalog.py")],
+        [python, str(repo / "scripts/validate_corpus.py")],
+        [python, str(repo / "scripts/build_search_index.py")],
+        [python, str(repo / "scripts/evaluate_retrieval.py")],
     ]
-    return [apply_command, convert_command] + [
-        [python, str(repo / "scripts" / script)] for script in python_steps
-    ] + [[python, "-m", "pytest", "-q"]]
+    return [apply_command, convert_command, *python_steps, [python, "-m", "pytest", "-q"]]
 
 
 def native_pdf_complete(repo: Path, version: dict[str, Any]) -> bool:

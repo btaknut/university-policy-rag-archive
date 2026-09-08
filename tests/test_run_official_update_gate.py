@@ -40,6 +40,7 @@ def test_pipeline_command_order(tmp_path: Path):
     assert "--force" in rendered[1]
     assert "build_versions.py" in rendered[2]
     assert "build_chunks.py" in rendered[3]
+    assert "--mode incremental" in rendered[3]
     assert "build_catalog.py" in rendered[4]
     assert "build_github_catalog.py" in rendered[5]
     assert "validate_corpus.py" in rendered[6]

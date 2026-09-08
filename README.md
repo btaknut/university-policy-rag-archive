@@ -26,7 +26,7 @@ python scripts\normalize_documents.py
 python scripts\build_versions.py
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts\convert_hwp_to_pdf.ps1
 python scripts\index_pdf_derivatives.py
-python scripts\build_chunks.py
+python scripts\build_chunks.py --mode incremental
 python scripts\build_catalog.py
 python scripts\build_github_catalog.py
 python scripts\validate_corpus.py
@@ -36,7 +36,16 @@ python -m pytest -q
 python scripts\export_rag_bundle.py --zip
 ```
 
-증분 갱신은 `python scripts\sync_archive.py`로 수행한다. 원본에서 사라진 파일은 자동 삭제하지 않는다.
+증분 갱신은 `python scripts\sync_archive.py`로 수행한다. 기본 모드는 기존 청크 ID와 본문 경계를 보존하고 아직 청크가 없는 신규 버전만 생성한다. 원본에서 사라진 파일은 자동 삭제하지 않는다.
+
+전체 재청킹은 일반 동기화와 분리한다. 미리보기는 canonical 파일을 건드리지 않으며, 실제 교체에는 명시적인 승인 옵션이 필요하다.
+
+```powershell
+python scripts\build_chunks.py --mode preview --output .artifacts\chunk-migration\chunks-v2.jsonl --mapping-output .artifacts\chunk-migration\chunk-id-map.json --check-determinism
+python scripts\sync_archive.py --rechunk
+```
+
+`--rechunk`는 기존 `chunk_id`를 변경할 수 있으므로 ID 매핑·소비자 전환·롤백 검토를 마친 데이터 PR에서만 사용한다. 자세한 절차는 [청크 마이그레이션 운영 절차](docs/CHUNK_MIGRATION.md)를 따른다.
 
 ## HWP 확인용 PDF
 
