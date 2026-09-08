@@ -16,7 +16,39 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install -r requirements.txt
       - run: python -m pytest -q
+      - name: Verify safe incremental chunk generation
+        run: |
+          mkdir -p .artifacts/chunk-migration
+          python scripts/build_chunks.py \
+            --mode incremental \
+            --output .artifacts/chunk-migration/chunks-incremental.jsonl \
+            --check-reference rag/chunks.jsonl \
+            --check-determinism \
+            | tee .artifacts/chunk-migration/incremental-summary.txt
+      - name: Verify deterministic rechunk preview and mapping
+        run: |
+          python scripts/build_chunks.py \
+            --mode preview \
+            --output .artifacts/chunk-migration/chunks-v2-a.jsonl \
+            --mapping-output .artifacts/chunk-migration/chunk-id-map.json \
+            --check-determinism \
+            | tee .artifacts/chunk-migration/preview-summary-a.txt
+          python scripts/build_chunks.py \
+            --mode preview \
+            --output .artifacts/chunk-migration/chunks-v2-b.jsonl \
+            | tee .artifacts/chunk-migration/preview-summary-b.txt
+          cmp .artifacts/chunk-migration/chunks-v2-a.jsonl .artifacts/chunk-migration/chunks-v2-b.jsonl
       - run: python scripts/validate_corpus.py
       - run: python scripts/build_search_index.py
       - run: python scripts/evaluate_retrieval.py
       - run: python -c "import json; m=json.load(open('rag/corpus_manifest.json',encoding='utf-8')); print(m)"
+      - name: Upload chunk migration diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: chunk-migration-${{ github.run_id }}
+          path: |
+            .artifacts/chunk-migration/chunk-id-map.json
+            .artifacts/chunk-migration/*-summary*.txt
+          if-no-files-found: warn
+          retention-days: 30

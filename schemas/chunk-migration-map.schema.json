@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Chunk migration map",
+  "type": "object",
+  "required": ["schema_version", "summary", "mappings"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "source": {"type": "object"},
+    "summary": {
+      "type": "object",
+      "required": ["old_chunks", "new_chunks", "retained_ids", "removed_ids", "new_ids", "relations", "review_required"]
+    },
+    "mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["document_id", "version_id", "old_chunk_id", "new_chunk_ids", "relation", "old_text_sha256", "new_text_sha256", "old_location", "new_locations", "overlap_scores", "evidence", "automatic_match", "review_required"],
+        "properties": {
+          "document_id": {"type": "string"},
+          "version_id": {"type": "string"},
+          "old_chunk_id": {"type": ["string", "null"]},
+          "new_chunk_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "relation": {"enum": ["unchanged", "modified", "split", "merged", "removed", "new"]},
+          "old_text_sha256": {"type": ["string", "null"]},
+          "new_text_sha256": {"type": "array", "items": {"type": "string"}},
+          "old_location": {"type": ["object", "null"]},
+          "new_locations": {"type": "array", "items": {"type": "object"}},
+          "overlap_scores": {"type": "array", "items": {"type": "number", "minimum": 0, "maximum": 1}},
+          "evidence": {"type": "string"},
+          "automatic_match": {"type": "boolean"},
+          "review_required": {"type": "boolean"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

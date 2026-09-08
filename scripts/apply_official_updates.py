@@ -359,7 +359,7 @@ def main() -> int:
     write_jsonl(versions_path, versions)
     write_jsonl(manifest_path, source_manifest)
     print(f"backup: {backup_dir.relative_to(repo).as_posix()}")
-    print("next: scripts/convert_hwp_portable.py 실행 후 build_versions.py, build_chunks.py, build_catalog.py, validate_corpus.py 순으로 실행")
+    print("next: scripts/convert_hwp_portable.py 실행 후 build_versions.py, build_chunks.py --mode incremental, build_catalog.py, validate_corpus.py 순으로 실행")
     return 0
 
 

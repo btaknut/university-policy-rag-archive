@@ -9,3 +9,9 @@ HWP는 `corpus/pdf`의 검색 가능한 PDF로도 제공한다. 상위 ChatGPT �
 개정사유·주요내용·신구조문 대비표는 `retrieval_scope=secondary`로 보존한다. 기본 답변 근거에는 쓰지 않고 개정 연혁을 명시적으로 찾을 때만 포함한다. SQLite FTS5가 기본 구현이며 Chroma·FAISS·Qdrant는 계약 예시로서 별도 설치·구현 없이는 동작하는 검색 서비스가 아니다.
 
 상위 저장소는 `git submodule add https://github.com/btaknut/university-policy-rag-archive.git data/university-policy`로 연결하거나 `rag/exports` bundle을 배포받을 수 있다. 정기 동기화는 source 수집 후 `sync_archive.py`, 검증, 변경 PR 순서로 수행한다. 외부 API를 쓰는 임베딩 생성은 이 저장소의 기본 파이프라인에서 실행하지 않는다.
+
+## 청크 ID 호환성
+
+일반 동기화와 공식 업데이트 Gate는 증분 청킹을 사용해 기존 `chunk_id`와 본문 경계를 보존한다. 전체 재청킹은 `--rechunk` 또는 `--mode rechunk --allow-id-changes`를 명시한 별도 데이터 PR에서만 수행한다. 소비자는 청크 ID를 영구 문서 ID로 사용하지 말고 `document_id`, `version_id`, 조문 위치와 함께 저장해야 한다.
+
+전체 재청킹 전에는 `scripts/chunk_migration.py`로 구 ID와 신 ID의 대응표를 만들고, `docs/CHUNK_MIGRATION.md`의 전환·롤백 조건을 확인한다. 저장소 밖의 로컬 clone, submodule 및 이미 내려받은 export bundle은 GitHub 검색으로 확인할 수 없으므로 사용 여부를 별도로 확인해야 한다.
