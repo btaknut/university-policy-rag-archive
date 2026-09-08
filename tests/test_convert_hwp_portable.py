@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -88,7 +89,7 @@ def test_portable_conversion_updates_markdown_and_metadata(tmp_path: Path):
     batch_path = tmp_path / "batch.json"
     batch_path.write_text(json.dumps(batch), encoding="utf-8")
 
-    fake = tmp_path / "unhwp"
+    fake = tmp_path / ("unhwp.py" if os.name == "nt" else "unhwp")
     fake.write_text(
         "#!/usr/bin/env python3\n"
         "import pathlib, sys\n"

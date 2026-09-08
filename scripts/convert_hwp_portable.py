@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import sys
 import tempfile
 from typing import Any
 
@@ -139,11 +140,18 @@ def offline_environment() -> dict[str, str]:
     return env
 
 
+def executable_command(binary: Path) -> list[str]:
+    """Return a portable command prefix for a native binary or Python shim."""
+    if binary.suffix.lower() == ".py":
+        return [sys.executable, str(binary)]
+    return [str(binary)]
+
+
 def probe_unhwp(binary: Path) -> str:
     if not binary.is_file():
         raise FileNotFoundError(f"unhwp 실행 파일 없음: {binary}")
     result = subprocess.run(
-        [str(binary), "version"],
+        [*executable_command(binary), "version"],
         check=True,
         capture_output=True,
         text=True,
@@ -164,7 +172,7 @@ def probe_unhwp(binary: Path) -> str:
 def convert_one(binary: Path, source: Path, output: Path) -> str:
     subprocess.run(
         [
-            str(binary),
+            *executable_command(binary),
             "markdown",
             str(source),
             "--cleanup",

@@ -97,6 +97,18 @@ def test_parse_ut_guideline_direct_and_detail_attachments():
     assert attachments[1].attachment_role == "supporting"
 
 
+def test_parse_ut_guideline_uses_attachment_filename_when_title_cell_is_empty():
+    list_html = """
+    <table><tbody>
+      <tr><td>554</td><td></td><td>재무과</td><td>2026-08-20</td><td>31</td>
+      <td><a href="/cmm/fms/FileDown.do?atchFileId=FILE_1&amp;fileSn=0">파일명 : 국립한국교통대학교 금고지정심의위원회 운영 지침 일부개정.hwp</a></td></tr>
+    </tbody></table>
+    """
+    rows = parse_ut_guidelines_list(list_html, "https://www.ut.ac.kr/list.do")
+    assert rows[0].title_raw == "국립한국교통대학교 금고지정심의위원회 운영 지침 일부개정"
+    assert rows[0].title_normalized == normalize_title("금고지정심의위원회 운영 지침")
+
+
 def test_parse_sanhak_regulations():
     html = """
     <table>

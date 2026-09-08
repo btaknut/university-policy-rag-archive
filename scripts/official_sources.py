@@ -332,6 +332,8 @@ def parse_ut_guidelines_list(
             attachment_url = href
             filename = clean_text(attachment_link.get_text(" "))
             filename = re.sub(r"^파일명\s*:\s*", "", filename)
+            if not title and filename:
+                title = Path(filename).stem
         elif href:
             source_page_url = href
         record_key = query_value(href or "", "nttId") or f"seq:{seq}"
