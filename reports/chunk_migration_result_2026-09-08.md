@@ -2,6 +2,7 @@
 
 - 기준 `main`: `301ea02d056c34acd14d8698cb2cedf981f350d5`
 - 작업 브랜치: `codex/chunk-migration-v2-20260908`
+- GitHub Actions 생성 커밋: `94b9f6e7913508a709f00b69ccc5528521b78132`
 - 롤백 기준: C-2 병합 직전 위 기준 커밋
 - 생성기: C-1에서 확정한 `scripts/build_chunks.py` 및 `scripts/chunk_migration.py`
 - 제외 범위: 공식 원문, Git LFS 객체, `metadata/source_manifest.jsonl`, 공식 업데이트 배치, 백필, 오래된 export 삭제
