@@ -132,7 +132,7 @@ def markdown_report(
             "",
             "## 검토 후보",
             "",
-            "| source_id | 판정 | 시행일 | 제목 | 기존 document_id | 원천 |",
+            "| source_id | 판정 | 원천 표시일(시행일 미확정) | 제목 | 기존 document_id | 원천 |",
             "|---|---|---|---|---|---|",
         ]
     )
@@ -162,12 +162,13 @@ def markdown_report(
             "## 판정 기준",
             "",
             "1. 원본 SHA-256이 같으면 `present_hash`",
-            "2. 정규화 제목과 시행일이 같으면 `present_metadata`",
+            "2. 정규화 제목과 원천 표시일이 기존 개정일·시행일에 일치하면 `present_metadata` (파일 동일성 미확인)",
             "3. 제목만 같으면 `new_version_candidate`",
             "4. 제목 그룹도 없으면 `new_document_candidate`",
             "5. 사유서·대비표 등은 `supporting_attachment`",
             "",
             "후보는 자동으로 manifest에 반영하지 않는다. 원본 해시와 문서 그룹을 검토한 뒤 별도 갱신 절차를 실행한다.",
+            "수집 레코드의 effective_date는 호환용 후보 날짜이며 게시일·공포일·제목의 날짜가 포함될 수 있다. 실제 시행일은 원문 부칙으로 별도 확인한다.",
         ]
     )
     return "\n".join(lines) + "\n"
@@ -201,6 +202,7 @@ def parse_args() -> argparse.Namespace:
         help="신규 문서·버전 후보 원본을 output-dir/downloads 아래에 저장",
     )
     parser.add_argument("--fail-on-source-error", action="store_true")
+    parser.add_argument("--latest-only", action="store_true", help="대학 규정의 과거 개정 상세 재조회 생략. 목록은 전체 조회")
     return parser.parse_args()
 
 
@@ -215,6 +217,9 @@ def main() -> int:
     client = make_client(config)
     crawler = OfficialSourceCrawler(config, client)
     selected = set(args.source or [])
+    known = {source["source_id"] for source in config.get("sources", []) if source.get("enabled", True)}
+    if selected - known:
+        raise SystemExit(f"알 수 없거나 비활성화된 source_id: {sorted(selected - known)}")
     records: list[SourceRecord] = []
     errors: dict[str, str] = {}
 
@@ -223,9 +228,14 @@ def main() -> int:
         if not source.get("enabled", True) or (selected and source_id not in selected):
             continue
         try:
+            if args.latest_only and source["kind"] == "ut_regulations":
+                source = {**source, "include_history": False}
+            print(f"Collecting {source_id}", file=sys.stderr, flush=True)
             records.extend(crawler.crawl(source))
+            print(f"Collected {source_id}: {sum(r.source_id == source_id for r in records)}", file=sys.stderr, flush=True)
         except Exception as exc:  # 원천 단위 실패 격리
             errors[source_id] = f"{type(exc).__name__}: {exc}"
+            print(f"Failed {source_id}: {errors[source_id]}", file=sys.stderr, flush=True)
 
     classified: list[tuple[SourceRecord, str, list[str]]] = []
     for record in records:
