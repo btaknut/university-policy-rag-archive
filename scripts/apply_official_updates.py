@@ -113,7 +113,6 @@ def validate_batch(
             "source_record_id",
             "document_id",
             "document_type",
-            "effective_date",
             "sha256",
             "file_size",
             "attachment_filename",
@@ -124,9 +123,21 @@ def validate_batch(
         if missing:
             errors.append(f"{label}: 필수값 누락 {', '.join(missing)}")
             continue
+        if not record.get('revision_date') and not record.get('effective_date'):
+            errors.append(f"{label}: 개정일과 시행일 모두 미확인")
+            continue
+        record.setdefault('effective_date', None)
         if record["document_id"] not in documents_by_id:
             errors.append(f"{label}: 기존 document_id 없음 {record['document_id']}")
             continue
+        document = documents_by_id[record["document_id"]]
+        if record.get("previous_title") is not None:
+            if (record["previous_title"] != document["title"]
+                    or not record.get("title_change_evidence")
+                    or not record.get("title")
+                    or record["title"] == document["title"]):
+                errors.append(f"{label}: 제목 변경의 이전 명칭 또는 원문 근거 불충분")
+                continue
         same_document = [
             row for row in versions if row.get("document_id") == record["document_id"]
         ]
@@ -194,6 +205,13 @@ def update_metadata(
         if record["already_present"]:
             continue
         doc = documents_by_id[record["document_id"]]
+        if record.get("previous_title") is not None:
+            aliases = list(doc.get("alternative_titles") or [])
+            if doc["title"] not in aliases:
+                aliases.append(doc["title"])
+            doc["alternative_titles"] = aliases
+            doc["title"] = record["title"]
+            doc.pop("title_normalized", None)
         same_document = [
             row for row in versions if row["document_id"] == record["document_id"]
         ]
@@ -242,6 +260,11 @@ def update_metadata(
             "text_extraction_status": "pending_portable_hwp",
             "pdf_conversion_status": "not_generated_portable",
         }
+        if record.get("title_change_evidence"):
+            version["title_change_evidence"] = record["title_change_evidence"]
+            version["previous_title"] = record.get("previous_title")
+        if record.get("application_note"):
+            version["application_note"] = record["application_note"]
         versions.append(version)
         versions_by_id[version["version_id"]] = version
 

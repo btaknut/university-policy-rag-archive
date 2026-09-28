@@ -17,6 +17,12 @@
 - 자동 수집 결과의 `new_version_candidate`를 사람이 기존 `document_id`와 직전 `version_id`에 연결한 검토 배치를 사용한다.
 - 지원 플랫폼은 Linux x86_64, macOS x86_64/Apple Silicon, Windows x86_64이다.
 
+### 명칭이 변경된 기존 문서
+
+단순 제목 유사성으로 문서를 병합하지 않는다. 공식 원문의 제정·개정 연혁, 지침 번호, 적용 기관 등을 대조해 동일 문서임을 확인한 경우에만 배치에 `previous_title`(저장소의 정확한 기존 제목), `title`(확인한 새 제목), `title_change_evidence`(구체적인 원문 근거)를 함께 기록한다. 기존 `document_id`를 유지하고 이전 명칭은 문서의 `alternative_titles`에 보존한다. 과거 버전의 제목은 변경하지 않는다. 시행일과 적용 학년도·경과조치가 다르면 `application_note`로 별도 기록한다. 다른 `document_id`의 유사 문서는 이 절차로 자동 병합하지 않는다.
+
+개정일은 확인되지만 부칙에 적용 학년도만 제시되어 정확한 시행일을 특정할 수 없는 경우 `effective_date`는 `null`로 둔다. `revision_date`와 `application_note`에 확인한 근거를 남기며 게시일이나 학년도 시작일을 시행일로 만들어 넣지 않는다.
+
 ## 1. 공식 원문 다운로드
 
 배치에 기록된 상세 페이지를 먼저 방문해 쿠키를 유지하고, 같은 세션과 `Referer`로 첨부파일을 받는다. 다운로드 직후 파일 크기와 SHA-256이 배치와 정확히 일치해야 한다.

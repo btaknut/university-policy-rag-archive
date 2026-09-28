@@ -107,3 +107,44 @@ def test_validate_rejects_stale_previous_version(tmp_path: Path):
 
     with pytest.raises(ValueError, match="기준 버전 불일치"):
         validate_batch(batch, tmp_path, documents, versions)
+
+
+def test_verified_title_change_preserves_identity_and_old_alias(tmp_path: Path):
+    payload = b"expected"
+    (tmp_path / "downloaded.hwp").write_bytes(payload)
+    batch, documents, versions = fixture_rows(payload)
+    versions[0]['title'] = '예시 지침'
+    record = batch['records'][0]
+    record.update(title='변경된 예시 지침', previous_title='예시 지침',
+                  title_change_evidence='공식 원문의 개정 연혁 및 종전 지침 번호 대조',
+                  application_note='다음 학년도부터 적용, 종전 기준 적용례 별도 확인')
+    prepared = validate_batch(batch, tmp_path, documents, versions)
+    docs, vers, _ = update_metadata(prepared, documents, versions, [], '2026-09-28')
+    assert docs[0]['document_id'] == 'GDL-example'
+    assert docs[0]['title'] == '변경된 예시 지침'
+    assert '예시 지침' in docs[0]['alternative_titles']
+    assert vers[0]['title'] == '예시 지침'
+    assert vers[1]['title'] == '변경된 예시 지침'
+    assert vers[1]['title_change_evidence'] == record['title_change_evidence']
+    assert vers[1]['application_note'] == record['application_note']
+
+
+@pytest.mark.parametrize('old_title,evidence', [('다른 문서', '원문'), ('예시 지침', '')])
+def test_title_change_requires_matching_old_title_and_evidence(tmp_path, old_title, evidence):
+    payload = b"expected"
+    (tmp_path / "downloaded.hwp").write_bytes(payload)
+    batch, documents, versions = fixture_rows(payload)
+    batch['records'][0].update(title='새 지침', previous_title=old_title, title_change_evidence=evidence)
+    with pytest.raises(ValueError, match='제목 변경'):
+        validate_batch(batch, tmp_path, documents, versions)
+
+
+def test_unknown_effective_date_is_not_replaced_by_revision_date(tmp_path):
+    payload = b'expected'
+    (tmp_path/'downloaded.hwp').write_bytes(payload)
+    batch, docs, versions = fixture_rows(payload)
+    batch['records'][0]['effective_date'] = None
+    prepared = validate_batch(batch, tmp_path, docs, versions)
+    _, updated, _ = update_metadata(prepared, docs, versions, [], '2026-09-28')
+    assert updated[-1]['revision_date'] == '2026-08-18'
+    assert updated[-1]['effective_date'] is None

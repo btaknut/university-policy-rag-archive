@@ -1,6 +1,7 @@
 from __future__ import annotations
 from pathlib import Path
 import sys
+import json
 ROOT=Path(__file__).resolve().parents[1]; sys.path.insert(0,str(ROOT/"scripts"))
 from search_lib import build_index, classify_section, normalize_search_text, search
 
@@ -16,7 +17,9 @@ def test_section_classification_excludes_amendment_material_by_default():
 
 def test_local_index_search_is_citable_and_deduplicated(tmp_path):
     database=tmp_path/"search.sqlite3"; count,engine=build_index(database)
-    assert count==15021 and engine.startswith("fts5")
+    expected=sum(1 for line in (ROOT/'rag/chunks.jsonl').read_text(encoding='utf-8').splitlines()
+                 if line.strip() and json.loads(line).get('access_level') == 'public')
+    assert expected > 0 and count==expected and engine.startswith("fts5")
     rows=search(database,query="휴학",filters={},limit=5,per_document=1)
     assert rows and len({r["document_id"] for r in rows})==len(rows)
     assert all(r["source_page_url"] and r["sha256"] and r["citation_label"] for r in rows)
