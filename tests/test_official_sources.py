@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 import sys
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -10,6 +11,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from check_official_sources import ManifestIndex
 from official_sources import (
     SourceRecord,
+    OfficialSourceCrawler,
     normalize_title,
     parse_sanhak_guideline_detail,
     parse_sanhak_guidelines_list,
@@ -179,3 +181,32 @@ def test_manifest_comparison_requires_date_or_hash():
     )
     assert index.classify(record) == ("new_version_candidate", ["GDL-existing"])
     assert index.classify(SourceRecord(**{**record.to_dict(), "sha256": "a" * 64}))[0] == "present_hash"
+
+
+def test_ut_detail_extracts_javascript_attachments_and_real_heading():
+    base = parse_ut_guidelines_list('''<table><tbody><tr>
+      <td>549</td><td></td><td>학생과</td><td>2026-04-08</td><td>10</td>
+      <td><a href="detail.do?nttId=1121254">상세보기</a></td>
+    </tr></tbody></table>''', 'https://www.ut.ac.kr/list.do')[0]
+    html = '''<h2>국립한국교통대학교 총학생회칙 일부개정(2026.4.1.)</h2>
+      <a href="javascript:fn_egov_downFile('FILE_000000000287573','0')">개정사유.hwp ( 116 kb)</a>
+      <a href="javascript:fn_egov_downFile('FILE_000000000287573','1')">총학생회칙 전문.hwp ( 66 kb)</a>'''
+    records = parse_ut_guideline_detail(html, base.source_page_url, base)
+    assert len(records) == 2
+    assert records[0].attachment_role == 'supporting'
+    assert records[1].attachment_filename == '총학생회칙 전문.hwp'
+    assert records[1].title_normalized == '총학생회칙'
+    assert records[1].effective_date == '2026-04-01'
+    assert records[1].posted_date == '2026-04-08'
+    assert records[1].attachment_url == 'https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000287573&fileSn=1'
+
+
+def test_empty_successful_http_response_is_not_a_successful_source_check():
+    class Client:
+        def text(self, url):
+            return '<html><h1>점검 중</h1></html>', {}
+    crawler = OfficialSourceCrawler({}, Client())
+    with pytest.raises(ValueError, match='레코드 0건'):
+        crawler.crawl({'source_id': 'sanhak_regulations', 'kind': 'sanhak_regulations', 'url': 'https://example.test'})
+    with pytest.raises(ValueError, match='SE01'):
+        crawler.crawl({'source_id': 'ut_regulations', 'kind': 'ut_regulations', 'categories': ['SE01'], 'base_url_template': 'https://example.test/{category}'})

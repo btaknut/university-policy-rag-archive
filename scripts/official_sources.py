@@ -359,13 +359,29 @@ def parse_ut_guidelines_list(
 
 def parse_ut_guideline_detail(html: str, page_url: str, base: SourceRecord) -> list[SourceRecord]:
     soup = BeautifulSoup(html, "html.parser")
+    heading = soup.find("h2")
+    title = clean_text(heading.get_text(" ")) if heading else base.title_raw
+    base = replace(
+        base,
+        title_raw=title,
+        title_normalized=normalize_title(title),
+        effective_date=extract_effective_date(title, base.effective_date),
+    )
     records: list[SourceRecord] = []
     for link in soup.find_all("a", href=True):
-        href = urljoin(page_url, link["href"])
+        match = UT_FILE_RE.search(link["href"])
+        if match:
+            attachment_id, file_sn = match.groups()
+            href = urljoin(page_url, "/cmm/fms/FileDown.do?" + urlencode(
+                {"atchFileId": attachment_id, "fileSn": file_sn}
+            ))
+        else:
+            href = urljoin(page_url, link["href"])
         if "FileDown.do" not in href:
             continue
         filename = clean_text(link.get_text(" "))
         filename = re.sub(r"^파일명\s*:\s*", "", filename)
+        filename = re.sub(r"\s*\(\s*[\d,.]+\s*kb\s*\)\s*$", "", filename, flags=re.I)
         file_sn = query_value(href, "fileSn") or str(len(records))
         records.append(
             replace(
@@ -510,7 +526,10 @@ class OfficialSourceCrawler:
         handler = getattr(self, f"_crawl_{kind}", None)
         if not handler:
             raise ValueError(f"unsupported source kind: {kind}")
-        return deduplicate(handler(source))
+        records = deduplicate(handler(source))
+        if not records:
+            raise ValueError(f"원천 레코드 0건: 접속 응답과 페이지 구조 확인 필요 ({source['source_id']})")
+        return records
 
     def _crawl_ut_regulations(self, source: dict[str, Any]) -> list[SourceRecord]:
         output: list[SourceRecord] = []
@@ -522,6 +541,8 @@ class OfficialSourceCrawler:
                 page_url = with_query(base_url, pageIndex=page)
                 html, _ = self.client.text(page_url)
                 listings = parse_ut_regulations_list(html, page_url, source["source_id"])
+                if page == 1 and not listings:
+                    raise ValueError(f"규정 분류 첫 페이지 레코드 0건: {category}")
                 listings = [row for row in listings if row.source_record_id not in seen_registers]
                 if not listings:
                     break
