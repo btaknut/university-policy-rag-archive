@@ -1,0 +1,574 @@
+{
+  "captured_at": "2026-09-28",
+  "scope": "대표 후보 62건 및 교통대 추가 확인 후보 71건의 해시 대조 후 남은 검토 큐. 전체 과거 백필 목록이 아님. effective_date는 수집기 후보 날짜로 시행일 미확정.",
+  "records": [
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "551vo0hnh8iuj17me7q6qtw69uw1kd",
+      "title_raw": "한국교통대학교 산학협력단 정관",
+      "effective_date": "2024-01-05",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=551vo0hnh8iuj17me7q6qtw69uw1kd",
+      "sha256": "1411ce28a1b9ceb7695b2deecef3eab4915fa807c159aa54866a68d301be837a",
+      "file_size": 54784,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "wsjm41050kxq9whv3017puze33jqss",
+      "title_raw": "국립한국교통대학교 산학협력단 운영규정",
+      "effective_date": "2026-02-26",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=wsjm41050kxq9whv3017puze33jqss",
+      "sha256": "19c8e5f2850e5807c307c7c6c21470be15096a490e61f0375c4d46f9ebd7a7bb",
+      "file_size": 62464,
+      "matched_document_ids": [
+        "REG-75e9115f0e27"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "jqxkxjtejpzptv7hq5y3lktl33zxg3",
+      "title_raw": "지식재산권에관한규정",
+      "effective_date": "2021-02-26",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=jqxkxjtejpzptv7hq5y3lktl33zxg3",
+      "sha256": "a7abff9a3a583696536b301622ecd47824772521dbef3877fcf783c195ffae8b",
+      "file_size": 81920,
+      "matched_document_ids": [
+        "REG-fa687067e3f7"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "xvb2ujcxubxa8vpexwtk5b2q77z0q4",
+      "title_raw": "교원 벤처창업에 관한 규정",
+      "effective_date": "2013-02-22",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=xvb2ujcxubxa8vpexwtk5b2q77z0q4",
+      "sha256": "24f4b937ab2f4c90ea1d8bd0936bbb8a536f8c372a2288e8d35dad615340fce2",
+      "file_size": 29184,
+      "matched_document_ids": [
+        "REG-7263403fa561"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "7k0pf4ovuaa334j16tgi751ugvzpzy",
+      "title_raw": "한국교통대학교 연구비관리규정",
+      "effective_date": "2020-10-29",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=7k0pf4ovuaa334j16tgi751ugvzpzy",
+      "sha256": "683ab60d2db48cba51cd50283863a7a20f39b9da0404ee2f8c71d3b7e2db5af5",
+      "file_size": 61952,
+      "matched_document_ids": [
+        "REG-21466f686fe1"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "ba776rdt87z6sbwz2qgl6p98j9oo1b",
+      "title_raw": "한국교통대학교 학교기업 설립 및 운영규정",
+      "effective_date": "2020-10-29",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=ba776rdt87z6sbwz2qgl6p98j9oo1b",
+      "sha256": "dced24b81cee7aa9f00f5ecfc3d6f9feadc456112f3611de374bc418b8cd3a93",
+      "file_size": 70656,
+      "matched_document_ids": [
+        "REG-c26fda7c75fc"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "if817or2sv6z2qnzvtd9i8gce3x7nq",
+      "title_raw": "한국교통대학교 계약학과 등 설치 및 운영규정",
+      "effective_date": "2025-10-02",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=if817or2sv6z2qnzvtd9i8gce3x7nq",
+      "sha256": "fb47fe9b593c0b0b74cdfae64dad88101b2a53497cae3db0689c1e11d8f9d40d",
+      "file_size": 73728,
+      "matched_document_ids": [
+        "REG-186c897b733d"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "5aq0ef80thtwvoz6a96eg1ipdw7v1v",
+      "title_raw": "국립한국교통대학교 산학협력단 연구비 감사 규정",
+      "effective_date": "2026-02-26",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=5aq0ef80thtwvoz6a96eg1ipdw7v1v",
+      "sha256": "f287ac3aca5c46fcd41dbf2aea2fcf215a9e7d72283bc718c725454a347a4462",
+      "file_size": 76800,
+      "matched_document_ids": [
+        "REG-59275765f1be"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "1jpqwnte0go1kxab1of29gr03utsk3",
+      "title_raw": "연구위원회규정",
+      "effective_date": "2012-03-01",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=1jpqwnte0go1kxab1of29gr03utsk3",
+      "sha256": "daaeaef6f10eda46220deb9825a32e290840c2901621a75a0bc70721a36e1d26",
+      "file_size": 32768,
+      "matched_document_ids": [
+        "REG-08e20219c481"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "yyfyck3qm43ygg93ucycuatpxwvx7n",
+      "title_raw": "국립한국교통대학교 연구윤리진실성위원회 규정",
+      "effective_date": "2026-02-26",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=yyfyck3qm43ygg93ucycuatpxwvx7n",
+      "sha256": "3f9b8069b30d5afaa1820ab21652b3507b3068f00e64486fcd3bbf94199d219e",
+      "file_size": 79360,
+      "matched_document_ids": [
+        "REG-f1a7e3a1b15d"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "73tj1vbjj4sqzsv4b7t5r3qo5xu8wl",
+      "title_raw": "동물실험윤리위원회 운영규정",
+      "effective_date": "2020-01-30",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=73tj1vbjj4sqzsv4b7t5r3qo5xu8wl",
+      "sha256": "30f0cf9c010973fef1a0a29030c10be23f286c98a18e8908517a7ed9e25d1f00",
+      "file_size": 58880,
+      "matched_document_ids": [
+        "REG-1f021bd2a22f"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "9epuk6a7s0m9l3mxpijxhys6pduw2q",
+      "title_raw": "한국교통대학교 연구소설치운영규정",
+      "effective_date": "2012-03-01",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=9epuk6a7s0m9l3mxpijxhys6pduw2q",
+      "sha256": "75b2d830b33f93be67b458d5f1e9c0f5475271790362fe4a9f0d048cb035ad8d",
+      "file_size": 32768,
+      "matched_document_ids": [
+        "REG-909522e76924"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "umt9cawvkxdyk9p1bisojmn00nl7qc",
+      "title_raw": "한국교통대학교논문집발간규정",
+      "effective_date": "2012-03-01",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=umt9cawvkxdyk9p1bisojmn00nl7qc",
+      "sha256": "fb3e88a6f59f5eca0a724410bb27762033a6755e146c0b176134009534757f5d",
+      "file_size": 81920,
+      "matched_document_ids": [
+        "REG-96d460227762"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "fxz5h1sxmudbbirbfj9bqxp027jznu",
+      "title_raw": "국가연구개발사업보안관리규정",
+      "effective_date": "2012-03-01",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=fxz5h1sxmudbbirbfj9bqxp027jznu",
+      "sha256": "f40cbd27b9455ef8ed36f0a106785f841760dbcedc882857d7f4437f11dcac5e",
+      "file_size": 49152,
+      "matched_document_ids": [
+        "REG-54bb3cd1d2a6"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "n67jun9zk88569wqo892onnl9f6vca",
+      "title_raw": "한국교통대학교 생물안전관리규정",
+      "effective_date": "2024-12-31",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=n67jun9zk88569wqo892onnl9f6vca",
+      "sha256": "4e496e9d5915983af55fa40fd738ff7318b060d5c1b7c76d753abc7145e82c62",
+      "file_size": 231936,
+      "matched_document_ids": [
+        "REG-bc100468b2d2"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "3hd6iwpljnj8qxf2amtbj3wh5les3g",
+      "title_raw": "연구진실성검증을위한조사위원회의구성운영에관한규정",
+      "effective_date": "2020-10-29",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=3hd6iwpljnj8qxf2amtbj3wh5les3g",
+      "sha256": "7c800e8b8f1cedeb06aefbd11f402c85a96e090a515a3436499e2d3c0dbb60e0",
+      "file_size": 12288,
+      "matched_document_ids": [
+        "REG-905eef7be36c"
+      ],
+      "review_reason": "원천 표시일·원문 개정일·기존 버전 순서 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "55bl2uz4k6zdkd9iek8ccrf0glukvn",
+      "title_raw": "연구비감사위원회규정",
+      "effective_date": "2020-10-29",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=55bl2uz4k6zdkd9iek8ccrf0glukvn",
+      "sha256": "9a71758a5a7b3afd114b3d7f2aac6c802be8af36e8b783a8f9b98d9bca7ad458",
+      "file_size": 11776,
+      "matched_document_ids": [
+        "REG-2aaaaa0d754c"
+      ],
+      "review_reason": "원천 표시일·원문 개정일·기존 버전 순서 대조 필요"
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "fzbxz9jc3o2y6qd5xj25wpws3x9kvy",
+      "title_raw": "국립한국교통대학교 연구윤리 및 연구비 등의 감사에 관한 규정",
+      "effective_date": "2026-02-26",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=fzbxz9jc3o2y6qd5xj25wpws3x9kvy",
+      "sha256": "0b850059089476b313b06564d9600bb902bc41b826e49ad0c9914fe045dc0791",
+      "file_size": 33280,
+      "matched_document_ids": [
+        "REG-3899b66b2240"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "3f0d554d3e4e4715a527d2c759b7b186:file:2982",
+      "title_raw": "국립한국교통대학교 산학협력단 직장 내 괴롭힘 예방 지침(2026.3.17.)",
+      "effective_date": "2026-03-17",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=3f0d554d3e4e4715a527d2c759b7b186&GotoPage=2",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=3f0d554d3e4e4715a527d2c759b7b186&file_id=2982&category=01",
+      "sha256": "b6e51c059e57c914d81f8eebf71a357f8958b7bca7f17e6e0c33eba69efc04dc",
+      "file_size": 101888,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "54ecd7281df79426ec6f86673eda82e6:file:2467",
+      "title_raw": "국립한국교통대학교 산학협력단 표창 지침(제637호, 2025.12.22.)",
+      "effective_date": "2025-12-22",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=54ecd7281df79426ec6f86673eda82e6&GotoPage=2",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=54ecd7281df79426ec6f86673eda82e6&file_id=2467&category=01",
+      "sha256": "642719a549b132900a266531c9fa5436904c21bd96c4da3328680b52d69c49c6",
+      "file_size": 65024,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "df03761aa472fbc675cce6c8961df2c8:file:2464",
+      "title_raw": "국립한국교통대학교 산학협력단 직원 보수 지급 지침(제635호, 2025.12.16.)",
+      "effective_date": "2025-12-16",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=df03761aa472fbc675cce6c8961df2c8&GotoPage=2",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=df03761aa472fbc675cce6c8961df2c8&file_id=2464&category=01",
+      "sha256": "1c849169ea153f407832a449037b20f7155524c01423f5c7f73ebb2d9dc36ace",
+      "file_size": 114688,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "0d593a5bce5106e1fdb65f69d0d63410:file:2447",
+      "title_raw": "국립한국교통대학교 산학협력단 학생연구자지원지침(2025.11.27.)",
+      "effective_date": "2025-11-27",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=0d593a5bce5106e1fdb65f69d0d63410&GotoPage=2",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=0d593a5bce5106e1fdb65f69d0d63410&file_id=2447&category=03",
+      "sha256": "694ff2d3080d14202555b41880089a5a89cf136bf7602e12a7272031534e5fbf",
+      "file_size": 109056,
+      "matched_document_ids": [
+        "GDL-67edc98cf79e"
+      ],
+      "review_reason": "원천 표시일·원문 개정일·기존 버전 순서 대조 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "b0b7fc031754b1886b52f8208508320a:file:2158",
+      "title_raw": "국립한국교통대학교 산학협력단 연구시설장비심의위원회 지침(2025.6.23.)",
+      "effective_date": "2025-06-23",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=b0b7fc031754b1886b52f8208508320a&GotoPage=3",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=b0b7fc031754b1886b52f8208508320a&file_id=2158&category=05",
+      "sha256": "7f39e0d5ec067eebb8f47b084edf2e511da38f386c63ed63c635d8753b25b7cd",
+      "file_size": 77824,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "244c1d540fdf18e7bdf89e8870b05ebb:file:2686",
+      "title_raw": "국립한국교통대학교 산학협력단 안전보건관리 지침(2025.6.23.)",
+      "effective_date": "2025-06-23",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=244c1d540fdf18e7bdf89e8870b05ebb&GotoPage=3",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=244c1d540fdf18e7bdf89e8870b05ebb&file_id=2686&category=01",
+      "sha256": "edd27769311fb03403779aa10eb44b98a35fd58b86a044953ad062ed4d04705f",
+      "file_size": 116224,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "4a1a2beaf760c3a92c21a544905d30e5:file:2465",
+      "title_raw": "국립한국교통대학교 산학협력단 취업규칙(2025.6.23.)",
+      "effective_date": "2025-06-23",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=4a1a2beaf760c3a92c21a544905d30e5&GotoPage=4",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=4a1a2beaf760c3a92c21a544905d30e5&file_id=2465&category=01",
+      "sha256": "36acf49fd7959c455f5b47c064f7c43bc5ea4364299ba2cfbd88702a820774a3",
+      "file_size": 178688,
+      "matched_document_ids": [
+        "GDL-3f9d53300aa3"
+      ],
+      "review_reason": "원문은 직원 취업규칙 신규 제정 및 종전 취업규칙 폐지를 명시: 기존 문서 단순 개정 연결 금지, 승계관계 별도 등록 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "14bfabfcdf2e5b293d30112bc036ca61:file:2067",
+      "title_raw": "국립한국교통대학교 산학협력단 다면평가 시행 지침(25.04.11.)",
+      "effective_date": "2025-05-13",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=14bfabfcdf2e5b293d30112bc036ca61&GotoPage=4",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=14bfabfcdf2e5b293d30112bc036ca61&file_id=2067&category=01",
+      "sha256": "5ad219804e5e396a89e9310d147dac9cd3cd9c91a2ce645a3f227ced70f32263",
+      "file_size": 100352,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "7e39ab0efca78f1c98070de3648ae747:file:2062",
+      "title_raw": "한국교통대학교 교육연구학생지도 비용 지급에 관한 지침(2023.05.23.)",
+      "effective_date": "2023-05-23",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=7e39ab0efca78f1c98070de3648ae747&GotoPage=4",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=7e39ab0efca78f1c98070de3648ae747&file_id=2062&category=01",
+      "sha256": "4baadb89f8c9f2ff08f04c49f3ad7944e2d957152684e0efc2c7d934bf12fb04",
+      "file_size": 105984,
+      "matched_document_ids": [
+        "GDL-fb866888334d"
+      ],
+      "review_reason": "원천 표시일·원문 개정일·기존 버전 순서 대조 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "e3599a5db337da5afe5340401de33e17:file:2059",
+      "title_raw": "한국교통대학교 산학협력단 계약직원 운영 지침(2024.07.23.)",
+      "effective_date": "2024-07-23",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=e3599a5db337da5afe5340401de33e17&GotoPage=5",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=e3599a5db337da5afe5340401de33e17&file_id=2059&category=01",
+      "sha256": "4dc23e71e3c4534d4c954c6eb8fedead19a411f264ff57a955a74906a3da22e5",
+      "file_size": 118272,
+      "matched_document_ids": [
+        "GDL-8d62b686b62e"
+      ],
+      "review_reason": "원천 표시일·원문 개정일·기존 버전 순서 대조 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "74f042c667f0b5b84e37d7b6e6a61a47:file:2047",
+      "title_raw": "[부속기관]3D프린팅센터 운영 지침(2020.06.12)",
+      "effective_date": "2020-06-12",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=74f042c667f0b5b84e37d7b6e6a61a47&GotoPage=6",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=74f042c667f0b5b84e37d7b6e6a61a47&file_id=2047&category=06",
+      "sha256": "8cb8ff323e958de23b1091aaa69493e5c96ce807c881b9e385f7929c2db00098",
+      "file_size": 105472,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "c04733b97b97d90ab6170cfc3ffa08da:file:2046",
+      "title_raw": "[부속기관]4단계 BK21 친환경‧스마트 미래교통 연구단 운영 규정(2021.02.28.)",
+      "effective_date": "2021-02-28",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=c04733b97b97d90ab6170cfc3ffa08da&GotoPage=6",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=c04733b97b97d90ab6170cfc3ffa08da&file_id=2046&category=06",
+      "sha256": "c33ff81aa53ecd7dae03de5120d5ae75b1f4c848b635c781360eb77b8e52e799",
+      "file_size": 55808,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "d895a5d01f8f92a3ca934fe4ab967c2d:file:2045",
+      "title_raw": "[부속기관]4단계 두뇌한국(BK)21 사업 관리 운영 지침(2021.06.11.)",
+      "effective_date": "2021-06-11",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=d895a5d01f8f92a3ca934fe4ab967c2d&GotoPage=6",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=d895a5d01f8f92a3ca934fe4ab967c2d&file_id=2045&category=06",
+      "sha256": "2d79bf4b12d949b6b91019a3b2ccc9171de23f68289b23ec66a416b11aca984f",
+      "file_size": 125952,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "758ef6fda3f13037fa96249816ff4832:file:2044",
+      "title_raw": "[부속기관]기능성 코팅 융복합소재부품 전문인력양성사업 운영규정(2019.01.30.)",
+      "effective_date": "2019-01-30",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=758ef6fda3f13037fa96249816ff4832&GotoPage=6",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=758ef6fda3f13037fa96249816ff4832&file_id=2044&category=06",
+      "sha256": "068e575f6694d85eea19a253e74200e240b09efd709f2fc04fac9142820471ac",
+      "file_size": 57344,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "5c30577314709e600ba2e58b9acb5e85:file:2043",
+      "title_raw": "[부속기관]배터리 재사용‧재활용 전문인력양성사업 운영규정(2022.01.30.)",
+      "effective_date": "2022-01-30",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=5c30577314709e600ba2e58b9acb5e85&GotoPage=6",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=5c30577314709e600ba2e58b9acb5e85&file_id=2043&category=06",
+      "sha256": "f2c9914ceb989386f1bee665209f02442c0e47acd435beaf438a44e7cbbb3cf6",
+      "file_size": 64000,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "ade3df73985980e5326305c9b6f21e3e:file:2042",
+      "title_raw": "[부속기관]전담자운영규정(2020.01.02.)",
+      "effective_date": "2020-01-02",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=ade3df73985980e5326305c9b6f21e3e&GotoPage=6",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=ade3df73985980e5326305c9b6f21e3e&file_id=2042&category=06",
+      "sha256": "f2c9914ceb989386f1bee665209f02442c0e47acd435beaf438a44e7cbbb3cf6",
+      "file_size": 64000,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "b9c3c97bfe2ab2a62c3790f599365bab:file:2041",
+      "title_raw": "[부속기관]한국교통대학교 친환경 에너지 부품소재센터 운영규정(2019.08.12)",
+      "effective_date": "2019-08-12",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=b9c3c97bfe2ab2a62c3790f599365bab&GotoPage=6",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=b9c3c97bfe2ab2a62c3790f599365bab&file_id=2041&category=06",
+      "sha256": "c8cc371ad20e1327ef5f41f83a34c329fe4f020b8a7530a19ced67fe4d8671e0",
+      "file_size": 77312,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "0da6d1b32f24d913466248886962cbad:file:2040",
+      "title_raw": "산업자문 운영에 관한 지침(2012.11.01.)",
+      "effective_date": "2012-11-01",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=0da6d1b32f24d913466248886962cbad&GotoPage=6",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=0da6d1b32f24d913466248886962cbad&file_id=2040&category=02",
+      "sha256": "0c4594f74ecf9a1211a1b3a878fe7cc933df0c7cf7452b3acc8fc1699b1ab98b",
+      "file_size": 59414,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "987b6bf5b73f08a1a10077aa092fe2dd:file:2032",
+      "title_raw": "한국교통대학교 산학협력단 연구원 운영 지침(2024.07.23.)",
+      "effective_date": "2024-07-23",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=987b6bf5b73f08a1a10077aa092fe2dd&GotoPage=7",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=987b6bf5b73f08a1a10077aa092fe2dd&file_id=2032&category=03",
+      "sha256": "1463dda293001e64650b0269cb98df80601353f35aa7cdeca66ffaee4bcf9d1f",
+      "file_size": 122368,
+      "matched_document_ids": [],
+      "review_reason": "문서 식별·등록 또는 기존 제목 별칭 연결 확인 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "929e3e8204b4645b0169548831f07ce8:file:2023",
+      "title_raw": "교내 학술연구과제 관리지침(2016.09.19.)",
+      "effective_date": "2016-09-19",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=929e3e8204b4645b0169548831f07ce8&GotoPage=8",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=929e3e8204b4645b0169548831f07ce8&file_id=2023&category=05",
+      "sha256": "c2cb7beb933725e14a48a036b4bd5456fc9f2b82ef9a34fd43737ef87ea5f06e",
+      "file_size": 45568,
+      "matched_document_ids": [
+        "GDL-611a05214ba4"
+      ],
+      "review_reason": "원천 표시일·원문 개정일·기존 버전 순서 대조 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "e428ca567937a68449beba2dc18d53f1:file:2021",
+      "title_raw": "국립한국교통대학교 생물안전관리 규정(2024.12.31.)",
+      "effective_date": "2024-12-31",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=e428ca567937a68449beba2dc18d53f1&GotoPage=8",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=e428ca567937a68449beba2dc18d53f1&file_id=2021&category=05",
+      "sha256": "788361e58470205b72f972b62c42d1dfacae48480dbff8967877986238e76d80",
+      "file_size": 112128,
+      "matched_document_ids": [
+        "REG-bc100468b2d2"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "0a3b622554c09abe1ee67309caa43967:file:2018",
+      "title_raw": "한국교통대학교 연구자를 위한 생명윤리지침(2023.11.13.)",
+      "effective_date": "2023-11-13",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=0a3b622554c09abe1ee67309caa43967&GotoPage=8",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=0a3b622554c09abe1ee67309caa43967&file_id=2018&category=05",
+      "sha256": "08eedcfd511225b52fdfd492a58f94bfeadb64cd363fe828b48bc47e97cdb4c1",
+      "file_size": 446451,
+      "matched_document_ids": [
+        "GDL-e6e29be52a8c"
+      ],
+      "review_reason": "같은 개정일이나 바이트 해시가 다름: 본문·별표·서식 및 파일 형식 대조 필요"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "bc7a6d8fe34e918e095ebb18900d7f3c:file:2016",
+      "title_raw": "한국교통대학교 생명윤리위원회 표준운영지침(폐지, 2023.10.24.)",
+      "effective_date": "2023-10-24",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=bc7a6d8fe34e918e095ebb18900d7f3c&GotoPage=8",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=bc7a6d8fe34e918e095ebb18900d7f3c&file_id=2016&category=07",
+      "sha256": "bb4f8ebc5f06c87af4747f3190f1813f724e3892e2bc4f8cc2b6ac2f7629dfb0",
+      "file_size": 1209561,
+      "matched_document_ids": [
+        "GDL-57dae907c38b"
+      ],
+      "review_reason": "폐지 표시 자료: 폐지 근거·대체 규정 확인 후 상태 반영 필요, 최신 운영본 자동 승격 금지"
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "f2c37ade19d7a15a6eae49cead926374:file:2007",
+      "title_raw": "산학협력전담교수 제도 운영지침(폐지, 2021.01.22)",
+      "effective_date": "2021-01-22",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=f2c37ade19d7a15a6eae49cead926374&GotoPage=9",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=f2c37ade19d7a15a6eae49cead926374&file_id=2007&category=07",
+      "sha256": "d88cf615630069a5d5efc1c4025d109c19ce5ff7e6e655b27b28941d7c56b8ec",
+      "file_size": 23040,
+      "matched_document_ids": [
+        "GDL-35ed6d52426d"
+      ],
+      "review_reason": "폐지 표시 자료: 폐지 근거·대체 규정 확인 후 상태 반영 필요, 최신 운영본 자동 승격 금지"
+    },
+    {
+      "source_id": "ut_guidelines",
+      "source_record_id": "seq:544",
+      "title_raw": "국립한국교통대학교 전임교원 강의책임시간 감면 지침 (15)",
+      "effective_date": "2026-02-22",
+      "source_page_url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=2",
+      "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000217952&fileSn=0",
+      "sha256": "5f5ea14c978e47ec45769d257b7e37bcb4c9dd57c205103b87454fa2d96b1d2c",
+      "file_size": 62976,
+      "matched_document_ids": [],
+      "review_reason": "게시일 2026-02-22이나 원문 전문은 2026-02-19 제645호. 기존 GDL-b2e69b89f754도 같은 개정일이며 파일 해시는 다름. 신규 개정으로 자동 승격하지 않음"
+    }
+  ]
+}
