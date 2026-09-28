@@ -1,0 +1,1525 @@
+{
+  "checked_at": "2026-09-28T19:17:00.034337+09:00",
+  "base_commit": "84051cd8361969b54c5969b488ba5c7f9c3becbc",
+  "read_only_review": true,
+  "not_an_apply_batch": true,
+  "listing_counts": {
+    "ut_regulations": 126,
+    "ut_guidelines": 555,
+    "sanhak_regulations": 82,
+    "sanhak_guidelines": 86
+  },
+  "reconciled_attachment_record_counts": {
+    "ut_regulations": 225,
+    "ut_guidelines": 632,
+    "sanhak_regulations": 82,
+    "sanhak_guidelines": 92
+  },
+  "new_attachment_count": 1,
+  "new_document_confirmed_count": 0,
+  "new_revision_confirmed_count": 1,
+  "applied_count": 0,
+  "prior_review_queue_count": 43,
+  "new_review_count": 1,
+  "source_errors_after_retry": {},
+  "initial_transient_error": "ut_guidelines: IncompleteRead(0 bytes read); whole list and affected detail checks rerun",
+  "scope_note": "전체 목록은 이번 실행에서 조회. 목록 표시일이 같은 상세 248건은 당일 앞선 수집 결과를 재사용. 대학 지침 상세 35건과 신규 상세 1건 재조회. 기존 원문 37개 재다운로드 해시 일치, 신규 원문 1개 검증. 모든 과거 첨부의 이번 실행 해시 검증을 뜻하지 않음.",
+  "metadata_candidate_counts": {
+    "present_metadata": 422,
+    "new_version_candidate": 242,
+    "new_document_candidate": 210,
+    "supporting_attachment": 157
+  },
+  "review_candidates": [
+    {
+      "source_id": "ut_guidelines",
+      "source_record_id": "1125103:file:0",
+      "document_type": "guideline",
+      "source_group": "지침",
+      "title_raw": "국립한국교통대학교 철도HRD센터 운영 지침 일부개정(2026.9.28.제671호)",
+      "title_normalized": "철도hrd센터운영지침",
+      "department": "철도HRD센터",
+      "posted_date": "2026-09-28",
+      "effective_date": "2026-09-28",
+      "source_page_url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardArticle.do?bbsId=BBSMSTR_000000000052&nttId=1125103",
+      "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292477&fileSn=0",
+      "attachment_filename": "국립한국교통대학교 철도HRD센터 운영 지침 일부개정(2026.9.28.제671호).hwp",
+      "attachment_role": "document",
+      "sha256": "80d39a06d40adc614d52468cdfedda0a2a05c4441f49d71294c25a2e2fb36293",
+      "retrieved_at": null,
+      "http_etag": null,
+      "last_modified": null,
+      "file_size": 695808,
+      "status": "blocked_previous_version_link",
+      "proposed_document_id": "GDL-8c80f570ece4",
+      "proposed_version_id": "VER-20260928-80d39a06",
+      "verified_normative_predecessor": "VER-20250417-0c201b77",
+      "gate_selected_predecessor": "VER-20250417-2825c173",
+      "revision_date": "2026-09-28",
+      "validity_status": "unknown",
+      "status_confidence": "unknown",
+      "actual_format": "HWP Compound File Binary",
+      "identity_evidence": "원문 제정·개정 연혁: 제550호(2024-05-16) → 제603호(2025-04-17) → 제671호(2026-09-28). 제1조 목적·제3조 적용범위 및 발령기관 국립한국교통대학교, 담당 철도HRD센터 일치.",
+      "effective_date_evidence": "부칙(2026. 9. 28. 지침 제671호) 제1조: 공포한 날부터 시행한다.",
+      "review_reason": "2025년 본문과 개정사유가 같은 문서 그룹의 별도 버전으로 취급되며 Gate가 같은 날짜의 version_id 문자열 순으로 개정사유를 직전 버전으로 선택한다. 실제 본문을 previous_version_id로 지정한 계획 검증 실패. 2024년 제정본은 별도 document_id이므로 그룹 병합 및 체인 정정은 별도 검토 필요.",
+      "other_document_ids": [
+        "GDL-52ec0373b344",
+        "GDL-371a91f4fee0"
+      ]
+    }
+  ],
+  "rechecked_files": [
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "tgm52h7ljti4sz6owhd2oy7nhvdbgh",
+      "title_raw": "산학협력단 직원 인사 등에 관한 규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=tgm52h7ljti4sz6owhd2oy7nhvdbgh",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "da52a58a592451b63c3be30dc060c84679a312046b559f605a79ffe4e14b03b1",
+      "file_size": 41984,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "551vo0hnh8iuj17me7q6qtw69uw1kd",
+      "title_raw": "한국교통대학교 산학협력단 정관",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=551vo0hnh8iuj17me7q6qtw69uw1kd",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "1411ce28a1b9ceb7695b2deecef3eab4915fa807c159aa54866a68d301be837a",
+      "file_size": 54784,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "wsjm41050kxq9whv3017puze33jqss",
+      "title_raw": "국립한국교통대학교 산학협력단 운영규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=wsjm41050kxq9whv3017puze33jqss",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "19c8e5f2850e5807c307c7c6c21470be15096a490e61f0375c4d46f9ebd7a7bb",
+      "file_size": 62464,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "jqxkxjtejpzptv7hq5y3lktl33zxg3",
+      "title_raw": "지식재산권에관한규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=jqxkxjtejpzptv7hq5y3lktl33zxg3",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "a7abff9a3a583696536b301622ecd47824772521dbef3877fcf783c195ffae8b",
+      "file_size": 81920,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "xvb2ujcxubxa8vpexwtk5b2q77z0q4",
+      "title_raw": "교원 벤처창업에 관한 규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=xvb2ujcxubxa8vpexwtk5b2q77z0q4",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "24f4b937ab2f4c90ea1d8bd0936bbb8a536f8c372a2288e8d35dad615340fce2",
+      "file_size": 29184,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "7k0pf4ovuaa334j16tgi751ugvzpzy",
+      "title_raw": "한국교통대학교 연구비관리규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=7k0pf4ovuaa334j16tgi751ugvzpzy",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "683ab60d2db48cba51cd50283863a7a20f39b9da0404ee2f8c71d3b7e2db5af5",
+      "file_size": 61952,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "ba776rdt87z6sbwz2qgl6p98j9oo1b",
+      "title_raw": "한국교통대학교 학교기업 설립 및 운영규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=ba776rdt87z6sbwz2qgl6p98j9oo1b",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "dced24b81cee7aa9f00f5ecfc3d6f9feadc456112f3611de374bc418b8cd3a93",
+      "file_size": 70656,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "if817or2sv6z2qnzvtd9i8gce3x7nq",
+      "title_raw": "한국교통대학교 계약학과 등 설치 및 운영규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=if817or2sv6z2qnzvtd9i8gce3x7nq",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "fb47fe9b593c0b0b74cdfae64dad88101b2a53497cae3db0689c1e11d8f9d40d",
+      "file_size": 73728,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "9i8pyr0kldgc31b4m25lcs62rpsiyc",
+      "title_raw": "가족회사 규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=9i8pyr0kldgc31b4m25lcs62rpsiyc",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "8de7a4ad234f279d55d1e814292247a229ccd2df66be08ab361708a325aed6d3",
+      "file_size": 99840,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "5aq0ef80thtwvoz6a96eg1ipdw7v1v",
+      "title_raw": "국립한국교통대학교 산학협력단 연구비 감사 규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=5aq0ef80thtwvoz6a96eg1ipdw7v1v",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "f287ac3aca5c46fcd41dbf2aea2fcf215a9e7d72283bc718c725454a347a4462",
+      "file_size": 76800,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "1jpqwnte0go1kxab1of29gr03utsk3",
+      "title_raw": "연구위원회규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=1jpqwnte0go1kxab1of29gr03utsk3",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "daaeaef6f10eda46220deb9825a32e290840c2901621a75a0bc70721a36e1d26",
+      "file_size": 32768,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "yyfyck3qm43ygg93ucycuatpxwvx7n",
+      "title_raw": "국립한국교통대학교 연구윤리진실성위원회 규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=yyfyck3qm43ygg93ucycuatpxwvx7n",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "3f9b8069b30d5afaa1820ab21652b3507b3068f00e64486fcd3bbf94199d219e",
+      "file_size": 79360,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "73tj1vbjj4sqzsv4b7t5r3qo5xu8wl",
+      "title_raw": "동물실험윤리위원회 운영규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=73tj1vbjj4sqzsv4b7t5r3qo5xu8wl",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "30f0cf9c010973fef1a0a29030c10be23f286c98a18e8908517a7ed9e25d1f00",
+      "file_size": 58880,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "9epuk6a7s0m9l3mxpijxhys6pduw2q",
+      "title_raw": "한국교통대학교 연구소설치운영규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=9epuk6a7s0m9l3mxpijxhys6pduw2q",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "75b2d830b33f93be67b458d5f1e9c0f5475271790362fe4a9f0d048cb035ad8d",
+      "file_size": 32768,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "yr0v58q75yh84l8ru3zsf178hukb8z",
+      "title_raw": "생명윤리위원회 규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=yr0v58q75yh84l8ru3zsf178hukb8z",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "565aa381bf81d6aad992ceadf7e2b5f6cab0519379b773113cfc6be1bf0eb1b4",
+      "file_size": 23040,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "n67jun9zk88569wqo892onnl9f6vca",
+      "title_raw": "한국교통대학교 생물안전관리규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=n67jun9zk88569wqo892onnl9f6vca",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "4e496e9d5915983af55fa40fd738ff7318b060d5c1b7c76d753abc7145e82c62",
+      "file_size": 231936,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "umt9cawvkxdyk9p1bisojmn00nl7qc",
+      "title_raw": "한국교통대학교논문집발간규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=umt9cawvkxdyk9p1bisojmn00nl7qc",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "fb3e88a6f59f5eca0a724410bb27762033a6755e146c0b176134009534757f5d",
+      "file_size": 81920,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "fxz5h1sxmudbbirbfj9bqxp027jznu",
+      "title_raw": "국가연구개발사업보안관리규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=fxz5h1sxmudbbirbfj9bqxp027jznu",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "f40cbd27b9455ef8ed36f0a106785f841760dbcedc882857d7f4437f11dcac5e",
+      "file_size": 49152,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "55bl2uz4k6zdkd9iek8ccrf0glukvn",
+      "title_raw": "연구비감사위원회규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=55bl2uz4k6zdkd9iek8ccrf0glukvn",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "9a71758a5a7b3afd114b3d7f2aac6c802be8af36e8b783a8f9b98d9bca7ad458",
+      "file_size": 11776,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "3hd6iwpljnj8qxf2amtbj3wh5les3g",
+      "title_raw": "연구진실성검증을위한조사위원회의구성운영에관한규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=3hd6iwpljnj8qxf2amtbj3wh5les3g",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "7c800e8b8f1cedeb06aefbd11f402c85a96e090a515a3436499e2d3c0dbb60e0",
+      "file_size": 12288,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_regulations",
+      "source_record_id": "fzbxz9jc3o2y6qd5xj25wpws3x9kvy",
+      "title_raw": "국립한국교통대학교 연구윤리 및 연구비 등의 감사에 관한 규정",
+      "attachment_url": "https://sanhak.ut.ac.kr/_prog/download/?file_id=fzbxz9jc3o2y6qd5xj25wpws3x9kvy",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html",
+      "sha256": "0b850059089476b313b06564d9600bb902bc41b826e49ad0c9914fe045dc0791",
+      "file_size": 33280,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "4ceb13bd32b40b2b4f4a933ee112a07c:file:2966",
+      "title_raw": "국립한국교통대학교 산학협력단 부속기관 설치·운영 지침(제669호, 2026.9.1.)",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=4ceb13bd32b40b2b4f4a933ee112a07c&file_id=2966&category=01",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=4ceb13bd32b40b2b4f4a933ee112a07c&GotoPage=1",
+      "sha256": "9d8a4735751d34a9d1fc33488f2ecfd2321e12b5962273c189816b303c19f7a2",
+      "file_size": 73728,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "3eeed4b4c255ab3f711e784f6ef3f8a0:file:2954",
+      "title_raw": "국립한국교통대학교 연구비관리규정 세부시행지침(지침 제667호, 2026.8.18.)",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=3eeed4b4c255ab3f711e784f6ef3f8a0&file_id=2954&category=03",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=3eeed4b4c255ab3f711e784f6ef3f8a0&GotoPage=1",
+      "sha256": "a8cf6c232b9afd49ab296dec6dfcd233a362bd26cdfd6b0df31d0a12dc4479a3",
+      "file_size": 243200,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "d77679f979c0764385b7ea2298f412e2:file:2974",
+      "title_raw": "국립한국교통대학교 학생연구자 지원 지침(제670호, 2026.9.2.)",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=d77679f979c0764385b7ea2298f412e2&file_id=2974&category=03",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=d77679f979c0764385b7ea2298f412e2&GotoPage=1",
+      "sha256": "cdea9dfc1e191d1bab6c6aa337e7a9f688a7d2d62a888bba9f7688180d8b7145",
+      "file_size": 660480,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "c9a271dca03d7e7a14eabedf13de3fab:file:2857",
+      "title_raw": "국립한국교통대학교 학술연구 지원 지침(2026.6.16.)",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=c9a271dca03d7e7a14eabedf13de3fab&file_id=2857&category=01",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=c9a271dca03d7e7a14eabedf13de3fab&GotoPage=1",
+      "sha256": "62c6b12bcddcb0e2087925980038b6e4562067a38da738b1cd10af4ffac3efdb",
+      "file_size": 70656,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "9f44ca9c19da5617a3e097ce01c2400e:file:2955",
+      "title_raw": "국립한국교통대학교 산학협력단 팀제 운영 지침(2026.8.18.)",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=9f44ca9c19da5617a3e097ce01c2400e&file_id=2955&category=01",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=9f44ca9c19da5617a3e097ce01c2400e&GotoPage=1",
+      "sha256": "a75e88cab80c740acbb6259f51cb50fffa42e6702dded1bd1445db55295e1820",
+      "file_size": 78336,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "57597dfb68e1c642a93547e32fb89eb0:file:2956",
+      "title_raw": "국립한국교통대학교 연구소 설립·운영에 관한 지침(2026.8.18.)",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=57597dfb68e1c642a93547e32fb89eb0&file_id=2956&category=01",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=57597dfb68e1c642a93547e32fb89eb0&GotoPage=1",
+      "sha256": "b1ec2163a05b28cfa6275d08f677cdf4db3efe1873d9edf8ccf8286b1f3ce00c",
+      "file_size": 89088,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "eb915ea79d1e7ed59da1e4a67979d663:file:2685",
+      "title_raw": "국립한국교통대학교 대응자금 지원 지침(2026.2.27.)",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=eb915ea79d1e7ed59da1e4a67979d663&file_id=2685&category=01",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=eb915ea79d1e7ed59da1e4a67979d663&GotoPage=2",
+      "sha256": "bad748e0f43fd2cda2674b2f44082fffcf64f28059f5951d5ebc88f5a0675ba9",
+      "file_size": 113664,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "07792e0d1ef8e8ddc7da64946346aa60:file:2437",
+      "title_raw": "국립한국교통대학교 산학협력단 위임전결 지침(2025.11.10.)",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=07792e0d1ef8e8ddc7da64946346aa60&file_id=2437&category=01",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=07792e0d1ef8e8ddc7da64946346aa60&GotoPage=2",
+      "sha256": "40ad4fb7d50d84c8b3869d86e496a25162e18e2da6b3f32a4f0eee289485f147",
+      "file_size": 258048,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "6fe34a80637a242fe837bc30909471e2:file:2013",
+      "title_raw": "국립한국교통대학교 국제학술회의 참가경비 지원 지침(2025.05.08.)",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=6fe34a80637a242fe837bc30909471e2&file_id=2013&category=06",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=6fe34a80637a242fe837bc30909471e2&GotoPage=9",
+      "sha256": "fc54bd16c243e5baf3d37c08d8cbba4c76ac8fe3e97ad2110f2074791419f6d6",
+      "file_size": 106496,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "sanhak_guidelines",
+      "source_record_id": "24bc0848cd99e816f3cf031c6632be34:file:2015",
+      "title_raw": "국립한국교통대학교 국제전문학술지 논문 영문교정 지원 지침(2025.05.08.)",
+      "attachment_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=D&no=24bc0848cd99e816f3cf031c6632be34&file_id=2015&category=06",
+      "source_page_url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=V&no=24bc0848cd99e816f3cf031c6632be34&GotoPage=9",
+      "sha256": "35dcc2dc08bb9f0388bf9473b4fe8ba61d15058556acc5cd29af3ca2329b1b34",
+      "file_size": 153600,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "ut_regulations",
+      "source_record_id": "register:98:cnt:current:file:1",
+      "title_raw": "국립한국교통대학교 학칙",
+      "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000218150&fileSn=1",
+      "source_page_url": "https://www.ut.ac.kr/prog/schoolRegulations/kor/sub05_03_01/list.do?register=98",
+      "sha256": "e175b2009f1bd1cc11194b256f61a5b320945a5b797c5a3d51a8f3dbd379cfd4",
+      "file_size": 205824,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "ut_regulations",
+      "source_record_id": "register:84:cnt:current:file:1",
+      "title_raw": "국립한국교통대학교 학사운영 규정",
+      "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000218128&fileSn=1",
+      "source_page_url": "https://www.ut.ac.kr/prog/schoolRegulations/kor/sub05_03_01/list.do?register=84",
+      "sha256": "e664a420165c140857db21188bb7be30179984054e4f85c08e52fb3fa971590c",
+      "file_size": 392704,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "ut_regulations",
+      "source_record_id": "register:119:cnt:current:file:1",
+      "title_raw": "한국교통대학교 겸임교원 등의 인사에 관한 규정",
+      "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000204785&fileSn=1",
+      "source_page_url": "https://www.ut.ac.kr/prog/schoolRegulations/kor/sub05_03_01/list.do?register=119",
+      "sha256": "b0f047f106f845d49f5d1e75fa74f904386ea026fb3e579a3a1047ac007e2112",
+      "file_size": 118272,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "ut_guidelines",
+      "source_record_id": "seq:547",
+      "title_raw": "국립한국교통대학교 홈페이지 운영 지침",
+      "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000287218&fileSn=0",
+      "source_page_url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=1",
+      "sha256": "99c936fa89d9cf82532d391bc9557d6fdba0940375b53d5df02effb42e8bf6c3",
+      "file_size": 53760,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "ut_guidelines",
+      "source_record_id": "seq:545",
+      "title_raw": "(지침 제647호) 국립한국교통대학교 대학회계직원 인사운영 지침",
+      "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000218536&fileSn=0",
+      "source_page_url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=1",
+      "sha256": "9669037e05514541e0c065e547ab2227406aba10e6df6d3c4fdffa1fec16fa20",
+      "file_size": 138240,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": true,
+      "in_review_queue": false
+    },
+    {
+      "source_id": "ut_guidelines",
+      "source_record_id": "seq:544",
+      "title_raw": "국립한국교통대학교 전임교원 강의책임시간 감면 지침 (15)",
+      "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000217952&fileSn=0",
+      "source_page_url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=2",
+      "sha256": "5f5ea14c978e47ec45769d257b7e37bcb4c9dd57c205103b87454fa2d96b1d2c",
+      "file_size": 62976,
+      "format": "hwp",
+      "unchanged_since_previous": true,
+      "in_archive": false,
+      "in_review_queue": true
+    }
+  ],
+  "coverage": [
+    {
+      "source": "ut_regulations",
+      "category": "SE01",
+      "page": 1,
+      "items": 1,
+      "new": 1,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE01/list.do?pageIndex=1"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE01",
+      "page": 2,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE01/list.do?pageIndex=2"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE01",
+      "page": 3,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE01/list.do?pageIndex=3"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE01",
+      "page": 4,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE01/list.do?pageIndex=4"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE01",
+      "page": 5,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE01/list.do?pageIndex=5"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE01",
+      "page": 6,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE01/list.do?pageIndex=6"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE02",
+      "page": 1,
+      "items": 6,
+      "new": 6,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE02/list.do?pageIndex=1"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE02",
+      "page": 2,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE02/list.do?pageIndex=2"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE02",
+      "page": 3,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE02/list.do?pageIndex=3"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE02",
+      "page": 4,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE02/list.do?pageIndex=4"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE02",
+      "page": 5,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE02/list.do?pageIndex=5"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE02",
+      "page": 6,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE02/list.do?pageIndex=6"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE03",
+      "page": 1,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE03/list.do?pageIndex=1"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE03",
+      "page": 2,
+      "items": 6,
+      "new": 6,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE03/list.do?pageIndex=2"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE03",
+      "page": 3,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE03/list.do?pageIndex=3"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE03",
+      "page": 4,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE03/list.do?pageIndex=4"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE03",
+      "page": 5,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE03/list.do?pageIndex=5"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE03",
+      "page": 6,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE03/list.do?pageIndex=6"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE04",
+      "page": 1,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE04/list.do?pageIndex=1"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE04",
+      "page": 2,
+      "items": 5,
+      "new": 5,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE04/list.do?pageIndex=2"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE04",
+      "page": 3,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE04/list.do?pageIndex=3"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE04",
+      "page": 4,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE04/list.do?pageIndex=4"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE04",
+      "page": 5,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE04/list.do?pageIndex=5"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE04",
+      "page": 6,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE04/list.do?pageIndex=6"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE05",
+      "page": 1,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE05/list.do?pageIndex=1"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE05",
+      "page": 2,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE05/list.do?pageIndex=2"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE05",
+      "page": 3,
+      "items": 3,
+      "new": 3,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE05/list.do?pageIndex=3"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE05",
+      "page": 4,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE05/list.do?pageIndex=4"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE05",
+      "page": 5,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE05/list.do?pageIndex=5"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE05",
+      "page": 6,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE05/list.do?pageIndex=6"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE06",
+      "page": 1,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE06/list.do?pageIndex=1"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE06",
+      "page": 2,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE06/list.do?pageIndex=2"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE06",
+      "page": 3,
+      "items": 7,
+      "new": 7,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE06/list.do?pageIndex=3"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE06",
+      "page": 4,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE06/list.do?pageIndex=4"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE06",
+      "page": 5,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE06/list.do?pageIndex=5"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE06",
+      "page": 6,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE06/list.do?pageIndex=6"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE07",
+      "page": 1,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE07/list.do?pageIndex=1"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE07",
+      "page": 2,
+      "items": 8,
+      "new": 8,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE07/list.do?pageIndex=2"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE07",
+      "page": 3,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE07/list.do?pageIndex=3"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE07",
+      "page": 4,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE07/list.do?pageIndex=4"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE07",
+      "page": 5,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE07/list.do?pageIndex=5"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE07",
+      "page": 6,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE07/list.do?pageIndex=6"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE10",
+      "page": 1,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE10/list.do?pageIndex=1"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE10",
+      "page": 2,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE10/list.do?pageIndex=2"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE10",
+      "page": 3,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE10/list.do?pageIndex=3"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE10",
+      "page": 4,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE10/list.do?pageIndex=4"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE10",
+      "page": 5,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE10/list.do?pageIndex=5"
+    },
+    {
+      "source": "ut_regulations",
+      "category": "SE10",
+      "page": 6,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/prog/schoolRegltn/kor/sub05_03_01/SE10/list.do?pageIndex=6"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 1,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=1"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 2,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=2"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 3,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=3"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 4,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=4"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 5,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=5"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 6,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=6"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 7,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=7"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 8,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=8"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 9,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=9"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 10,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=10"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 11,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=11"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 12,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=12"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 13,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=13"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 14,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=14"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 15,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=15"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 16,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=16"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 17,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=17"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 18,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=18"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 19,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=19"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 20,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=20"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 21,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=21"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 22,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=22"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 23,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=23"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 24,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=24"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 25,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=25"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 26,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=26"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 27,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=27"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 28,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=28"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 29,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=29"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 30,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=30"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 31,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=31"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 32,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=32"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 33,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=33"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 34,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=34"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 35,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=35"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 36,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=36"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 37,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=37"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 38,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=38"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 39,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=39"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 40,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=40"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 41,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=41"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 42,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=42"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 43,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=43"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 44,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=44"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 45,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=45"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 46,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=46"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 47,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=47"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 48,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=48"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 49,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=49"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 50,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=50"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 51,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=51"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 52,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=52"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 53,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=53"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 54,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=54"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 55,
+      "items": 10,
+      "new": 10,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=55"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 56,
+      "items": 5,
+      "new": 5,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=56"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 57,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=57"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 58,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=58"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 59,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=59"
+    },
+    {
+      "source": "ut_guidelines",
+      "category": null,
+      "page": 60,
+      "items": 0,
+      "new": 0,
+      "url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardList.do?pageIndex=60"
+    },
+    {
+      "source": "sanhak_regulations",
+      "category": null,
+      "page": 1,
+      "items": 82,
+      "new": 82,
+      "url": "https://sanhak.ut.ac.kr/kr/html/sub06/060101.html"
+    },
+    {
+      "source": "sanhak_guidelines",
+      "category": null,
+      "page": 1,
+      "items": 10,
+      "new": 10,
+      "url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=L&GotoPage=1"
+    },
+    {
+      "source": "sanhak_guidelines",
+      "category": null,
+      "page": 2,
+      "items": 10,
+      "new": 10,
+      "url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=L&GotoPage=2"
+    },
+    {
+      "source": "sanhak_guidelines",
+      "category": null,
+      "page": 3,
+      "items": 10,
+      "new": 10,
+      "url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=L&GotoPage=3"
+    },
+    {
+      "source": "sanhak_guidelines",
+      "category": null,
+      "page": 4,
+      "items": 10,
+      "new": 10,
+      "url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=L&GotoPage=4"
+    },
+    {
+      "source": "sanhak_guidelines",
+      "category": null,
+      "page": 5,
+      "items": 10,
+      "new": 10,
+      "url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=L&GotoPage=5"
+    },
+    {
+      "source": "sanhak_guidelines",
+      "category": null,
+      "page": 6,
+      "items": 10,
+      "new": 10,
+      "url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=L&GotoPage=6"
+    },
+    {
+      "source": "sanhak_guidelines",
+      "category": null,
+      "page": 7,
+      "items": 10,
+      "new": 10,
+      "url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=L&GotoPage=7"
+    },
+    {
+      "source": "sanhak_guidelines",
+      "category": null,
+      "page": 8,
+      "items": 10,
+      "new": 10,
+      "url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=L&GotoPage=8"
+    },
+    {
+      "source": "sanhak_guidelines",
+      "category": null,
+      "page": 9,
+      "items": 6,
+      "new": 6,
+      "url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=L&GotoPage=9"
+    },
+    {
+      "source": "sanhak_guidelines",
+      "category": null,
+      "page": 10,
+      "items": 6,
+      "new": 0,
+      "url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=L&GotoPage=10"
+    },
+    {
+      "source": "sanhak_guidelines",
+      "category": null,
+      "page": 11,
+      "items": 6,
+      "new": 0,
+      "url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=L&GotoPage=11"
+    },
+    {
+      "source": "sanhak_guidelines",
+      "category": null,
+      "page": 12,
+      "items": 6,
+      "new": 0,
+      "url": "https://sanhak.ut.ac.kr/kr/html/sub06/060102.html?mode=L&GotoPage=12"
+    }
+  ],
+  "plan_validation_error": "공식 원천 배치 검증 실패:\n- 철도HRD센터 운영 지침: 기준 버전 불일치 VER-20250417-2825c173 != VER-20250417-0c201b77"
+}
