@@ -1,6 +1,6 @@
 {
   "captured_at": "2026-09-28",
-  "repository_base_commit": "93446120cf41309d2d478a6ad4f2c7f360b39490",
+  "repository_base_commit": "7198f663de49d71e71f39bf40f42c6e5dfe688e8",
   "records": [
     {
       "source_id": "sanhak_guidelines",
@@ -101,5 +101,6 @@
       "application_note": "부칙(2025.5.8. 제606호): 2025학년도 참가자부터 적용. 정확한 시행일 날짜는 별도 특정하지 않아 null 유지.",
       "downloaded_filename": "(지침+제606호)+국립한국교통대학교+국제학술회의+참가경비+지원+지침.hwp"
     }
-  ]
+  ],
+  "workflow_retry_reason": "Gate 성공 후 공백 포함 경로의 Git 인용을 허용목록에서 오인하여 커밋 전에 중단됨. NUL 구분 경로 파싱 수정 후 재실행."
 }

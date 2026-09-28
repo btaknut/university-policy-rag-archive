@@ -151,8 +151,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config core.quotepath false
-          mapfile -t changed_paths < <(git status --porcelain=v1 --untracked-files=all | cut -c4-)
-          for changed_path in "${changed_paths[@]}"; do
+          # NUL-delimited entries preserve spaces, quotes and non-ASCII filenames.
+          mapfile -d '' -t changed_entries < <(git status --porcelain=v1 -z --untracked-files=all --no-renames)
+          for changed_entry in "${changed_entries[@]}"; do
+            changed_path="${changed_entry:3}"
             case "${changed_path}" in
               sources/raw/*|corpus/normalized/*|metadata/documents.jsonl|metadata/versions.jsonl|metadata/source_manifest.jsonl|metadata/portable_hwp_manifest.jsonl|metadata/current_documents.jsonl|metadata/latest_documents.jsonl|rag/chunks.jsonl|rag/document_catalog.jsonl|rag/corpus_manifest.json|rag/retrieval_examples.json|catalog/*|reports/corpus_validation.md|reports/hwp_portable_conversion.md) ;;
               *) echo "Gate 허용목록 밖 변경을 거부합니다: ${changed_path}"; exit 1 ;;
