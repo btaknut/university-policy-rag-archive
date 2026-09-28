@@ -43,3 +43,11 @@ def test_frontmatter_refresh_preserves_body_and_portable_hash(tmp_path, monkeypa
     digest=hashlib.sha256(content.encode()).hexdigest()
     assert versions[0]['portable_markdown_sha256']==digest
     assert read_jsonl(tmp_path/'metadata/portable_hwp_manifest.jsonl')[0]['normalized_sha256']==digest
+
+
+def test_frontmatter_does_not_reformat_unchanged_values(tmp_path, monkeypatch):
+    monkeypatch.setattr(build_versions,'ROOT',tmp_path)
+    content='---\nis_current: false\ncurrent_status: historical\n---\n제1조 본문\n'
+    (tmp_path/'v.md').write_text(content)
+    build_versions.sync_front_matter([{'version_id':'V','document_id':'D','normalized_file':'v.md','is_current':False,'current_status':'historical'}],[{'document_id':'D'}])
+    assert (tmp_path/'v.md').read_text() == content
