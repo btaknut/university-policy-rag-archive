@@ -3,8 +3,8 @@ document_id: "GDL-828bed4b143d"
 version_id: "VER-unknown-effa1df5"
 document_type: "guideline"
 title: "산학협력단 위임전결지침"
-is_current: true
-current_status: "confirmed"
+is_current: false
+current_status: "historical"
 enactment_date: null
 revision_date: null
 effective_date: null
