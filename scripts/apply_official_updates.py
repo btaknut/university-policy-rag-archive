@@ -113,7 +113,6 @@ def validate_batch(
             "source_record_id",
             "document_id",
             "document_type",
-            "effective_date",
             "sha256",
             "file_size",
             "attachment_filename",
@@ -124,6 +123,10 @@ def validate_batch(
         if missing:
             errors.append(f"{label}: 필수값 누락 {', '.join(missing)}")
             continue
+        if not record.get('revision_date') and not record.get('effective_date'):
+            errors.append(f"{label}: 개정일과 시행일 모두 미확인")
+            continue
+        record.setdefault('effective_date', None)
         if record["document_id"] not in documents_by_id:
             errors.append(f"{label}: 기존 document_id 없음 {record['document_id']}")
             continue

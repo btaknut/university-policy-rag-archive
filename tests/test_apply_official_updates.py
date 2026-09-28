@@ -137,3 +137,14 @@ def test_title_change_requires_matching_old_title_and_evidence(tmp_path, old_tit
     batch['records'][0].update(title='새 지침', previous_title=old_title, title_change_evidence=evidence)
     with pytest.raises(ValueError, match='제목 변경'):
         validate_batch(batch, tmp_path, documents, versions)
+
+
+def test_unknown_effective_date_is_not_replaced_by_revision_date(tmp_path):
+    payload = b'expected'
+    (tmp_path/'downloaded.hwp').write_bytes(payload)
+    batch, docs, versions = fixture_rows(payload)
+    batch['records'][0]['effective_date'] = None
+    prepared = validate_batch(batch, tmp_path, docs, versions)
+    _, updated, _ = update_metadata(prepared, docs, versions, [], '2026-09-28')
+    assert updated[-1]['revision_date'] == '2026-08-18'
+    assert updated[-1]['effective_date'] is None
