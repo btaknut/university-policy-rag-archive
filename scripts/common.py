@@ -86,7 +86,7 @@ def write_csv(path: Path, rows: Iterable[dict[str, Any]], fields: list[str]) -> 
     """Excel 호환 UTF-8-SIG CSV."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=fields, extrasaction="ignore"); writer.writeheader()
+        writer = csv.DictWriter(stream, fieldnames=fields, extrasaction="ignore", lineterminator="\n"); writer.writeheader()
         for row in rows: writer.writerow({k: json.dumps(v, ensure_ascii=False) if isinstance(v, (list, dict)) else v for k, v in row.items()})
 
 

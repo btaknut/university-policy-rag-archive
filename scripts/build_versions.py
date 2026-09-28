@@ -5,6 +5,7 @@ import csv
 import json
 import re
 import hashlib
+import yaml
 from collections import defaultdict
 
 from common import ROOT, read_jsonl, write_csv, write_jsonl
@@ -31,7 +32,10 @@ def sync_front_matter(versions, documents):
         if not match:
             continue
         front = match.group(1)
+        values = yaml.safe_load(front) or {}
         for field in ('is_current', 'current_status'):
+            if values.get(field) == version.get(field):
+                continue
             front = re.sub(r'^' + field + r':[^\n]*$',
                            field + ': ' + json.dumps(version.get(field), ensure_ascii=False),
                            front, flags=re.M)
