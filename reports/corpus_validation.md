@@ -50,7 +50,7 @@
 
 ## PASS — HWP 파생본 완전성
 
-한컴 PDF 847건, portable Markdown 11건, 누락 0건, PDF 오류 0건, portable 오류 0건
+한컴 PDF 847건, portable Markdown 13건, 누락 0건, PDF 오류 0건, portable 오류 0건
 
 ## PASS — 최신 확보본 단일성
 
