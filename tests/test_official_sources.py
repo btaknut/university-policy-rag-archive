@@ -111,6 +111,27 @@ def test_parse_ut_guideline_uses_attachment_filename_when_title_cell_is_empty():
     assert rows[0].title_normalized == normalize_title("금고지정심의위원회 운영 지침")
 
 
+def test_parse_ut_guideline_form_detail_link_without_attachment():
+    list_html = """
+    <table><tbody><tr>
+      <td>165</td><td><form action="/cop/bbs/BBSMSTR_000000000052/selectBoardArticle.do;jsessionid=TRANSIENT" method="post">
+        <input name="bbsId" type="hidden" value="BBSMSTR_000000000052"/>
+        <input name="nttId" type="hidden" value="1026069"/>
+        <input type="submit" value="한국교통대학교 졸업유보제 운영지침(폐지)"/>
+      </form></td><td>학사관리과</td><td>2019-07-22</td><td>3521</td><td></td>
+    </tr></tbody></table>
+    """
+    rows = parse_ut_guidelines_list(list_html, "https://www.ut.ac.kr/list.do?pageIndex=40")
+    assert len(rows) == 1
+    assert rows[0].source_record_id == "1026069"
+    assert rows[0].title_raw == "한국교통대학교 졸업유보제 운영지침(폐지)"
+    assert ";jsessionid=" not in rows[0].source_page_url
+    assert "selectBoardArticle.do" in rows[0].source_page_url
+    assert "bbsId=BBSMSTR_000000000052" in rows[0].source_page_url
+    assert "nttId=1026069" in rows[0].source_page_url
+    assert rows[0].attachment_url is None
+
+
 def test_parse_sanhak_regulations():
     html = """
     <table>

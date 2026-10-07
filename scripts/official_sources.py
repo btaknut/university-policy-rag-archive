@@ -325,9 +325,34 @@ def parse_ut_guidelines_list(
         posted = normalize_date(clean_text(cells[3].get_text(" ")))
         attachment_link = cells[-1].find("a", href=True)
         href = urljoin(page_url, attachment_link["href"]) if attachment_link else None
+        form_record_id: str | None = None
+        form_detail_url: str | None = None
+        if not href:
+            detail_form = cells[1].find("form", action=True)
+            if detail_form:
+                hidden = {
+                    field.get("name"): field.get("value", "")
+                    for field in detail_form.find_all("input")
+                    if field.get("name")
+                }
+                form_record_id = hidden.get("nttId") or None
+                if form_record_id:
+                    action = re.sub(
+                        r";jsessionid=[^?]+", "", detail_form.get("action", "")
+                    )
+                    detail_base = urljoin(page_url, action)
+                    params = {
+                        key: hidden[key]
+                        for key in ("bbsId", "nttId")
+                        if hidden.get(key)
+                    }
+                    form_detail_url = with_query(detail_base, **params)
+                submit = detail_form.find("input", attrs={"type": "submit"})
+                if not title and submit and submit.get("value"):
+                    title = clean_text(submit["value"])
         filename: str | None = None
         attachment_url: str | None = None
-        source_page_url = page_url
+        source_page_url = form_detail_url or page_url
         if href and "FileDown.do" in href:
             attachment_url = href
             filename = clean_text(attachment_link.get_text(" "))
@@ -336,7 +361,7 @@ def parse_ut_guidelines_list(
                 title = Path(filename).stem
         elif href:
             source_page_url = href
-        record_key = query_value(href or "", "nttId") or f"seq:{seq}"
+        record_key = query_value(href or "", "nttId") or form_record_id or f"seq:{seq}"
         records.append(
             SourceRecord(
                 source_id=source_id,
