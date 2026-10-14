@@ -1,0 +1,117 @@
+{
+  "checked_at": "2026-10-07T20:00:05+09:00",
+  "base_commit": "d1645429f89f8cd0b8573d267291a81a784d1b20",
+  "read_only_review": true,
+  "not_an_apply_batch": true,
+  "listing_counts": {
+    "ut_regulations": 127,
+    "ut_guidelines": 558,
+    "sanhak_regulations": 82,
+    "sanhak_guidelines": 86
+  },
+  "reconciled_record_counts": {
+    "ut_regulations": 227,
+    "ut_guidelines": 631,
+    "sanhak_regulations": 82,
+    "sanhak_guidelines": 92
+  },
+  "listing_total": 853,
+  "record_total": 1032,
+  "attachment_total": 1030,
+  "new_listing_count": 1,
+  "new_attachment_count": 2,
+  "new_document_source_confirmed_count": 1,
+  "new_document_archive_id_confirmed_count": 0,
+  "new_revision_confirmed_count": 0,
+  "executable_update_count": 0,
+  "applied_count": 0,
+  "source_errors_after_retry": {},
+  "prior_review_queue_count": 43,
+  "prior_blocked_revision_count": 1,
+  "prior_historical_review_count": 1,
+  "prior_additional_review_count": 2,
+  "new_review_count": 1,
+  "scope_note": "4개 원천의 전체 목록과 필요한 상세를 새로 조회했다. 대학 규정은 8개 분류 전체 목록과 현재 상세를 확인했고 과거 개정 상세 반복 수집만 생략했다. 신규 ESG 지침 본문·제정사유 원문 2개를 공식 URL에서 다운로드해 형식·크기·SHA-256·추출 품질·부칙을 확인했다. 모든 과거 첨부의 바이트를 이번 실행에서 다시 검증한 것은 아니다.",
+  "parser_correction": {
+    "problem": "첨부 없는 구형 대학 지침의 상세 링크가 form POST로 제공될 때 목록 페이지를 상세 페이지로 오인해 같은 페이지의 파일 7개를 seq:165에 잘못 연결함",
+    "fix": "form action과 hidden bbsId/nttId, submit 제목을 복원하고 일시적인 jsessionid를 제거함",
+    "before_record_count": 637,
+    "after_record_count": 631,
+    "spurious_attachment_count": 7,
+    "stable_no_attachment_record": "nttId=1026069",
+    "tests": "56 passed; corpus validation PASS 24/WARNING 2; retrieval Recall@5 1.0, MRR 1.0"
+  },
+  "review_candidates": [
+    {
+      "reason": "new_document_id_unconfirmed",
+      "status": "review_required",
+      "source_id": "ut_guidelines",
+      "source_record_id": "1125277:file:1",
+      "document_type": "guideline",
+      "source_group": "지침",
+      "title": "국립한국교통대학교 ESG위원회 운영 지침",
+      "title_normalized": "esg위원회운영지침",
+      "department": "기획과",
+      "document_id": null,
+      "previous_version_id": null,
+      "version_id": null,
+      "posted_date": "2026-10-07",
+      "enactment_date": "2026-10-07",
+      "promulgation_date": "2026-10-07",
+      "effective_date": "2026-10-07",
+      "validity_status": "unknown",
+      "status_confidence": "unknown",
+      "source_page_url": "https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000052/selectBoardArticle.do?bbsId=BBSMSTR_000000000052&nttId=1125277",
+      "identity_evidence": "저장소 documents/versions/source manifest에서 동일 정규화 제목과 원본 해시가 없고, 원문은 2026-10-07 지침 제674호 제정으로 표시된다. 기존 문서 그룹에 임의 연결하지 않는다.",
+      "date_evidence": "본문 제정 표시와 마지막 부칙은 2026.10.07. 지침 제674호이며 공포한 날부터 시행한다고 규정한다. 게시일도 2026-10-07이다.",
+      "content_summary": "학칙 제26조에 따른 ESG위원회의 목적, ESG·SDGs 정의, 구성·임기, 기능, 회의, 간사, 기타 운영사항을 규정한다.",
+      "document_file": {
+        "source_record_id": "1125277:file:1",
+        "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292766&fileSn=1",
+        "attachment_filename": "붙임2_(지침 제674호)국립한국교통대학교 ESG위원회 운영 지침.hwp",
+        "attachment_role": "document",
+        "actual_format": "Hancom HWP 5.0 Compound File Binary",
+        "file_size": 99840,
+        "file_header": "d0cf11e0a1b11ae1",
+        "sha256": "0c3811d577a24c1c5dcc9aa69d774c35ba49dc38c657c11c54364e7e1a365ab4",
+        "extraction_tool": "unhwp 0.9.1",
+        "extracted_sha256": "c9f0c37e7b298269585a85bf1c7fd8a38af5afe676f84aa1d0b866e0ecee7e89",
+        "text_chars": 1311,
+        "hangul_chars": 689,
+        "replacement_chars": 0,
+        "article_count": 9
+      },
+      "supporting_file": {
+        "source_record_id": "1125277:file:0",
+        "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292766&fileSn=0",
+        "attachment_filename": "붙임1_제정 사유(국립한국교통대학교 ESG위원회 운영 지침).hwp",
+        "attachment_role": "supporting",
+        "actual_format": "Hancom HWP 5.0 Compound File Binary",
+        "file_size": 24576,
+        "file_header": "d0cf11e0a1b11ae1",
+        "sha256": "d2fd7478fa140844f7fecccf78c187ae14ef0e7aa929d528923dd916be4c8e96",
+        "extraction_tool": "unhwp 0.9.1",
+        "extracted_sha256": "a11478bfa9848dcffe525c5dd0f80856f6671974cfa0f90852378967b9f122fb",
+        "text_chars": 914,
+        "hangul_chars": 465,
+        "replacement_chars": 0
+      }
+    }
+  ],
+  "open_data_prs": [
+    {
+      "number": 20,
+      "head_sha": "5a31aa9be3a7af4365546607e1dab7bb6402a292",
+      "mergeable": true,
+      "required_pr_check": "action_required",
+      "changed_by_this_run": false
+    },
+    {
+      "number": 22,
+      "head_sha": "8c1899fbbd5c8ec3a1b72b40c87f222f443e6d80",
+      "mergeable": true,
+      "required_pr_check": "action_required",
+      "changed_by_this_run": false
+    }
+  ]
+}

@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from pathlib import Path
+from http.client import RemoteDisconnected
+from email.message import Message
+from unittest.mock import MagicMock
 import sys
 import pytest
 
@@ -10,6 +13,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from check_official_sources import ManifestIndex
 from official_sources import (
+    HttpClient,
     SourceRecord,
     OfficialSourceCrawler,
     normalize_title,
@@ -22,6 +26,31 @@ from official_sources import (
     parse_ut_regulation_history,
     parse_ut_regulations_list,
 )
+
+
+def test_http_client_retries_remote_disconnect_before_success():
+    client = HttpClient(user_agent="test", retries=2, delay_seconds=0)
+    response = MagicMock()
+    response.__enter__.return_value = response
+    response.read.return_value = b"official page"
+    response.headers = Message()
+    client.opener = MagicMock()
+    client.opener.open.side_effect = [
+        RemoteDisconnected("Remote end closed connection without response"),
+        response,
+    ]
+    payload, _ = client._request("https://www.ut.ac.kr/example")
+    assert payload == b"official page"
+    assert client.opener.open.call_count == 2
+
+
+def test_http_client_preserves_disconnect_failure_after_retry_limit():
+    client = HttpClient(user_agent="test", retries=2, delay_seconds=0)
+    client.opener = MagicMock()
+    client.opener.open.side_effect = RemoteDisconnected("connection closed")
+    with pytest.raises(RemoteDisconnected, match="connection closed"):
+        client._request("https://www.ut.ac.kr/example")
+    assert client.opener.open.call_count == 3
 
 
 def test_normalize_title_ignores_institution_and_revision_metadata():
@@ -109,6 +138,27 @@ def test_parse_ut_guideline_uses_attachment_filename_when_title_cell_is_empty():
     rows = parse_ut_guidelines_list(list_html, "https://www.ut.ac.kr/list.do")
     assert rows[0].title_raw == "국립한국교통대학교 금고지정심의위원회 운영 지침 일부개정"
     assert rows[0].title_normalized == normalize_title("금고지정심의위원회 운영 지침")
+
+
+def test_parse_ut_guideline_form_detail_link_without_attachment():
+    list_html = """
+    <table><tbody><tr>
+      <td>165</td><td><form action="/cop/bbs/BBSMSTR_000000000052/selectBoardArticle.do;jsessionid=TRANSIENT" method="post">
+        <input name="bbsId" type="hidden" value="BBSMSTR_000000000052"/>
+        <input name="nttId" type="hidden" value="1026069"/>
+        <input type="submit" value="한국교통대학교 졸업유보제 운영지침(폐지)"/>
+      </form></td><td>학사관리과</td><td>2019-07-22</td><td>3521</td><td></td>
+    </tr></tbody></table>
+    """
+    rows = parse_ut_guidelines_list(list_html, "https://www.ut.ac.kr/list.do?pageIndex=40")
+    assert len(rows) == 1
+    assert rows[0].source_record_id == "1026069"
+    assert rows[0].title_raw == "한국교통대학교 졸업유보제 운영지침(폐지)"
+    assert ";jsessionid=" not in rows[0].source_page_url
+    assert "selectBoardArticle.do" in rows[0].source_page_url
+    assert "bbsId=BBSMSTR_000000000052" in rows[0].source_page_url
+    assert "nttId=1026069" in rows[0].source_page_url
+    assert rows[0].attachment_url is None
 
 
 def test_parse_sanhak_regulations():

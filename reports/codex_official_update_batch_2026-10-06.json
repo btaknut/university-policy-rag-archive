@@ -1,0 +1,647 @@
+{
+  "captured_at": "2026-10-06",
+  "repository_base_commit": "5dfa0b14322e1884352e1a8260efe3f47b68fd8f",
+  "records": [
+    {
+      "source_id": "ut_regulations",
+      "source_record_id": "register:45:cnt:current:file:1",
+      "document_type": "regulation",
+      "source_group": "부속기관",
+      "title_raw": "국립한국교통대학교 생활관 규정",
+      "title_normalized": "생활관규정",
+      "department": "생활관",
+      "posted_date": null,
+      "effective_date": "2026-09-18",
+      "source_page_url": "https://www.ut.ac.kr/prog/schoolRegulations/kor/sub05_03_01/list.do?register=45",
+      "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292727&fileSn=1",
+      "attachment_filename": "(규정 제574호) 국립한국교통대학교 생활관 규정.hwp",
+      "attachment_role": "document",
+      "sha256": "157271ba90f42e2d9acf0e3ba313c3755a4d0af37e1b104e2da6e5577a586ed8",
+      "retrieved_at": null,
+      "http_etag": null,
+      "last_modified": null,
+      "file_size": 64512,
+      "document_id": "REG-3abf75b899d3",
+      "previous_version_id": "VER-20240229-51dea5aa",
+      "version_id": "VER-20260918-157271ba",
+      "title": "국립한국교통대학교 생활관 규정",
+      "revision_date": "2026-09-18",
+      "promulgation_date": "2026-09-18",
+      "actual_format": "HWP Compound File Binary",
+      "downloaded_filename": "reg-45.hwp",
+      "validity_status": "unknown",
+      "status_confidence": "unknown",
+      "identity_evidence": "제64호 제정 및 제521호 개정 연혁, 생활관 부서와 학칙 제15조에 따른 생활관 운영 범위가 기존 본문과 일치.",
+      "prior_source_sha256": "51dea5aa4c7153c5751adcee2833243ba3fbf661018d6fa58992e83effc21268",
+      "change_summary": "생활관운영위원회 학생 위원 증원, 생활관비심의위원회 신설, 생활관비 분할 납부 근거 추가.",
+      "effective_date_evidence": "공식 개정사유 공포문: 2026년 9월 18일 국립한국교통대학교총장. 본문 마지막 부칙: 공포한 날부터 시행.",
+      "application_note": "validity_status와 status_confidence는 unknown 유지. 게시일은 확인되지 않음.",
+      "verification": {
+        "sha256_verified": true,
+        "header": "d0cf11e0a1b11ae1",
+        "unhwp": "0.9.1",
+        "text_chars": 4552,
+        "hangul_chars": 2318,
+        "replacement_chars": 0
+      },
+      "portable_preflight": {
+        "metrics": {
+          "text_chars": 4917,
+          "non_whitespace_chars": 3856,
+          "hangul_chars": 2552,
+          "hangul_ratio": 0.661826,
+          "replacement_chars": 0,
+          "article_count": 23,
+          "title_present": true
+        },
+        "errors": []
+      },
+      "promulgation_evidence_file": {
+        "source_id": "ut_regulations",
+        "source_record_id": "register:45:cnt:current:file:0",
+        "document_type": "regulation",
+        "source_group": "부속기관",
+        "title_raw": "국립한국교통대학교 생활관 규정",
+        "title_normalized": "생활관규정",
+        "department": "생활관",
+        "posted_date": null,
+        "effective_date": "2026-09-18",
+        "source_page_url": "https://www.ut.ac.kr/prog/schoolRegulations/kor/sub05_03_01/list.do?register=45",
+        "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292727&fileSn=0",
+        "attachment_filename": "(규정 제574호) 개정사유.hwp",
+        "attachment_role": "supporting",
+        "sha256": "06b91cf57ef57b3b22f048f410e9f4de5cbf9a2b3c3345736a81c384fe002bae",
+        "retrieved_at": null,
+        "http_etag": null,
+        "last_modified": null,
+        "file_size": 51200,
+        "file_header": "d0cf11e0a1b11ae1"
+      }
+    },
+    {
+      "source_id": "ut_regulations",
+      "source_record_id": "register:93:cnt:current:file:1",
+      "document_type": "regulation",
+      "source_group": "대학원",
+      "title_raw": "국립한국교통대학교 교통대학원 학사운영 규정",
+      "title_normalized": "교통대학원학사운영규정",
+      "department": "교통대학원",
+      "posted_date": null,
+      "effective_date": "2026-09-18",
+      "source_page_url": "https://www.ut.ac.kr/prog/schoolRegulations/kor/sub05_03_01/list.do?register=93",
+      "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292728&fileSn=1",
+      "attachment_filename": "(규정 제575호) 국립한국교통대학교 교통대학원 학사운영 규정.hwp",
+      "attachment_role": "document",
+      "sha256": "833e31188fd787c66cfdc4478ec26ea72f43d4c07090ef30c99eecf331f404e6",
+      "retrieved_at": null,
+      "http_etag": null,
+      "last_modified": null,
+      "file_size": 221696,
+      "document_id": "REG-b1196e720830",
+      "previous_version_id": "VER-20211006-6488981b",
+      "version_id": "VER-20260918-833e3118",
+      "title": "국립한국교통대학교 교통대학원 학사운영 규정",
+      "revision_date": "2026-09-18",
+      "promulgation_date": "2026-09-18",
+      "actual_format": "HWP Compound File Binary",
+      "downloaded_filename": "reg-93.hwp",
+      "validity_status": "unknown",
+      "status_confidence": "unknown",
+      "identity_evidence": "제207호 제정 및 제476호 개정 연혁, 교통대학원과 학칙 제102조에 따른 학사운영 범위가 기존 본문과 일치. 개정사유의 교명 변경 및 신구조문 대비표로 동일 문서임을 확인.",
+      "prior_source_sha256": "6488981b4d6b84717a90fc0f4e01775dedc265ef62c80112edb6f3c61698d69b",
+      "change_summary": "국립 교명 변경 반영 및 제36조제2항 다른 학과·대학원 학점 인정 기준 변경.",
+      "effective_date_evidence": "공식 개정사유 공포문: 2026년 9월 18일 국립한국교통대학교총장. 본문 마지막 부칙: 공포한 날부터 시행. 단, 제36조제2항은 2027학년도 1학기부터 시행.",
+      "application_note": "validity_status와 status_confidence는 unknown 유지. 게시일은 확인되지 않음. 제36조제2항은 2027학년도 1학기부터 시행. 학기 시작일을 특정 날짜로 임의 환산하지 않음.",
+      "verification": {
+        "sha256_verified": true,
+        "header": "d0cf11e0a1b11ae1",
+        "unhwp": "0.9.1",
+        "text_chars": 32022,
+        "hangul_chars": 14445,
+        "replacement_chars": 0
+      },
+      "previous_title": "한국교통대학교 교통대학원 학사운영 규정",
+      "title_change_evidence": "제207호 제정 및 제476호 개정 연혁, 교통대학원과 학칙 제102조에 따른 학사운영 범위가 기존 본문과 일치. 개정사유의 교명 변경 및 신구조문 대비표로 동일 문서임을 확인.",
+      "portable_preflight": {
+        "metrics": {
+          "text_chars": 31002,
+          "non_whitespace_chars": 23747,
+          "hangul_chars": 15857,
+          "hangul_ratio": 0.667748,
+          "replacement_chars": 0,
+          "article_count": 83,
+          "title_present": true
+        },
+        "errors": []
+      },
+      "promulgation_evidence_file": {
+        "source_id": "ut_regulations",
+        "source_record_id": "register:93:cnt:current:file:0",
+        "document_type": "regulation",
+        "source_group": "대학원",
+        "title_raw": "국립한국교통대학교 교통대학원 학사운영 규정",
+        "title_normalized": "교통대학원학사운영규정",
+        "department": "교통대학원",
+        "posted_date": null,
+        "effective_date": "2026-09-18",
+        "source_page_url": "https://www.ut.ac.kr/prog/schoolRegulations/kor/sub05_03_01/list.do?register=93",
+        "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292728&fileSn=0",
+        "attachment_filename": "(규정 제575호) 개정사유.hwp",
+        "attachment_role": "supporting",
+        "sha256": "d919f7a0c7d11cb8d3fb6c0a17246c38b8a5eeddda4398d83710eef47e5241c7",
+        "retrieved_at": null,
+        "http_etag": null,
+        "last_modified": null,
+        "file_size": 65024,
+        "file_header": "d0cf11e0a1b11ae1"
+      }
+    }
+  ],
+  "review_candidates": [
+    {
+      "reason": "previous_version_selection_picks_supporting_attachment",
+      "expected_previous_version_id": "VER-20210521-24789e89",
+      "gate_selected_previous_version_id": "VER-20210521-e3e76414",
+      "record": {
+        "source_id": "ut_regulations",
+        "source_record_id": "register:57:cnt:current:file:1",
+        "document_type": "regulation",
+        "source_group": "일반행정",
+        "title_raw": "국립한국교통대학교 당직 및 비상근무 규정",
+        "title_normalized": "당직및비상근무규정",
+        "department": "총무과",
+        "posted_date": null,
+        "effective_date": "2026-09-18",
+        "source_page_url": "https://www.ut.ac.kr/prog/schoolRegulations/kor/sub05_03_01/list.do?register=57",
+        "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292726&fileSn=1",
+        "attachment_filename": "(규정 제573호) 국립한국교통대학교 당직 및 비상근무 규정.hwp",
+        "attachment_role": "document",
+        "sha256": "2fcfa681e7b90f80e42c6f432e3be4a6c1729ddc5fad996f84f7091efecdf5e8",
+        "retrieved_at": null,
+        "http_etag": null,
+        "last_modified": null,
+        "file_size": 120320,
+        "document_id": "REG-c5cf9d501453",
+        "previous_version_id": "VER-20210521-24789e89",
+        "version_id": "VER-20260918-2fcfa681",
+        "title": "한국교통대학교 당직 및 비상근무 규정",
+        "revision_date": "2026-09-18",
+        "promulgation_date": "2026-09-18",
+        "actual_format": "HWP Compound File Binary",
+        "downloaded_filename": "reg-57.hwp",
+        "validity_status": "unknown",
+        "status_confidence": "unknown",
+        "identity_evidence": "제32호 제정 및 제472호 개정 연혁, 총무과와 국가공무원 복무 규칙에 따른 대학 당직·비상근무 적용 범위가 기존 본문과 일치.",
+        "prior_source_sha256": "24789e89600d1e55f3cfa3a1cf46d7bd26c3d984b0c100ed01b4228ba0a2bd6e",
+        "change_summary": "재택당직 실시 근거와 당직근무자 휴무 기준 변경.",
+        "effective_date_evidence": "공식 개정사유 공포문: 2026년 9월 18일 국립한국교통대학교총장. 본문 마지막 부칙: 공포한 날부터 시행.",
+        "application_note": "validity_status와 status_confidence는 unknown 유지. 게시일은 확인되지 않음. 목록·공포문·첨부명은 국립 교명이나 본문 제목은 한국교통대학교로 유지. 본문·연혁으로 식별하며 제목을 자동 변경하지 않음.",
+        "verification": {
+          "sha256_verified": true,
+          "header": "d0cf11e0a1b11ae1",
+          "unhwp": "0.9.1",
+          "text_chars": 7161,
+          "hangul_chars": 4072,
+          "replacement_chars": 0
+        }
+      }
+    },
+    {
+      "reason": "new_document_id_unconfirmed",
+      "title": "국립한국교통대학교 AI융합센터 운영 규정",
+      "document_id": null,
+      "previous_version_id": null,
+      "enactment_date": "2026-09-18",
+      "promulgation_date": "2026-09-18",
+      "effective_date": "2026-09-18",
+      "date_evidence": "제정사유의 공포문 2026년 9월 18일 및 본문 부칙 공포한 날부터 시행. 게시일 미확인.",
+      "validity_status": "unknown",
+      "status_confidence": "unknown",
+      "files": [
+        {
+          "source_id": "ut_regulations",
+          "source_record_id": "register:148:cnt:current:file:0",
+          "document_type": "regulation",
+          "source_group": "부속기관",
+          "title_raw": "국립한국교통대학교 AI융합센터 운영 규정",
+          "title_normalized": "ai융합센터운영규정",
+          "department": "AI융합센터",
+          "posted_date": null,
+          "effective_date": "2026-09-18",
+          "source_page_url": "https://www.ut.ac.kr/prog/schoolRegulations/kor/sub05_03_01/list.do?register=148",
+          "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292730&fileSn=0",
+          "attachment_filename": "(규정 제576호) 제정사유.hwp",
+          "attachment_role": "supporting",
+          "sha256": "c59d9a11ab4e5d57461c7d9d5c8f09f4cab8450dec1f7987ba6bf1efa1d1a700",
+          "retrieved_at": null,
+          "http_etag": null,
+          "last_modified": null,
+          "file_size": 38400,
+          "file_header": "d0cf11e0a1b11ae1",
+          "hash_verified": true,
+          "existing_version_hash_matches": [],
+          "existing_source_hash_matches": 0,
+          "extraction_tool": "unhwp 0.9.1",
+          "extracted_sha256": "800c8590c7cf339148242689fda5b8381335c8f02653b4e064c2407d3bace49b",
+          "text_chars": 462,
+          "hangul_chars": 183,
+          "replacement_chars": 0
+        },
+        {
+          "source_id": "ut_regulations",
+          "source_record_id": "register:148:cnt:current:file:1",
+          "document_type": "regulation",
+          "source_group": "부속기관",
+          "title_raw": "국립한국교통대학교 AI융합센터 운영 규정",
+          "title_normalized": "ai융합센터운영규정",
+          "department": "AI융합센터",
+          "posted_date": null,
+          "effective_date": "2026-09-18",
+          "source_page_url": "https://www.ut.ac.kr/prog/schoolRegulations/kor/sub05_03_01/list.do?register=148",
+          "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292730&fileSn=1",
+          "attachment_filename": "(규정 제576호) 국립한국교통대학교 AI융합센터 운영 규정.hwp",
+          "attachment_role": "document",
+          "sha256": "43bccc0a511faaed03b71f913dee00428741ea0439d36b3ec362b8b6201fcd86",
+          "retrieved_at": null,
+          "http_etag": null,
+          "last_modified": null,
+          "file_size": 57344,
+          "file_header": "d0cf11e0a1b11ae1",
+          "hash_verified": true,
+          "existing_version_hash_matches": [],
+          "existing_source_hash_matches": 0,
+          "extraction_tool": "unhwp 0.9.1",
+          "extracted_sha256": "615a7da0062c45986cb96c2920713f468ad846afbb372ffb9de25805bc1fc0f8",
+          "text_chars": 2110,
+          "hangul_chars": 1151,
+          "replacement_chars": 0
+        }
+      ]
+    }
+  ],
+  "source_check": {
+    "date": "2026-10-06",
+    "checked_at": "2026-10-06T19:15:56.254253+09:00",
+    "base_commit": "5dfa0b14322e1884352e1a8260efe3f47b68fd8f",
+    "listing_pages": 92,
+    "listing_count": 852,
+    "listing_by_source": {
+      "ut_regulations": 127,
+      "sanhak_regulations": 82,
+      "sanhak_guidelines": 86,
+      "ut_guidelines": 557
+    },
+    "records": 1030,
+    "record_by_source": {
+      "ut_regulations": 227,
+      "ut_guidelines": 629,
+      "sanhak_regulations": 82,
+      "sanhak_guidelines": 92
+    },
+    "attachment_count": 1028,
+    "source_errors": {},
+    "new_document_candidates": 1,
+    "new_revisions": 3,
+    "executable_records": 2,
+    "existing_listings_unchanged": 848,
+    "historical_review_added": 0,
+    "prior_review_queue": 43,
+    "prior_blocked_revision": 1,
+    "prior_historical_review": 1,
+    "additional_review": 2,
+    "hash_verified_prior_sample": 40,
+    "hash_verified_predecessors": 3,
+    "new_files_verified": 8,
+    "actual_applied_at_report": 0,
+    "classification_counts": {
+      "supporting_attachment": 158,
+      "present_metadata": 419,
+      "new_version_candidate": 247,
+      "new_document_candidate": 206
+    },
+    "scope": "All listing pages freshly retrieved with repository parsers, latest regulation details only; required detail pages fetched; 40 prior sample originals plus 3 predecessor originals re-downloaded, not all historical bytes. Two attachment-free repeal notices independently verified."
+  },
+  "source_comparison_delta": {
+    "listings.jsonl": {
+      "old": 851,
+      "new": 852,
+      "by_source": {
+        "ut_regulations": 127,
+        "sanhak_regulations": 82,
+        "sanhak_guidelines": 86,
+        "ut_guidelines": 557
+      },
+      "added": [
+        {
+          "source_id": "ut_regulations",
+          "source_record_id": "register:148",
+          "document_type": "regulation",
+          "source_group": "부속기관",
+          "title_raw": "국립한국교통대학교 AI융합센터 운영 규정",
+          "title_normalized": "ai융합센터운영규정",
+          "department": "AI융합센터",
+          "posted_date": null,
+          "effective_date": "2026-09-18",
+          "source_page_url": "https://www.ut.ac.kr/prog/schoolRegulations/kor/sub05_03_01/list.do?register=148",
+          "attachment_url": null,
+          "attachment_filename": null,
+          "attachment_role": "document",
+          "sha256": null,
+          "retrieved_at": null,
+          "http_etag": null,
+          "last_modified": null
+        }
+      ],
+      "removed": [],
+      "changed": [
+        {
+          "key": [
+            "ut_regulations",
+            "register:45"
+          ],
+          "fields": {
+            "effective_date": [
+              "2024-02-29",
+              "2026-09-18"
+            ]
+          }
+        },
+        {
+          "key": [
+            "ut_regulations",
+            "register:93"
+          ],
+          "fields": {
+            "title_raw": [
+              "한국교통대학교 교통대학원 학사운영 규정",
+              "국립한국교통대학교 교통대학원 학사운영 규정"
+            ],
+            "effective_date": [
+              "2021-10-06",
+              "2026-09-18"
+            ]
+          }
+        },
+        {
+          "key": [
+            "ut_regulations",
+            "register:57"
+          ],
+          "fields": {
+            "title_raw": [
+              "한국교통대학교 당직 및 비상근무 규정",
+              "국립한국교통대학교 당직 및 비상근무 규정"
+            ],
+            "effective_date": [
+              "2021-05-21",
+              "2026-09-18"
+            ]
+          }
+        }
+      ]
+    },
+    "ut_regulations.jsonl": {
+      "old": 225,
+      "new": 227,
+      "by_source": {
+        "ut_regulations": 227
+      },
+      "added": [
+        {
+          "source_id": "ut_regulations",
+          "source_record_id": "register:148:cnt:current:file:1",
+          "document_type": "regulation",
+          "source_group": "부속기관",
+          "title_raw": "국립한국교통대학교 AI융합센터 운영 규정",
+          "title_normalized": "ai융합센터운영규정",
+          "department": "AI융합센터",
+          "posted_date": null,
+          "effective_date": "2026-09-18",
+          "source_page_url": "https://www.ut.ac.kr/prog/schoolRegulations/kor/sub05_03_01/list.do?register=148",
+          "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292730&fileSn=1",
+          "attachment_filename": "(규정 제576호) 국립한국교통대학교 AI융합센터 운영 규정.hwp",
+          "attachment_role": "document",
+          "sha256": null,
+          "retrieved_at": null,
+          "http_etag": null,
+          "last_modified": null,
+          "comparison_status": "new_document_candidate",
+          "matched_document_ids": []
+        },
+        {
+          "source_id": "ut_regulations",
+          "source_record_id": "register:148:cnt:current:file:0",
+          "document_type": "regulation",
+          "source_group": "부속기관",
+          "title_raw": "국립한국교통대학교 AI융합센터 운영 규정",
+          "title_normalized": "ai융합센터운영규정",
+          "department": "AI융합센터",
+          "posted_date": null,
+          "effective_date": "2026-09-18",
+          "source_page_url": "https://www.ut.ac.kr/prog/schoolRegulations/kor/sub05_03_01/list.do?register=148",
+          "attachment_url": "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292730&fileSn=0",
+          "attachment_filename": "(규정 제576호) 제정사유.hwp",
+          "attachment_role": "supporting",
+          "sha256": null,
+          "retrieved_at": null,
+          "http_etag": null,
+          "last_modified": null,
+          "comparison_status": "supporting_attachment",
+          "matched_document_ids": []
+        }
+      ],
+      "removed": [],
+      "changed": [
+        {
+          "key": [
+            "ut_regulations",
+            "register:45:cnt:current:file:0"
+          ],
+          "fields": {
+            "effective_date": [
+              "2024-02-29",
+              "2026-09-18"
+            ],
+            "attachment_url": [
+              "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000193642&fileSn=0",
+              "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292727&fileSn=0"
+            ],
+            "attachment_filename": [
+              "(제521호) 개정사유.hwp",
+              "(규정 제574호) 개정사유.hwp"
+            ]
+          }
+        },
+        {
+          "key": [
+            "ut_regulations",
+            "register:57:cnt:current:file:0"
+          ],
+          "fields": {
+            "title_raw": [
+              "한국교통대학교 당직 및 비상근무 규정",
+              "국립한국교통대학교 당직 및 비상근무 규정"
+            ],
+            "effective_date": [
+              "2021-05-21",
+              "2026-09-18"
+            ],
+            "attachment_url": [
+              "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000162159&fileSn=0",
+              "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292726&fileSn=0"
+            ],
+            "attachment_filename": [
+              "(제472호) 개정사유.hwp",
+              "(규정 제573호) 개정사유.hwp"
+            ]
+          }
+        },
+        {
+          "key": [
+            "ut_regulations",
+            "register:45:cnt:current:file:1"
+          ],
+          "fields": {
+            "effective_date": [
+              "2024-02-29",
+              "2026-09-18"
+            ],
+            "attachment_url": [
+              "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000193642&fileSn=1",
+              "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292727&fileSn=1"
+            ],
+            "attachment_filename": [
+              "(제521호) 국립한국교통대학교 생활관 규정.hwp",
+              "(규정 제574호) 국립한국교통대학교 생활관 규정.hwp"
+            ]
+          }
+        },
+        {
+          "key": [
+            "ut_regulations",
+            "register:93:cnt:current:file:1"
+          ],
+          "fields": {
+            "title_raw": [
+              "한국교통대학교 교통대학원 학사운영 규정",
+              "국립한국교통대학교 교통대학원 학사운영 규정"
+            ],
+            "effective_date": [
+              "2021-10-06",
+              "2026-09-18"
+            ],
+            "attachment_url": [
+              "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000166231&fileSn=1",
+              "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292728&fileSn=1"
+            ],
+            "attachment_filename": [
+              "(제476호) 한국교통대학교 교통대학원 학사운영 규정.hwp",
+              "(규정 제575호) 국립한국교통대학교 교통대학원 학사운영 규정.hwp"
+            ]
+          }
+        },
+        {
+          "key": [
+            "ut_regulations",
+            "register:57:cnt:current:file:1"
+          ],
+          "fields": {
+            "title_raw": [
+              "한국교통대학교 당직 및 비상근무 규정",
+              "국립한국교통대학교 당직 및 비상근무 규정"
+            ],
+            "effective_date": [
+              "2021-05-21",
+              "2026-09-18"
+            ],
+            "attachment_url": [
+              "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000162159&fileSn=1",
+              "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292726&fileSn=1"
+            ],
+            "attachment_filename": [
+              "(제472호) 한국교통대학교 당직 및 비상근무 규정.hwp",
+              "(규정 제573호) 국립한국교통대학교 당직 및 비상근무 규정.hwp"
+            ]
+          }
+        },
+        {
+          "key": [
+            "ut_regulations",
+            "register:93:cnt:current:file:0"
+          ],
+          "fields": {
+            "title_raw": [
+              "한국교통대학교 교통대학원 학사운영 규정",
+              "국립한국교통대학교 교통대학원 학사운영 규정"
+            ],
+            "effective_date": [
+              "2021-10-06",
+              "2026-09-18"
+            ],
+            "attachment_url": [
+              "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000166231&fileSn=0",
+              "https://www.ut.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000292728&fileSn=0"
+            ],
+            "attachment_filename": [
+              "(제476호) 개정사유.hwp",
+              "(규정 제575호) 개정사유.hwp"
+            ]
+          }
+        }
+      ]
+    },
+    "ut_guidelines.jsonl": {
+      "old": 629,
+      "new": 629,
+      "by_source": {
+        "ut_guidelines": 629
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    },
+    "sanhak_regulations.jsonl": {
+      "old": 82,
+      "new": 82,
+      "by_source": {
+        "sanhak_regulations": 82
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    },
+    "sanhak_guidelines.jsonl": {
+      "old": 92,
+      "new": 92,
+      "by_source": {
+        "sanhak_guidelines": 92
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "predecessor_hash_checks": [
+    {
+      "version_id": "VER-20240229-51dea5aa",
+      "expected_sha256": "51dea5aa4c7153c5751adcee2833243ba3fbf661018d6fa58992e83effc21268",
+      "sha256": "51dea5aa4c7153c5751adcee2833243ba3fbf661018d6fa58992e83effc21268",
+      "hash_equal": true,
+      "file_size": 134656
+    },
+    {
+      "version_id": "VER-20211006-6488981b",
+      "expected_sha256": "6488981b4d6b84717a90fc0f4e01775dedc265ef62c80112edb6f3c61698d69b",
+      "sha256": "6488981b4d6b84717a90fc0f4e01775dedc265ef62c80112edb6f3c61698d69b",
+      "hash_equal": true,
+      "file_size": 76800
+    },
+    {
+      "version_id": "VER-20210521-24789e89",
+      "expected_sha256": "24789e89600d1e55f3cfa3a1cf46d7bd26c3d984b0c100ed01b4228ba0a2bd6e",
+      "sha256": "24789e89600d1e55f3cfa3a1cf46d7bd26c3d984b0c100ed01b4228ba0a2bd6e",
+      "hash_equal": true,
+      "file_size": 24576
+    }
+  ]
+}
