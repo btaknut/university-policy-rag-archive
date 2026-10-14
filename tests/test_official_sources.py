@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from pathlib import Path
+from http.client import RemoteDisconnected
+from email.message import Message
+from unittest.mock import MagicMock
 import sys
 import pytest
 
@@ -10,6 +13,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from check_official_sources import ManifestIndex
 from official_sources import (
+    HttpClient,
     SourceRecord,
     OfficialSourceCrawler,
     normalize_title,
@@ -22,6 +26,31 @@ from official_sources import (
     parse_ut_regulation_history,
     parse_ut_regulations_list,
 )
+
+
+def test_http_client_retries_remote_disconnect_before_success():
+    client = HttpClient(user_agent="test", retries=2, delay_seconds=0)
+    response = MagicMock()
+    response.__enter__.return_value = response
+    response.read.return_value = b"official page"
+    response.headers = Message()
+    client.opener = MagicMock()
+    client.opener.open.side_effect = [
+        RemoteDisconnected("Remote end closed connection without response"),
+        response,
+    ]
+    payload, _ = client._request("https://www.ut.ac.kr/example")
+    assert payload == b"official page"
+    assert client.opener.open.call_count == 2
+
+
+def test_http_client_preserves_disconnect_failure_after_retry_limit():
+    client = HttpClient(user_agent="test", retries=2, delay_seconds=0)
+    client.opener = MagicMock()
+    client.opener.open.side_effect = RemoteDisconnected("connection closed")
+    with pytest.raises(RemoteDisconnected, match="connection closed"):
+        client._request("https://www.ut.ac.kr/example")
+    assert client.opener.open.call_count == 3
 
 
 def test_normalize_title_ignores_institution_and_revision_metadata():

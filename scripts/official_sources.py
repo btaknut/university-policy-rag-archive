@@ -8,6 +8,7 @@ from dataclasses import asdict, dataclass, replace
 from datetime import datetime, timezone
 from email.message import Message
 from hashlib import sha256
+from http.client import RemoteDisconnected
 from http.cookiejar import CookieJar
 from pathlib import Path
 import re
@@ -161,7 +162,7 @@ class HttpClient:
                 if self.delay_seconds:
                     time.sleep(self.delay_seconds)
                 return payload, headers
-            except (HTTPError, URLError, TimeoutError) as exc:
+            except (HTTPError, URLError, TimeoutError, RemoteDisconnected) as exc:
                 last_error = exc
                 if attempt >= self.retries:
                     raise
